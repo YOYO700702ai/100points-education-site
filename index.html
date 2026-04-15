@@ -94,8 +94,8 @@
                 <!-- Desktop Links -->
                 <div class="hidden md:flex items-center gap-1">
                     <a href="#team" class="nav-link px-4 py-2 rounded-full text-sm font-bold transition-colors hover:bg-white/20">師資</a>
-                    <a href="#courses" onclick="openTab('tab-physical')" class="nav-link px-4 py-2 rounded-full text-sm font-bold transition-colors hover:bg-white/20">工作坊</a>
-                    <a href="#courses" onclick="openTab('tab-training')" class="nav-link px-4 py-2 rounded-full text-sm font-bold transition-colors hover:bg-white/20">教師研習</a>
+                    <a href="#workshop" class="nav-link px-4 py-2 rounded-full text-sm font-bold transition-colors hover:bg-white/20">工作坊</a>
+                    <a href="#training" class="nav-link px-4 py-2 rounded-full text-sm font-bold transition-colors hover:bg-white/20">教師研習</a>
                     <a href="#annual" class="nav-link px-4 py-2 rounded-full text-sm font-bold transition-colors hover:bg-white/20">年會</a>
                     <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer" class="ml-3 px-5 py-2 bg-accent text-white rounded-full text-sm font-bold hover:bg-accentHover transition-colors shadow-md">立即邀約</a>
                 </div>
@@ -109,8 +109,8 @@
         <div id="mobile-menu" class="hidden md:hidden bg-primaryDark/95 backdrop-blur-sm border-t border-white/10">
             <div class="px-4 py-4 space-y-1">
                 <a href="#team" class="block px-4 py-3 rounded-lg text-white font-bold text-sm hover:bg-white/10 transition-colors" onclick="closeMobileMenu()">師資</a>
-                <a href="#courses" class="block px-4 py-3 rounded-lg text-white font-bold text-sm hover:bg-white/10 transition-colors" onclick="openTab('tab-physical'); closeMobileMenu()">工作坊</a>
-                <a href="#courses" class="block px-4 py-3 rounded-lg text-white font-bold text-sm hover:bg-white/10 transition-colors" onclick="openTab('tab-training'); closeMobileMenu()">教師研習</a>
+                <a href="#workshop" class="block px-4 py-3 rounded-lg text-white font-bold text-sm hover:bg-white/10 transition-colors" onclick="closeMobileMenu()">工作坊</a>
+                <a href="#training" class="block px-4 py-3 rounded-lg text-white font-bold text-sm hover:bg-white/10 transition-colors" onclick="closeMobileMenu()">教師研習</a>
                 <a href="#annual" class="block px-4 py-3 rounded-lg text-white font-bold text-sm hover:bg-white/10 transition-colors" onclick="closeMobileMenu()">年會</a>
                 <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer" class="block mt-2 px-4 py-3 bg-accent text-white rounded-lg font-bold text-sm text-center hover:bg-accentHover transition-colors" onclick="closeMobileMenu()">立即邀約</a>
             </div>
@@ -302,32 +302,11 @@
         </div>
     </section>
 
-    <!-- Courses Section (Tabs) -->
-    <section id="courses" class="py-24 bg-white">
+    <!-- Workshop Section -->
+    <section id="workshop" class="py-24 bg-white border-t border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-primaryDark mb-4">核心課程與服務</h2>
-                <div class="w-20 h-1 bg-accent mx-auto rounded-full"></div>
-                <p class="mt-6 text-gray-600 max-w-2xl mx-auto text-lg">
-                    針對不同需求，我們提供多樣化的學習方案，無論是個人進修或學校機關包班，都能找到最適合的魔法課程。
-                </p>
-            </div>
-
-            <!-- Tab Buttons -->
-            <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-10 border-b border-gray-100 pb-2">
-                <button onclick="openTab('tab-physical')" id="btn-physical" class="tab-btn active-tab-physical px-6 py-3 rounded-t-lg font-bold text-base md:text-lg transition-all flex items-center gap-2">
-                    <i data-lucide="tent"></i> 實體工作坊
-                </button>
-                <button onclick="openTab('tab-training')" id="btn-training" class="tab-btn inactive-tab px-6 py-3 rounded-t-lg font-bold text-base md:text-lg transition-all flex items-center gap-2">
-                    <i data-lucide="library"></i> 教師研習邀約
-                </button>
-            </div>
-
-            <!-- Tab Contents -->
-            <div class="bg-milky rounded-2xl shadow-lg border border-gray-100 overflow-hidden min-h-[400px]">
-
-                <!-- Tab 1: Physical -->
-                <div id="tab-physical" class="tab-content block p-8 md:p-12 border-t-4 border-courseEarth">
+            <div class="bg-milky rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                <div class="p-8 md:p-12 border-t-4 border-courseEarth">
                     <div class="text-center mb-10">
                         <span class="inline-block px-3 py-1 bg-orange-100 text-courseEarth rounded-full font-bold text-sm mb-3">手作與現場體驗的溫度</span>
                         <h3 class="text-3xl font-bold text-primaryDark">實境遊戲設計工作坊（第一至第四彈）</h3>
@@ -423,8 +402,16 @@
                     </div>
                 </div>
 
-                <!-- Tab 2: Training -->
-                <div id="tab-training" class="tab-content hidden p-8 md:p-12 border-t-4 border-primary">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Section -->
+    <section id="training" class="py-24 bg-milky border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                <div class="p-8 md:p-12 border-t-4 border-primary">
                     <div class="text-center mb-10">
                         <span class="inline-block px-3 py-1 bg-green-100 text-primary rounded-full font-bold text-sm mb-3">專業、高效、好上手的教學方案</span>
                         <h3 class="text-3xl font-bold text-primaryDark">教師研習專屬課程</h3>
@@ -739,10 +726,33 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Team 1 -->
+                <!-- Team 1 — 漢克 男 -->
                 <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-24 h-24 mx-auto rounded-full bg-gray-100 mb-6 overflow-hidden border-4 border-green-50 flex items-center justify-center">
-                        <span class="text-gray-400 text-xs"></span>
+                    <div class="w-24 h-24 mx-auto rounded-full mb-6 overflow-hidden border-4 border-green-100">
+                        <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="48" cy="48" r="48" fill="#bbf7d0"/>
+                            <!-- body -->
+                            <ellipse cx="48" cy="90" rx="26" ry="16" fill="#2d6a4f"/>
+                            <!-- neck -->
+                            <rect x="41" y="70" width="14" height="14" rx="4" fill="#f5c8a0"/>
+                            <!-- face -->
+                            <ellipse cx="48" cy="52" rx="22" ry="22" fill="#f5c8a0"/>
+                            <!-- hair -->
+                            <path d="M26 46 Q26 24 48 22 Q70 24 70 46 Q66 36 48 34 Q30 36 26 46Z" fill="#2c1a0e"/>
+                            <!-- sideburns -->
+                            <rect x="25" y="46" width="5" height="10" rx="2" fill="#2c1a0e"/>
+                            <rect x="66" y="46" width="5" height="10" rx="2" fill="#2c1a0e"/>
+                            <!-- eyebrows -->
+                            <path d="M37 44 Q41 42 45 44" stroke="#2c1a0e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <path d="M51 44 Q55 42 59 44" stroke="#2c1a0e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <!-- eyes -->
+                            <ellipse cx="41" cy="50" rx="3.5" ry="3.5" fill="#2c1a0e"/>
+                            <ellipse cx="55" cy="50" rx="3.5" ry="3.5" fill="#2c1a0e"/>
+                            <circle cx="42.5" cy="49" r="1.2" fill="white"/>
+                            <circle cx="56.5" cy="49" r="1.2" fill="white"/>
+                            <!-- mouth -->
+                            <path d="M42 60 Q48 66 54 60" stroke="#c07050" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        </svg>
                     </div>
                     <h3 class="text-xl font-bold text-center text-primaryDark mb-1">王漢君 (漢克)</h3>
                     <p class="text-center text-accent font-medium text-sm mb-4">實境遊戲培訓師</p>
@@ -752,10 +762,35 @@
                     </ul>
                 </div>
 
-                <!-- Team 2 -->
+                <!-- Team 2 — 奶粉 男 -->
                 <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-24 h-24 mx-auto rounded-full bg-gray-100 mb-6 overflow-hidden border-4 border-green-50 flex items-center justify-center">
-                        <span class="text-gray-400 text-xs"></span>
+                    <div class="w-24 h-24 mx-auto rounded-full mb-6 overflow-hidden border-4 border-blue-100">
+                        <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="48" cy="48" r="48" fill="#dbeafe"/>
+                            <!-- body -->
+                            <ellipse cx="48" cy="90" rx="26" ry="16" fill="#3b82f6"/>
+                            <!-- neck -->
+                            <rect x="41" y="70" width="14" height="14" rx="4" fill="#f5c8a0"/>
+                            <!-- face -->
+                            <ellipse cx="48" cy="52" rx="22" ry="22" fill="#f5c8a0"/>
+                            <!-- hair - side parted -->
+                            <path d="M26 46 Q26 22 48 22 Q70 22 70 46 Q68 34 52 32 Q36 30 26 46Z" fill="#8b6340"/>
+                            <path d="M26 46 Q28 38 36 36 Q30 40 28 48Z" fill="#8b6340"/>
+                            <!-- eyebrows -->
+                            <path d="M37 44 Q41 43 45 44" stroke="#5a3e28" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <path d="M51 44 Q55 43 59 44" stroke="#5a3e28" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <!-- eyes -->
+                            <ellipse cx="41" cy="50" rx="3.5" ry="3.5" fill="#2c1a0e"/>
+                            <ellipse cx="55" cy="50" rx="3.5" ry="3.5" fill="#2c1a0e"/>
+                            <circle cx="42.5" cy="49" r="1.2" fill="white"/>
+                            <circle cx="56.5" cy="49" r="1.2" fill="white"/>
+                            <!-- glasses -->
+                            <rect x="35" y="46" width="12" height="9" rx="3" stroke="#4b5563" stroke-width="1.5" fill="none"/>
+                            <rect x="49" y="46" width="12" height="9" rx="3" stroke="#4b5563" stroke-width="1.5" fill="none"/>
+                            <line x1="47" y1="50" x2="49" y2="50" stroke="#4b5563" stroke-width="1.5"/>
+                            <!-- mouth - subtle smile -->
+                            <path d="M43 60 Q48 64 53 60" stroke="#c07050" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        </svg>
                     </div>
                     <h3 class="text-xl font-bold text-center text-primaryDark mb-1">張恪銘 (奶粉)</h3>
                     <p class="text-center text-accent font-medium text-sm mb-4">實境遊戲設計師</p>
@@ -765,10 +800,40 @@
                     </ul>
                 </div>
 
-                <!-- Team 3 -->
+                <!-- Team 3 — Yoyo 女 -->
                 <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-24 h-24 mx-auto rounded-full bg-gray-100 mb-6 overflow-hidden border-4 border-green-50 flex items-center justify-center">
-                        <span class="text-gray-400 text-xs"></span>
+                    <div class="w-24 h-24 mx-auto rounded-full mb-6 overflow-hidden border-4 border-pink-100">
+                        <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="48" cy="48" r="48" fill="#fce7f3"/>
+                            <!-- body -->
+                            <ellipse cx="48" cy="90" rx="26" ry="16" fill="#ec4899"/>
+                            <!-- neck -->
+                            <rect x="41" y="70" width="14" height="14" rx="4" fill="#f5c8a0"/>
+                            <!-- long hair back -->
+                            <ellipse cx="48" cy="60" rx="26" ry="28" fill="#2c1a0e"/>
+                            <!-- face -->
+                            <ellipse cx="48" cy="52" rx="22" ry="22" fill="#f5c8a0"/>
+                            <!-- bangs -->
+                            <path d="M26 48 Q28 28 48 26 Q68 28 70 48 Q64 34 48 33 Q33 34 26 48Z" fill="#2c1a0e"/>
+                            <path d="M26 48 Q27 42 32 44 Q28 46 26 52Z" fill="#2c1a0e"/>
+                            <path d="M70 48 Q69 42 64 44 Q68 46 70 52Z" fill="#2c1a0e"/>
+                            <!-- rosy cheeks -->
+                            <ellipse cx="36" cy="56" rx="5" ry="3.5" fill="#f9a8d4" opacity="0.6"/>
+                            <ellipse cx="60" cy="56" rx="5" ry="3.5" fill="#f9a8d4" opacity="0.6"/>
+                            <!-- eyes - bigger with lashes -->
+                            <ellipse cx="41" cy="50" rx="4" ry="4.5" fill="#2c1a0e"/>
+                            <ellipse cx="55" cy="50" rx="4" ry="4.5" fill="#2c1a0e"/>
+                            <circle cx="42.5" cy="48.5" r="1.4" fill="white"/>
+                            <circle cx="56.5" cy="48.5" r="1.4" fill="white"/>
+                            <!-- lashes -->
+                            <path d="M38 46 L37 44 M40 45.5 L39.5 43.5 M42 45.5 L42 43.5 M44 46 L45 44" stroke="#2c1a0e" stroke-width="1" fill="none"/>
+                            <path d="M52 46 L51 44 M54 45.5 L53.5 43.5 M56 45.5 L56 43.5 M58 46 L59 44" stroke="#2c1a0e" stroke-width="1" fill="none"/>
+                            <!-- eyebrows -->
+                            <path d="M37 43 Q41 41 45 43" stroke="#2c1a0e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                            <path d="M51 43 Q55 41 59 43" stroke="#2c1a0e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                            <!-- mouth - bright smile -->
+                            <path d="M41 59 Q48 67 55 59" stroke="#e11d48" stroke-width="2" fill="#fca5a5" stroke-linecap="round"/>
+                        </svg>
                     </div>
                     <h3 class="text-xl font-bold text-center text-primaryDark mb-1">尤尤 (Yoyo)</h3>
                     <p class="text-center text-accent font-medium text-sm mb-4">團隊創意活水</p>
@@ -778,10 +843,36 @@
                     </ul>
                 </div>
 
-                <!-- Team 4 -->
+                <!-- Team 4 — 小逸 男 -->
                 <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-24 h-24 mx-auto rounded-full bg-gray-100 mb-6 overflow-hidden border-4 border-green-50 flex items-center justify-center">
-                        <span class="text-gray-400 text-xs"></span>
+                    <div class="w-24 h-24 mx-auto rounded-full mb-6 overflow-hidden border-4 border-orange-100">
+                        <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="48" cy="48" r="48" fill="#ffedd5"/>
+                            <!-- body -->
+                            <ellipse cx="48" cy="90" rx="26" ry="16" fill="#f97316"/>
+                            <!-- neck -->
+                            <rect x="41" y="70" width="14" height="14" rx="4" fill="#f5c8a0"/>
+                            <!-- face -->
+                            <ellipse cx="48" cy="52" rx="22" ry="22" fill="#f5c8a0"/>
+                            <!-- wavy/messy hair -->
+                            <path d="M26 46 Q24 24 48 22 Q72 24 70 46 Q66 30 58 30 Q52 28 48 30 Q42 28 36 30 Q30 32 26 46Z" fill="#92400e"/>
+                            <path d="M28 42 Q27 34 32 30 Q30 38 28 44Z" fill="#92400e"/>
+                            <path d="M68 42 Q69 34 64 30 Q66 38 68 44Z" fill="#92400e"/>
+                            <!-- hair tufts -->
+                            <path d="M40 22 Q38 16 44 18 Q42 22 40 24Z" fill="#92400e"/>
+                            <path d="M52 21 Q56 15 58 20 Q54 22 52 24Z" fill="#92400e"/>
+                            <!-- eyebrows -->
+                            <path d="M37 44 Q41 42 45 44" stroke="#5a3310" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <path d="M51 44 Q55 42 59 44" stroke="#5a3310" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <!-- happy crescent eyes -->
+                            <path d="M38 50 Q41 55 44 50" stroke="#2c1a0e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <path d="M52 50 Q55 55 58 50" stroke="#2c1a0e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <!-- big smile with teeth -->
+                            <path d="M40 59 Q48 68 56 59" stroke="#c07050" stroke-width="2" fill="#fff5f0" stroke-linecap="round"/>
+                            <line x1="44" y1="62" x2="44" y2="65" stroke="#e0a080" stroke-width="1"/>
+                            <line x1="48" y1="63" x2="48" y2="66" stroke="#e0a080" stroke-width="1"/>
+                            <line x1="52" y1="62" x2="52" y2="65" stroke="#e0a080" stroke-width="1"/>
+                        </svg>
                     </div>
                     <h3 class="text-xl font-bold text-center text-primaryDark mb-1">小逸老師</h3>
                     <p class="text-center text-accent font-medium text-sm mb-4">教育好奇寶寶</p>
