@@ -7,7 +7,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -18,14 +18,21 @@
                         sans: ['"Noto Sans TC"', 'sans-serif'],
                     },
                     colors: {
-                        milky: '#fdfbf7', /* 乳白色底色 */
-                        primary: '#2d6a4f', /* 自然教育綠 (主標題/重點字) */
-                        primaryDark: '#1b4332',
-                        accent: '#d97706', /* 金黃色 (按鈕/點綴) */
-                        accentHover: '#b45309',
-                        courseEarth: '#d97706', /* 大地色/橘黃 */
-                        courseLeaf: '#4ade80',  /* 嫩綠色 */
-                        courseWood: '#854d0e',  /* 木質棕色 */
+                        cream: '#FFF8E7',      /* 奶油底色 */
+                        sunny: '#FFC93C',      /* 亮黃 */
+                        sunnyDark: '#F5B301',
+                        coral: '#FF6B35',      /* 珊瑚橘（主 CTA） */
+                        coralDark: '#E8531F',
+                        sky: '#2EC4E6',        /* 天藍 */
+                        skyDark: '#189FBF',
+                        night: '#2B2B46',      /* 遊戲夜空藍（深色區塊/文字） */
+                        nightSoft: '#3D3D5C',
+                        mint: '#3DDC97',       /* 點綴綠 */
+                    },
+                    boxShadow: {
+                        pop: '4px 4px 0 0 #2B2B46',          /* 貼紙式硬陰影 */
+                        popSm: '2px 2px 0 0 #2B2B46',
+                        popHover: '6px 6px 0 0 #2B2B46',
                     }
                 }
             }
@@ -34,832 +41,711 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* 自然風格背景特效 */
-        .hero-pattern {
-            background-color: #fdfbf7;
+        /* 點點遊戲背景 */
+        .dot-bg {
+            background-color: #FFF8E7;
+            background-image: radial-gradient(#2B2B46 1px, transparent 1.5px);
+            background-size: 28px 28px;
+            background-position: 0 0;
+        }
+        .dot-bg-soft {
+            background-image: radial-gradient(rgba(43, 43, 70, 0.12) 1px, transparent 1.5px);
+            background-size: 28px 28px;
+        }
+        /* 深色區塊星星背景 */
+        .star-bg {
+            background-color: #2B2B46;
             background-image:
-                radial-gradient(circle at 10% 20%, rgba(45, 106, 79, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(217, 119, 6, 0.05) 0%, transparent 40%);
-            position: relative;
+                radial-gradient(circle at 15% 25%, rgba(255, 201, 60, 0.9) 1px, transparent 2px),
+                radial-gradient(circle at 45% 70%, rgba(255, 255, 255, 0.5) 1px, transparent 2px),
+                radial-gradient(circle at 75% 20%, rgba(46, 196, 230, 0.8) 1px, transparent 2px),
+                radial-gradient(circle at 90% 60%, rgba(255, 201, 60, 0.6) 1px, transparent 2px),
+                radial-gradient(circle at 30% 90%, rgba(255, 255, 255, 0.4) 1px, transparent 2px);
+            background-size: 260px 260px;
         }
-        .hero-pattern::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232d6a4f' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.8;
-            z-index: 0;
+        /* 標題底下的手繪感螢光筆 */
+        .marker {
+            background: linear-gradient(transparent 58%, #FFC93C 58%, #FFC93C 92%, transparent 92%);
+            padding: 0 0.1em;
         }
-        .content-layer {
-            position: relative;
-            z-index: 1;
+        .marker-sky {
+            background: linear-gradient(transparent 58%, #A9E7F5 58%, #A9E7F5 92%, transparent 92%);
+            padding: 0 0.1em;
         }
-        /* 隱藏滾動條但保留功能 */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
+        /* 冒險地圖虛線路徑 */
+        .path-line {
+            border-left: 4px dashed rgba(43, 43, 70, 0.35);
         }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        /* 導覽列連結顏色 */
-        .nav-link {
-            color: white;
-        }
-        /* 照片欄位專用樣式 */
-        .photo-frame {
+        /* 拍立得照片 */
+        .polaroid {
             background: white;
-            padding: 8px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
-            border-radius: 12px;
-            border: 1px solid #f3f4f6;
-            transition: transform 0.3s ease;
+            padding: 10px 10px 14px;
+            border: 3px solid #2B2B46;
+            border-radius: 14px;
+            box-shadow: 4px 4px 0 0 #2B2B46;
+            transition: transform .3s ease, box-shadow .3s ease;
         }
-        .photo-frame:hover {
-            transform: translateY(-5px) rotate(1deg);
+        .polaroid:hover {
+            transform: translateY(-6px) rotate(0deg) !important;
+            box-shadow: 6px 6px 0 0 #2B2B46;
+        }
+        /* 隱藏滾動條 */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        /* 浮動動畫 */
+        @keyframes floaty {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .floaty { animation: floaty 4s ease-in-out infinite; }
+        @media (prefers-reduced-motion: reduce) {
+            .floaty { animation: none; }
         }
     </style>
 </head>
-<body class="font-sans text-gray-800 bg-milky antialiased">
+<body class="font-sans text-night bg-cream antialiased">
 
     <!-- Navbar -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-cream/90 backdrop-blur-sm border-b-[3px] border-night">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <!-- Logo -->
-                <a href="#hero" class="flex items-center gap-2 text-white">
-                    <div class="w-8 h-8 bg-accent rounded flex items-center justify-center font-bold text-sm shadow-sm">100</div>
-                    <span class="font-bold text-base tracking-wider hidden sm:block">一百分遊戲教育</span>
+                <a href="#hero" class="flex items-center gap-2">
+                    <div class="w-9 h-9 bg-sunny border-[3px] border-night rounded-xl flex items-center justify-center font-black text-sm shadow-popSm">100</div>
+                    <span class="font-black text-base tracking-wider hidden sm:block">一百分遊戲教育</span>
                 </a>
                 <!-- Desktop Links -->
                 <div class="hidden md:flex items-center gap-1">
-                    <a href="#team" class="nav-link px-4 py-2 rounded-full text-sm font-bold transition-colors hover:bg-white/20">師資</a>
-                    <a href="#workshop" class="nav-link px-4 py-2 rounded-full text-sm font-bold transition-colors hover:bg-white/20">工作坊</a>
-                    <a href="#training" class="nav-link px-4 py-2 rounded-full text-sm font-bold transition-colors hover:bg-white/20">教師研習</a>
-                    <a href="#annual" class="nav-link px-4 py-2 rounded-full text-sm font-bold transition-colors hover:bg-white/20">年會</a>
-                    <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer" class="ml-3 px-5 py-2 bg-accent text-white rounded-full text-sm font-bold hover:bg-accentHover transition-colors shadow-md">立即邀約</a>
+                    <a href="#method" class="px-4 py-2 rounded-full text-sm font-bold hover:bg-sunny/40 transition-colors">教學心法</a>
+                    <a href="#team" class="px-4 py-2 rounded-full text-sm font-bold hover:bg-sunny/40 transition-colors">師資</a>
+                    <a href="#map" class="px-4 py-2 rounded-full text-sm font-bold hover:bg-sunny/40 transition-colors">課程地圖</a>
+                    <a href="#booking" class="px-4 py-2 rounded-full text-sm font-bold hover:bg-sunny/40 transition-colors">邀約方案</a>
+                    <a href="#gallery" class="px-4 py-2 rounded-full text-sm font-bold hover:bg-sunny/40 transition-colors">研習實況</a>
+                    <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer" class="ml-3 px-5 py-2 bg-coral text-white border-[3px] border-night rounded-full text-sm font-black hover:bg-coralDark transition-colors shadow-popSm">立即邀約</a>
                 </div>
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-white hover:bg-white/20 transition-colors" aria-label="開啟選單">
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-sunny/40 transition-colors" aria-label="開啟選單">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-primaryDark/95 backdrop-blur-sm border-t border-white/10">
+        <div id="mobile-menu" class="hidden md:hidden bg-cream border-t-[3px] border-night">
             <div class="px-4 py-4 space-y-1">
-                <a href="#team" class="block px-4 py-3 rounded-lg text-white font-bold text-sm hover:bg-white/10 transition-colors" onclick="closeMobileMenu()">師資</a>
-                <a href="#workshop" class="block px-4 py-3 rounded-lg text-white font-bold text-sm hover:bg-white/10 transition-colors" onclick="closeMobileMenu()">工作坊</a>
-                <a href="#training" class="block px-4 py-3 rounded-lg text-white font-bold text-sm hover:bg-white/10 transition-colors" onclick="closeMobileMenu()">教師研習</a>
-                <a href="#annual" class="block px-4 py-3 rounded-lg text-white font-bold text-sm hover:bg-white/10 transition-colors" onclick="closeMobileMenu()">年會</a>
-                <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer" class="block mt-2 px-4 py-3 bg-accent text-white rounded-lg font-bold text-sm text-center hover:bg-accentHover transition-colors" onclick="closeMobileMenu()">立即邀約</a>
+                <a href="#method" class="block px-4 py-3 rounded-xl font-bold text-sm hover:bg-sunny/40 transition-colors" onclick="closeMobileMenu()">教學心法</a>
+                <a href="#team" class="block px-4 py-3 rounded-xl font-bold text-sm hover:bg-sunny/40 transition-colors" onclick="closeMobileMenu()">師資</a>
+                <a href="#map" class="block px-4 py-3 rounded-xl font-bold text-sm hover:bg-sunny/40 transition-colors" onclick="closeMobileMenu()">課程地圖</a>
+                <a href="#booking" class="block px-4 py-3 rounded-xl font-bold text-sm hover:bg-sunny/40 transition-colors" onclick="closeMobileMenu()">邀約方案</a>
+                <a href="#gallery" class="block px-4 py-3 rounded-xl font-bold text-sm hover:bg-sunny/40 transition-colors" onclick="closeMobileMenu()">研習實況</a>
+                <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer" class="block mt-2 px-4 py-3 bg-coral text-white border-[3px] border-night rounded-xl font-black text-sm text-center shadow-popSm" onclick="closeMobileMenu()">立即邀約</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero-pattern min-h-screen flex items-center relative overflow-hidden">
-        <!-- 裝飾性樹葉/自然元素 (使用 CSS 圓形模擬) -->
-        <div class="absolute top-20 right-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+    <section id="hero" class="dot-bg dot-bg-soft min-h-screen flex items-center relative overflow-hidden pt-16">
+        <!-- 裝飾色塊 -->
+        <div class="absolute -top-16 -right-16 w-64 h-64 bg-sky/20 rounded-full"></div>
+        <div class="absolute bottom-10 -left-20 w-72 h-72 bg-coral/15 rounded-full"></div>
+        <div class="absolute top-1/3 right-1/4 text-sunny text-5xl select-none floaty hidden lg:block">✦</div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 content-layer py-20 text-center md:text-left flex flex-col md:flex-row items-center gap-12">
-            <div class="md:w-1/2 space-y-8 relative z-10">
-                <div class="inline-block px-5 py-2 rounded-full bg-white text-primary font-bold text-sm shadow-sm border border-primary/10 mb-2">
-                    🌱 專業教育 × 💡 密室創意
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10 flex flex-col md:flex-row items-center gap-12 text-center md:text-left">
+            <div class="md:w-1/2 space-y-7">
+                <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border-[3px] border-night font-black text-sm shadow-popSm">
+                    🎲 專業教師 × 🔐 密室設計師 的夢幻隊伍
                 </div>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-primaryDark leading-tight tracking-tight">
-                    讓教室變成<span class="text-accent">密室</span>，<br>
-                    把學習變成<span class="text-accent">冒險</span>！
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight">
+                    讓教室變成<span class="marker">密室</span>，<br>
+                    把學習變成<span class="marker-sky">冒險</span>！
                 </h1>
-                <p class="text-lg md:text-xl text-gray-600 leading-relaxed font-medium">
-                    由【專業教師】與【密室設計師】組成的頂尖團隊。我們教您如何抓住學員注意力，將學科知識融入寓教於樂的實境遊戲中，讓教育活動輕鬆做！
+                <p class="text-lg md:text-xl text-nightSoft leading-relaxed font-medium">
+                    研習台下滑手機？學生上課沒反應？<br class="hidden md:block">
+                    我們把學科知識變成實境解謎遊戲，讓老師搶著學、學生搶著玩——教育活動也能輕鬆做！
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
-                    <a href="#courses" class="px-8 py-4 bg-primary text-white rounded-full font-bold text-lg hover:bg-primaryDark transition-all shadow-lg shadow-primary/30 flex items-center justify-center gap-2 group">
-                        探索核心課程
-                        <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                    <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-white text-accent border-2 border-accent/20 rounded-full font-bold text-lg hover:bg-accent hover:text-white transition-all flex items-center justify-center shadow-sm gap-2">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-2">
+                    <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-coral text-white border-[3px] border-night rounded-2xl font-black text-lg hover:bg-coralDark hover:shadow-popHover transition-all shadow-pop flex items-center justify-center gap-2">
                         <i data-lucide="facebook" class="w-5 h-5"></i>
                         立即邀約研習
                     </a>
+                    <a href="#map" class="px-8 py-4 bg-white border-[3px] border-night rounded-2xl font-black text-lg hover:bg-sunny transition-all shadow-pop hover:shadow-popHover flex items-center justify-center gap-2 group">
+                        看課程地圖
+                        <i data-lucide="map" class="w-5 h-5 group-hover:rotate-12 transition-transform"></i>
+                    </a>
+                </div>
+                <!-- 信任徽章列 -->
+                <div class="flex flex-wrap gap-2.5 justify-center md:justify-start pt-4">
+                    <span class="px-3 py-1.5 bg-white border-2 border-night rounded-full text-xs font-bold flex items-center gap-1.5"><i data-lucide="award" class="w-3.5 h-3.5 text-coral"></i>夢N講師</span>
+                    <span class="px-3 py-1.5 bg-white border-2 border-night rounded-full text-xs font-bold flex items-center gap-1.5"><i data-lucide="award" class="w-3.5 h-3.5 text-sky"></i>親子天下100評審</span>
+                    <span class="px-3 py-1.5 bg-white border-2 border-night rounded-full text-xs font-bold flex items-center gap-1.5"><i data-lucide="key-round" class="w-3.5 h-3.5 text-sunnyDark"></i>十年密室設計資歷</span>
+                    <span class="px-3 py-1.5 bg-white border-2 border-night rounded-full text-xs font-bold flex items-center gap-1.5"><i data-lucide="landmark" class="w-3.5 h-3.5 text-mint"></i>政府景點遊戲設計</span>
                 </div>
             </div>
 
-            <div class="md:w-1/2 mt-10 md:mt-0 relative z-10">
-                <!-- 溫馨自然風主視覺 (模擬疊放的照片或教材) -->
+            <div class="md:w-1/2 mt-6 md:mt-0">
                 <div class="relative w-full aspect-square max-w-md mx-auto">
-                    <!-- 底層裝飾 -->
-                    <div class="absolute inset-0 bg-gradient-to-tr from-primary/10 to-accent/10 rounded-3xl transform rotate-3"></div>
-                    <!-- 上層內容卡片 -->
-                    <div class="relative rounded-2xl shadow-xl h-full overflow-hidden transform -rotate-1 hover:rotate-0 transition-transform duration-500">
-                        <img src="封面右側正方形圖.jfif" alt="一百分遊戲教育" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-sunny rounded-3xl rotate-3 border-[3px] border-night"></div>
+                    <!-- Codex 主視覺：images/hero-main.png -->
+                    <div class="relative rounded-3xl border-[3px] border-night h-full overflow-hidden -rotate-1 hover:rotate-0 transition-transform duration-500 shadow-pop bg-white">
+                        <img src="封面右側正方形圖.jfif" alt="一百分遊戲教育主視覺" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-4 -left-4 bg-white border-[3px] border-night rounded-2xl px-4 py-2 font-black text-sm shadow-popSm rotate-[-4deg]">
+                        🏆 全台學校邀約中！
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About & Philosophy (核心理念) -->
-    <section id="about" class="py-24 bg-white relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-primaryDark mb-4">核心課程理念</h2>
-                <div class="w-20 h-1 bg-accent mx-auto rounded-full"></div>
-                <p class="mt-6 text-gray-600 max-w-2xl mx-auto text-lg">
-                    我們深信，好的遊戲設計不僅是娛樂，更是強大的教育工具。透過獨創的五大架構，帶領學員一步步掌握遊戲設計的魔法。
-                </p>
-            </div>
-
-            <!-- Philosophy Steps (自然色系) -->
-            <div class="flex flex-col md:flex-row justify-between items-center relative z-10 gap-6 md:gap-0">
-                <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-100 -z-10 -translate-y-1/2"></div>
-
-                <!-- Step 1 -->
-                <div class="bg-milky px-6 py-8 rounded-xl shadow-md border border-gray-100 flex flex-col items-center text-center w-full md:w-48 group hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-16 h-16 bg-white text-courseWood rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:bg-courseWood group-hover:text-white transition-colors">
-                        <i data-lucide="archive" class="w-7 h-7"></i>
-                    </div>
-                    <h3 class="font-bold text-xl text-primaryDark mb-2">收藏</h3>
-                    <p class="text-sm text-gray-500">建立謎題資料庫</p>
-                </div>
-
-                <i data-lucide="chevron-right" class="hidden md:block text-accent w-6 h-6 opacity-50"></i>
-                <i data-lucide="chevron-down" class="block md:hidden text-accent w-6 h-6 opacity-50"></i>
-
-                <!-- Step 2 -->
-                <div class="bg-milky px-6 py-8 rounded-xl shadow-md border border-gray-100 flex flex-col items-center text-center w-full md:w-48 group hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-16 h-16 bg-white text-courseEarth rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:bg-courseEarth group-hover:text-white transition-colors">
-                        <i data-lucide="footprints" class="w-7 h-7"></i>
-                    </div>
-                    <h3 class="font-bold text-xl text-primaryDark mb-2">體驗</h3>
-                    <p class="text-sm text-gray-500">親自跑關玩實境</p>
-                </div>
-
-                <i data-lucide="chevron-right" class="hidden md:block text-accent w-6 h-6 opacity-50"></i>
-                <i data-lucide="chevron-down" class="block md:hidden text-accent w-6 h-6 opacity-50"></i>
-
-                <!-- Step 3 (原 Step 4) -->
-                <div class="bg-milky px-6 py-8 rounded-xl shadow-md border border-gray-100 flex flex-col items-center text-center w-full md:w-48 group hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-16 h-16 bg-white text-blue-600 rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                        <i data-lucide="users" class="w-7 h-7"></i>
-                    </div>
-                    <h3 class="font-bold text-xl text-primaryDark mb-2">實作分析</h3>
-                    <p class="text-sm text-gray-500">小組設計與回饋</p>
-                </div>
-
-                <i data-lucide="chevron-right" class="hidden md:block text-accent w-6 h-6 opacity-50"></i>
-                <i data-lucide="chevron-down" class="block md:hidden text-accent w-6 h-6 opacity-50"></i>
-
-                <!-- Step 5 -->
-                <div class="bg-milky px-6 py-8 rounded-xl shadow-md border border-gray-100 flex flex-col items-center text-center w-full md:w-48 group hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-16 h-16 bg-white text-purple-600 rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:bg-purple-600 group-hover:text-white transition-colors">
-                        <i data-lucide="puzzle" class="w-7 h-7"></i>
-                    </div>
-                    <h3 class="font-bold text-xl text-primaryDark mb-2">解構</h3>
-                    <p class="text-sm text-gray-500">拆解謎題與關卡</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- NEW: 上課實況與照片欄位區塊 (Class Photos Gallery) -->
-    <section id="gallery" class="py-24 bg-[#f8f5ee]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-primaryDark mb-4">研習實況與學員花絮</h2>
-                <div class="w-20 h-1 bg-accent mx-auto rounded-full"></div>
-                <p class="mt-6 text-gray-600 max-w-2xl mx-auto text-lg">
-                    每一次的工作坊都是一場充滿笑聲與腦力激盪的冒險。來看看老師們在現場熱烈討論、親手製作解謎道具的精彩瞬間！
-                </p>
-            </div>
-
-            <!-- 照片網格設計 (Photo Grid) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Photo 1 -->
-                <div class="photo-frame flex flex-col">
-                    <div class="w-full aspect-video rounded-lg overflow-hidden">
-                        <img src="小組腦力激盪.jpg"
-                             alt="小組腦力激盪" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <p class="text-center text-primary font-medium mt-3 pb-1">小組腦力激盪</p>
-                </div>
-
-                <!-- Photo 2 -->
-                <div class="photo-frame flex flex-col">
-                    <div class="w-full aspect-video rounded-lg overflow-hidden">
-                        <img src="實體道具手作體驗.jpg"
-                             alt="實體道具手作體驗" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <p class="text-center text-primary font-medium mt-3 pb-1">實體道具手作體驗</p>
-                </div>
-
-                <!-- Photo 3 -->
-                <div class="photo-frame flex flex-col">
-                    <div class="w-full aspect-video rounded-lg overflow-hidden">
-                        <img src="議題融入講解.jpg"
-                             alt="議題融入設計" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <p class="text-center text-primary font-medium mt-3 pb-1">議題融入設計</p>
-                </div>
-
-                <!-- Photo 4 -->
-                <div class="photo-frame flex flex-col">
-                    <div class="w-full aspect-video rounded-lg overflow-hidden">
-                        <img src="走出戶外.jpg"
-                             alt="走出戶外！實境跑關" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <p class="text-center text-primary font-medium mt-3 pb-1">走出戶外！實境跑關</p>
-                </div>
-
-                <!-- Photo 5 -->
-                <div class="photo-frame flex flex-col">
-                    <div class="w-full aspect-video rounded-lg overflow-hidden">
-                        <img src="數位工具.jpg"
-                             alt="數位工具結合運用" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <p class="text-center text-primary font-medium mt-3 pb-1">數位工具結合運用</p>
-                </div>
-
-                <!-- Photo 6 -->
-                <div class="photo-frame flex flex-col">
-                    <div class="w-full aspect-video rounded-lg overflow-hidden">
-                        <img src="好玩的教育活動設計.jpg"
-                             alt="好玩的教育遊戲設計" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <p class="text-center text-primary font-medium mt-3 pb-1">好玩的教育遊戲設計</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Workshop Section -->
-    <section id="workshop" class="py-24 bg-white border-t border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-milky rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
-                <div class="p-8 md:p-12 border-t-4 border-courseEarth">
-                    <div class="text-center mb-10">
-                        <span class="inline-block px-3 py-1 bg-orange-100 text-courseEarth rounded-full font-bold text-sm mb-3">手作與現場體驗的溫度</span>
-                        <h3 class="text-3xl font-bold text-primaryDark">實境遊戲設計工作坊（第一至第四彈）</h3>
-                        <p class="text-gray-600 mt-4 max-w-3xl mx-auto text-lg">
-                            帶您從新手入門到戶外實戰！我們將實境解謎設計拆解為四大階段，透過經典教案體驗與實作，讓您循序漸進掌握遊戲化教學的魔法。
-                        </p>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-
-                        <!-- 第一彈 -->
-                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col md:flex-row md:items-stretch">
-                            <div class="w-full md:hidden">
-                                <img src="第一彈.jpg" alt="第一彈：初階工作坊" class="w-full h-48 object-cover object-center">
-                            </div>
-                            <div class="flex-1 p-5 flex flex-col justify-center gap-3">
-                                <span class="inline-block self-start bg-courseEarth text-white text-xs font-black px-3 py-1 rounded-full tracking-widest">第一彈</span>
-                                <div>
-                                    <h4 class="text-base font-bold text-primaryDark mb-1">初階工作坊</h4>
-                                    <p class="text-xs text-gray-400">解謎教學設計 ✕ 我的教室是密室</p>
-                                </div>
-                                <ul class="space-y-1.5 text-sm text-gray-600">
-                                    <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-courseEarth shrink-0 mt-0.5"></i>體驗大量課堂解謎題型</li>
-                                    <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-courseEarth shrink-0 mt-0.5"></i>學科知識轉化為謎題設計</li>
-                                    <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-courseEarth shrink-0 mt-0.5"></i>LINE@ 自動回復教學應用</li>
-                                    <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-courseEarth shrink-0 mt-0.5"></i>帶走一份完整可執行教案</li>
-                                </ul>
-                            </div>
-                            <div class="hidden md:flex w-2/5 shrink-0 border-l border-gray-50 bg-gray-50 items-center">
-                                <img src="第一彈.jpg" alt="第一彈：初階工作坊" class="w-full h-auto block">
-                            </div>
-                        </div>
-
-                        <!-- 第二彈 -->
-                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col md:flex-row md:items-stretch">
-                            <div class="w-full md:hidden">
-                                <img src="第二彈.png" alt="第二彈：進階工作坊" class="w-full h-48 object-cover object-center">
-                            </div>
-                            <div class="flex-1 p-5 flex flex-col justify-center gap-3">
-                                <span class="inline-block self-start bg-courseEarth text-white text-xs font-black px-3 py-1 rounded-full tracking-widest">第二彈</span>
-                                <div>
-                                    <h4 class="text-base font-bold text-primaryDark mb-1">進階工作坊</h4>
-                                    <p class="text-xs text-gray-400">議題與機制 ✕ 議起玩實境</p>
-                                </div>
-                                <ul class="space-y-1.5 text-sm text-gray-600">
-                                    <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-courseEarth shrink-0 mt-0.5"></i>親身體驗大型議題機制遊戲</li>
-                                    <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-courseEarth shrink-0 mt-0.5"></i>拆解遊戲獲勝條件與張力設計</li>
-                                    <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-courseEarth shrink-0 mt-0.5"></i>融入社會議題的遊戲化方法</li>
-                                    <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-courseEarth shrink-0 mt-0.5"></i>實作完整議題機制教案產出</li>
-                                </ul>
-                            </div>
-                            <div class="hidden md:flex w-2/5 shrink-0 border-l border-gray-50 bg-gray-50 items-center">
-                                <img src="第二彈.png" alt="第二彈：進階工作坊" class="w-full h-auto block">
-                            </div>
-                        </div>
-
-                        <!-- 第三彈 -->
-                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col md:flex-row md:items-stretch">
-                            <div class="w-full md:hidden">
-                                <img src="第三彈.jpg" alt="第三彈：故事夢工場" class="w-full h-48 object-cover object-center">
-                            </div>
-                            <div class="flex-1 p-5 flex flex-col justify-center gap-3">
-                                <span class="inline-block self-start bg-courseEarth text-white text-xs font-black px-3 py-1 rounded-full tracking-widest">第三彈</span>
-                                <div>
-                                    <h4 class="text-base font-bold text-primaryDark mb-1">故事夢工場</h4>
-                                    <p class="text-xs text-gray-400">發散設計與敘事結構</p>
-                                </div>
-                                <ul class="space-y-1.5 text-sm text-gray-600">
-                                    <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-courseEarth shrink-0 mt-0.5"></i>1-4-1 敘事結構完整拆解</li>
-                                    <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-courseEarth shrink-0 mt-0.5"></i>打造沉浸式故事情境與角色</li>
-                                    <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-courseEarth shrink-0 mt-0.5"></i>玩家心流體驗設計技巧</li>
-                                    <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-courseEarth shrink-0 mt-0.5"></i>發散思維激發創意教案設計</li>
-                                </ul>
-                            </div>
-                            <div class="hidden md:flex w-2/5 shrink-0 border-l border-gray-50 bg-gray-50 items-center">
-                                <img src="第三彈.jpg" alt="第三彈：故事夢工場" class="w-full h-auto block">
-                            </div>
-                        </div>
-
-                        <!-- 第四彈 -->
-                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col md:flex-row md:items-stretch">
-                            <div class="w-full md:hidden">
-                                <img src="第四彈.jpg" alt="第四彈：戶外實境" class="w-full h-48 object-cover object-center">
-                            </div>
-                            <div class="flex-1 p-5 flex flex-col justify-center gap-3">
-                                <span class="inline-block self-start bg-courseEarth text-white text-xs font-black px-3 py-1 rounded-full tracking-widest">第四彈</span>
-                                <div>
-                                    <h4 class="text-base font-bold text-primaryDark mb-1">戶外實境</h4>
-                                    <p class="text-xs text-gray-400">戶外導覽與道具應用實務</p>
-                                </div>
-                                <ul class="space-y-1.5 text-sm text-gray-600">
-                                    <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-courseEarth shrink-0 mt-0.5"></i>實際走訪校園景物設計謎題</li>
-                                    <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-courseEarth shrink-0 mt-0.5"></i>兩款校園實境遊戲全拆解</li>
-                                    <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-courseEarth shrink-0 mt-0.5"></i>手作解謎道具設計與製作</li>
-                                    <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-courseEarth shrink-0 mt-0.5"></i>帶隊跑關實務與教案產出</li>
-                                </ul>
-                            </div>
-                            <div class="hidden md:flex w-2/5 shrink-0 border-l border-gray-50 bg-gray-50 items-center">
-                                <img src="第四彈.jpg" alt="第四彈：戶外實境" class="w-full h-auto block">
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Training Section -->
-    <section id="training" class="py-24 bg-milky border-t border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
-                <div class="p-8 md:p-12 border-t-4 border-primary">
-                    <div class="text-center mb-10">
-                        <span class="inline-block px-3 py-1 bg-green-100 text-primary rounded-full font-bold text-sm mb-3">專業、高效、好上手的教學方案</span>
-                        <h3 class="text-3xl font-bold text-primaryDark">教師研習專屬課程</h3>
-                    </div>
-
-                    <!-- 教師研習課程(實體工作坊) -->
-                    <div class="mb-10">
-                        <h4 class="text-xl font-bold text-primaryDark mb-5 flex items-center gap-2 border-b border-gray-100 pb-2">
-                            <i data-lucide="users" class="w-6 h-6 text-primary"></i> 教師研習課程 (實體工作坊)
-                        </h4>
-
-                        <!-- 實體工作坊邀約說明 -->
-                        <div class="mb-6 rounded-2xl overflow-hidden border border-amber-200 bg-gradient-to-br from-amber-50 to-orange-50 shadow-sm">
-                            <div class="flex items-center gap-3 bg-amber-500 px-5 py-3">
-                                <i data-lucide="info" class="w-5 h-5 text-white shrink-0"></i>
-                                <span class="text-white font-bold text-base tracking-wide">實體工作坊 — 邀約說明</span>
-                            </div>
-                            <div class="p-5 md:flex md:items-start md:gap-8">
-                                <ul class="flex-1 space-y-3 text-sm text-gray-700 mb-5 md:mb-0">
-                                    <li class="flex items-start gap-3">
-                                        <span class="mt-0.5 w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center shrink-0">
-                                            <i data-lucide="check" class="w-3 h-3 text-white"></i>
-                                        </span>
-                                        <span>課程皆為<strong>實際操作與實際體驗</strong>，沉浸式學習不走馬看花</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="mt-0.5 w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center shrink-0">
-                                            <i data-lucide="check" class="w-3 h-3 text-white"></i>
-                                        </span>
-                                        <span>講師皆<strong>搭配一名助教</strong>全程輔助，確保學習品質</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="mt-0.5 w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center shrink-0">
-                                            <i data-lucide="check" class="w-3 h-3 text-white"></i>
-                                        </span>
-                                        <span>課程設計需充裕時間產出，需安排 <strong>6 小時整天研習</strong></span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="mt-0.5 w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center shrink-0">
-                                            <i data-lucide="message-circle" class="w-3 h-3 text-white"></i>
-                                        </span>
-                                        <span>詳細課程內容歡迎<strong>私訊 FB 粉專</strong>洽詢</span>
-                                    </li>
-                                </ul>
-                                <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener"
-                                   class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-bold px-5 py-3 rounded-xl transition-colors shadow-sm shrink-0 text-sm">
-                                    <i data-lucide="message-square" class="w-4 h-4"></i>
-                                    私訊 FB 洽詢
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-
-                            <!-- 初階研習課程 D1 -->
-                            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group overflow-hidden">
-                                <div class="h-1.5 bg-gradient-to-r from-primary to-green-400"></div>
-                                <div class="p-6">
-                                    <div class="flex items-start justify-between mb-4">
-                                        <div>
-                                            <span class="inline-block text-xs font-bold px-2.5 py-1 rounded-full bg-green-100 text-primary mb-2">初階課程</span>
-                                            <h5 class="text-lg font-bold text-primaryDark group-hover:text-primary transition-colors leading-snug">初階研習課程 D1</h5>
-                                        </div>
-                                        <span class="text-3xl font-black text-green-100 group-hover:text-green-200 transition-colors select-none leading-none">D1</span>
-                                    </div>
-                                    <ul class="space-y-2">
-                                        <li class="flex items-start gap-2 text-sm text-gray-600">
-                                            <i data-lucide="chevron-right" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
-                                            大量題海題目體驗
-                                        </li>
-                                        <li class="flex items-start gap-2 text-sm text-gray-600">
-                                            <i data-lucide="chevron-right" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
-                                            題目類型拆解說明
-                                        </li>
-                                        <li class="flex items-start gap-2 text-sm text-gray-600">
-                                            <i data-lucide="chevron-right" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
-                                            LINE@ 自動回復設計教學
-                                        </li>
-                                        <li class="flex items-start gap-2 text-sm text-gray-600">
-                                            <i data-lucide="chevron-right" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
-                                            實作設計教案產出
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- 初階研習課程 D2 -->
-                            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group overflow-hidden">
-                                <div class="h-1.5 bg-gradient-to-r from-emerald-500 to-teal-400"></div>
-                                <div class="p-6">
-                                    <div class="flex items-start justify-between mb-4">
-                                        <div>
-                                            <span class="inline-block text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700 mb-2">初階課程</span>
-                                            <h5 class="text-lg font-bold text-primaryDark group-hover:text-emerald-600 transition-colors leading-snug">初階研習課程 D2</h5>
-                                        </div>
-                                        <span class="text-3xl font-black text-emerald-100 group-hover:text-emerald-200 transition-colors select-none leading-none">D2</span>
-                                    </div>
-                                    <ul class="space-y-2">
-                                        <li class="flex items-start gap-2 text-sm text-gray-600">
-                                            <i data-lucide="chevron-right" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i>
-                                            非電子戶外實境解謎體驗
-                                        </li>
-                                        <li class="flex items-start gap-2 text-sm text-gray-600">
-                                            <i data-lucide="chevron-right" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i>
-                                            解謎設計流程拆解
-                                        </li>
-                                        <li class="flex items-start gap-2 text-sm text-gray-600">
-                                            <i data-lucide="chevron-right" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i>
-                                            實境遊戲教案模板教學
-                                        </li>
-                                        <li class="flex items-start gap-2 text-sm text-gray-600">
-                                            <i data-lucide="chevron-right" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i>
-                                            融入知識點題目設計
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- 戶外實境與解謎道具設計 -->
-                            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group overflow-hidden">
-                                <div class="h-1.5 bg-gradient-to-r from-amber-500 to-orange-400"></div>
-                                <div class="p-6">
-                                    <div class="flex items-start justify-between mb-4">
-                                        <div>
-                                            <span class="inline-block text-xs font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-700 mb-2">進階課程</span>
-                                            <h5 class="text-lg font-bold text-primaryDark group-hover:text-amber-600 transition-colors leading-snug">戶外實境與解謎道具設計</h5>
-                                        </div>
-                                        <i data-lucide="map-pin" class="w-7 h-7 text-amber-200 group-hover:text-amber-300 transition-colors shrink-0"></i>
-                                    </div>
-                                    <ul class="space-y-2">
-                                        <li class="flex items-start gap-2 text-sm text-gray-600">
-                                            <i data-lucide="chevron-right" class="w-4 h-4 text-amber-500 shrink-0 mt-0.5"></i>
-                                            兩款校園實境遊戲拆解
-                                        </li>
-                                        <li class="flex items-start gap-2 text-sm text-gray-600">
-                                            <i data-lucide="chevron-right" class="w-4 h-4 text-amber-500 shrink-0 mt-0.5"></i>
-                                            運用現場建物設計謎題方法
-                                        </li>
-                                        <li class="flex items-start gap-2 text-sm text-gray-600">
-                                            <i data-lucide="chevron-right" class="w-4 h-4 text-amber-500 shrink-0 mt-0.5"></i>
-                                            實際融入校園景物產出教案
-                                        </li>
-                                        <li class="flex items-start gap-2 text-sm text-gray-600">
-                                            <i data-lucide="chevron-right" class="w-4 h-4 text-amber-500 shrink-0 mt-0.5"></i>
-                                            兩款解謎手做道具設計與運用
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- 議題機制設計課程 -->
-                            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group overflow-hidden">
-                                <div class="h-1.5 bg-gradient-to-r from-violet-500 to-purple-400"></div>
-                                <div class="p-6">
-                                    <div class="flex items-start justify-between mb-4">
-                                        <div>
-                                            <span class="inline-block text-xs font-bold px-2.5 py-1 rounded-full bg-violet-100 text-violet-700 mb-2">進階課程</span>
-                                            <h5 class="text-lg font-bold text-primaryDark group-hover:text-violet-600 transition-colors leading-snug">議題機制設計課程</h5>
-                                        </div>
-                                        <i data-lucide="puzzle" class="w-7 h-7 text-violet-200 group-hover:text-violet-300 transition-colors shrink-0"></i>
-                                    </div>
-                                    <ul class="space-y-2">
-                                        <li class="flex items-start gap-2 text-sm text-gray-600">
-                                            <i data-lucide="chevron-right" class="w-4 h-4 text-violet-500 shrink-0 mt-0.5"></i>
-                                            兩款不同大型機制遊戲體驗
-                                        </li>
-                                        <li class="flex items-start gap-2 text-sm text-gray-600">
-                                            <i data-lucide="chevron-right" class="w-4 h-4 text-violet-500 shrink-0 mt-0.5"></i>
-                                            拆解不同機制類型設計
-                                        </li>
-                                        <li class="flex items-start gap-2 text-sm text-gray-600">
-                                            <i data-lucide="chevron-right" class="w-4 h-4 text-violet-500 shrink-0 mt-0.5"></i>
-                                            融入各種議題的設計方法
-                                        </li>
-                                        <li class="flex items-start gap-2 text-sm text-gray-600">
-                                            <i data-lucide="chevron-right" class="w-4 h-4 text-violet-500 shrink-0 mt-0.5"></i>
-                                            實際產出與運用
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- 教師研習課程(線上工作坊) -->
-                    <div class="mb-4">
-                        <h4 class="text-xl font-bold text-primaryDark mb-5 flex items-center gap-2 border-b border-gray-100 pb-2">
-                            <i data-lucide="laptop" class="w-6 h-6 text-blue-500"></i> 教師研習課程 (線上工作坊)
-                        </h4>
-
-                        <!-- 線上工作坊說明 -->
-                        <div class="mb-6 rounded-2xl overflow-hidden border border-blue-200 bg-gradient-to-br from-blue-50 to-sky-50 shadow-sm">
-                            <div class="flex items-center gap-3 bg-blue-500 px-5 py-3">
-                                <i data-lucide="video" class="w-5 h-5 text-white shrink-0"></i>
-                                <span class="text-white font-bold text-base tracking-wide">線上工作坊 — 課程說明</span>
-                            </div>
-                            <div class="p-5 md:flex md:items-center md:gap-8">
-                                <ul class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 mb-5 md:mb-0">
-                                    <li class="flex items-start gap-3 text-sm text-gray-700">
-                                        <span class="mt-0.5 w-5 h-5 rounded-full bg-blue-400 flex items-center justify-center shrink-0">
-                                            <i data-lucide="check" class="w-3 h-3 text-white"></i>
-                                        </span>
-                                        <span>均為<strong>一位主講師</strong>帶領，專注深度學習</span>
-                                    </li>
-                                    <li class="flex items-start gap-3 text-sm text-gray-700">
-                                        <span class="mt-0.5 w-5 h-5 rounded-full bg-blue-400 flex items-center justify-center shrink-0">
-                                            <i data-lucide="check" class="w-3 h-3 text-white"></i>
-                                        </span>
-                                        <span>採用<strong>線上教學直播</strong>模式進行</span>
-                                    </li>
-                                    <li class="flex items-start gap-3 text-sm text-gray-700">
-                                        <span class="mt-0.5 w-5 h-5 rounded-full bg-blue-400 flex items-center justify-center shrink-0">
-                                            <i data-lucide="check" class="w-3 h-3 text-white"></i>
-                                        </span>
-                                        <span>重視 <strong>AI 實作</strong>，教學與產出同步進行</span>
-                                    </li>
-                                    <li class="flex items-start gap-3 text-sm text-gray-700">
-                                        <span class="mt-0.5 w-5 h-5 rounded-full bg-blue-400 flex items-center justify-center shrink-0">
-                                            <i data-lucide="clock" class="w-3 h-3 text-white"></i>
-                                        </span>
-                                        <span>每堂課程時數為 <strong>3 小時</strong></span>
-                                    </li>
-                                </ul>
-                                <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener"
-                                   class="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white font-bold px-5 py-3 rounded-xl transition-colors shadow-sm shrink-0 text-sm">
-                                    <i data-lucide="message-square" class="w-4 h-4"></i>
-                                    私訊 FB 洽詢
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-
-                            <!-- GEM 角色設計工作坊 -->
-                            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group overflow-hidden flex flex-col">
-                                <div class="p-5 flex items-start gap-4">
-                                    <div class="flex-1">
-                                        <h5 class="text-lg font-bold text-primaryDark group-hover:text-blue-500 transition-colors mb-1">GEM 角色設計工作坊</h5>
-                                        <p class="text-sm font-medium text-gray-500 mb-3">打造具備吸引力的遊戲角色</p>
-                                        <div class="flex flex-wrap gap-2">
-                                            <span class="text-xs px-2 py-1 bg-blue-50 text-blue-600 rounded-md border border-blue-100">角色設計</span>
-                                            <span class="text-xs px-2 py-1 bg-blue-50 text-blue-600 rounded-md border border-blue-100">故事融入</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- 示範網站 -->
-                                <div class="border-t border-gray-100 px-5 py-3 flex items-center gap-2">
-                                    <i data-lucide="monitor" class="w-4 h-4 text-blue-400 shrink-0"></i>
-                                    <span class="text-xs font-bold text-blue-500 uppercase tracking-wide">學員作品示範網站</span>
-                                    <span class="text-xs text-gray-400 ml-1">— GEM 展覽館</span>
-                                </div>
-                                <a href="https://yoyo700702ai.github.io/gem-gallery" target="_blank" rel="noopener"
-                                   class="block mx-5 mb-5 rounded-xl overflow-hidden border border-blue-100 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 relative group/img">
-                                    <img src="GEM展覽館圖片.jpg" alt="GEM 展覽館學員作品示範網站"
-                                         class="w-full aspect-video object-cover object-top group-hover/img:scale-105 transition-transform duration-500">
-                                    <div class="absolute inset-0 bg-blue-900/0 group-hover/img:bg-blue-900/20 transition-colors duration-300 flex items-center justify-center">
-                                        <span class="opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-blue-500 text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
-                                            <i data-lucide="external-link" class="w-3 h-3"></i> 前往網站
-                                        </span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <!-- VIDE CODING 搭配動態題庫 -->
-                            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group overflow-hidden flex flex-col">
-                                <div class="p-5 flex items-start gap-4">
-                                    <div class="flex-1">
-                                        <h5 class="text-lg font-bold text-primaryDark group-hover:text-blue-500 transition-colors mb-1">VIDE CODING 搭配動態題庫</h5>
-                                        <p class="text-sm font-medium text-gray-500 mb-3">打造孩子欲罷不能的答題遊戲</p>
-                                        <div class="flex flex-wrap gap-2">
-                                            <span class="text-xs px-2 py-1 bg-blue-50 text-blue-600 rounded-md border border-blue-100">數位互動</span>
-                                            <span class="text-xs px-2 py-1 bg-blue-50 text-blue-600 rounded-md border border-blue-100">動態題庫</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- 示範網站 -->
-                                <div class="border-t border-gray-100 px-5 py-3 flex items-center gap-2">
-                                    <i data-lucide="monitor" class="w-4 h-4 text-blue-400 shrink-0"></i>
-                                    <span class="text-xs font-bold text-blue-500 uppercase tracking-wide">示範網站</span>
-                                    <span class="text-xs text-gray-400 ml-1">— 亞德雷大陸答題 RPG</span>
-                                </div>
-                                <a href="https://yoyo700702ai.github.io/100pointgames/" target="_blank" rel="noopener"
-                                   class="block mx-5 mb-5 rounded-xl overflow-hidden border border-blue-100 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 relative group/img">
-                                    <img src="亞德雷大陸圖片.jpg" alt="亞德雷大陸答題 RPG 示範網站"
-                                         class="w-full aspect-video object-cover object-top group-hover/img:scale-105 transition-transform duration-500">
-                                    <div class="absolute inset-0 bg-blue-900/0 group-hover/img:bg-blue-900/20 transition-colors duration-300 flex items-center justify-center">
-                                        <span class="opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-blue-500 text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
-                                            <i data-lucide="external-link" class="w-3 h-3"></i> 前往網站
-                                        </span>
-                                    </div>
-                                </a>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="team" class="py-24 bg-milky relative overflow-hidden border-t border-gray-100">
+    <!-- 痛點 → 解方（教學心法） -->
+    <section id="method" class="py-24 bg-white border-t-[3px] border-night relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-primaryDark mb-4">金牌師資陣容</h2>
-                <div class="w-20 h-1 bg-accent mx-auto rounded-full"></div>
-                <p class="mt-6 text-gray-600 max-w-2xl mx-auto text-lg">
-                    【教學】與【遊戲】雙專業完美結合。團隊充滿活力、幽默且具備豐富實戰經驗。
+            <div class="text-center mb-14">
+                <div class="inline-block px-4 py-1.5 bg-sky/20 border-2 border-night rounded-full font-black text-sm mb-4">為什麼要遊戲化？</div>
+                <h2 class="text-3xl md:text-4xl font-black mb-5">研習不該是<span class="marker">坐好坐滿</span>，<br class="md:hidden">而是<span class="marker-sky">玩好玩滿</span></h2>
+                <p class="text-nightSoft max-w-2xl mx-auto text-lg font-medium">
+                    我們深信好的遊戲設計不只是娛樂，更是強大的教育工具。獨創四大心法，帶老師一步步掌握遊戲設計的魔法。
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Team 1 — 漢克 男 -->
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-24 h-24 mx-auto rounded-full mb-6 overflow-hidden border-4 border-green-100">
+            <!-- 四步驟心法 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Step 1 收藏 -->
+                <div class="bg-cream border-[3px] border-night rounded-3xl p-6 shadow-pop hover:shadow-popHover hover:-translate-y-1.5 transition-all text-center relative">
+                    <span class="absolute -top-3.5 left-5 bg-sunny border-2 border-night rounded-full px-3 py-0.5 text-xs font-black">STEP 1</span>
+                    <div class="w-16 h-16 mx-auto bg-white border-[3px] border-night rounded-2xl flex items-center justify-center mb-4 text-3xl">🗃️</div>
+                    <h3 class="font-black text-xl mb-2">收藏</h3>
+                    <p class="text-sm text-nightSoft font-medium">建立自己的謎題資料庫，靈感隨取隨用</p>
+                </div>
+                <!-- Step 2 體驗 -->
+                <div class="bg-cream border-[3px] border-night rounded-3xl p-6 shadow-pop hover:shadow-popHover hover:-translate-y-1.5 transition-all text-center relative">
+                    <span class="absolute -top-3.5 left-5 bg-coral text-white border-2 border-night rounded-full px-3 py-0.5 text-xs font-black">STEP 2</span>
+                    <div class="w-16 h-16 mx-auto bg-white border-[3px] border-night rounded-2xl flex items-center justify-center mb-4 text-3xl">🏃</div>
+                    <h3 class="font-black text-xl mb-2">體驗</h3>
+                    <p class="text-sm text-nightSoft font-medium">親自跑關玩實境，先當玩家再當設計師</p>
+                </div>
+                <!-- Step 3 實作分析 -->
+                <div class="bg-cream border-[3px] border-night rounded-3xl p-6 shadow-pop hover:shadow-popHover hover:-translate-y-1.5 transition-all text-center relative">
+                    <span class="absolute -top-3.5 left-5 bg-sky text-white border-2 border-night rounded-full px-3 py-0.5 text-xs font-black">STEP 3</span>
+                    <div class="w-16 h-16 mx-auto bg-white border-[3px] border-night rounded-2xl flex items-center justify-center mb-4 text-3xl">🛠️</div>
+                    <h3 class="font-black text-xl mb-2">實作分析</h3>
+                    <p class="text-sm text-nightSoft font-medium">小組動手設計，現場回饋即時修正</p>
+                </div>
+                <!-- Step 4 解構 -->
+                <div class="bg-cream border-[3px] border-night rounded-3xl p-6 shadow-pop hover:shadow-popHover hover:-translate-y-1.5 transition-all text-center relative">
+                    <span class="absolute -top-3.5 left-5 bg-mint border-2 border-night rounded-full px-3 py-0.5 text-xs font-black">STEP 4</span>
+                    <div class="w-16 h-16 mx-auto bg-white border-[3px] border-night rounded-2xl flex items-center justify-center mb-4 text-3xl">🧩</div>
+                    <h3 class="font-black text-xl mb-2">解構</h3>
+                    <p class="text-sm text-nightSoft font-medium">拆解謎題與關卡邏輯，學會就能自己出題</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section（前移：決策者先看是誰來） -->
+    <section id="team" class="py-24 dot-bg dot-bg-soft border-t-[3px] border-night">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <div class="inline-block px-4 py-1.5 bg-coral/15 border-2 border-night rounded-full font-black text-sm mb-4">來的是誰？</div>
+                <h2 class="text-3xl md:text-4xl font-black mb-5">金牌<span class="marker">師資陣容</span></h2>
+                <p class="text-nightSoft max-w-2xl mx-auto text-lg font-medium">
+                    【教學】與【遊戲】雙專業完美結合。每一位都是站上第一線、實戰十年以上的老手。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
+                <!-- 王漢克 -->
+                <div class="bg-white border-[3px] border-night rounded-3xl p-6 shadow-pop hover:shadow-popHover hover:-translate-y-1.5 transition-all">
+                    <div class="w-24 h-24 mx-auto rounded-full mb-5 overflow-hidden border-[3px] border-night bg-sunny">
                         <img src="王漢克.jfif" alt="王漢克" class="w-full h-full object-cover object-center">
                     </div>
-                    <h3 class="text-xl font-bold text-center text-primaryDark mb-1">王漢克</h3>
-                    <p class="text-center text-accent font-medium text-sm mb-4">教育實境遊戲培訓師</p>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li class="flex items-start gap-2"><i data-lucide="award" class="w-4 h-4 text-primary/60 flex-shrink-0 mt-0.5"></i> 夢N講師</li>
-                        <li class="flex items-start gap-2"><i data-lucide="award" class="w-4 h-4 text-primary/60 flex-shrink-0 mt-0.5"></i> 親子天下100評審</li>
-                        <li class="flex items-start gap-2"><i data-lucide="award" class="w-4 h-4 text-primary/60 flex-shrink-0 mt-0.5"></i> 專業活動教學領域講師</li>
+                    <h3 class="text-xl font-black text-center mb-1">王漢克</h3>
+                    <p class="text-center text-coral font-bold text-sm mb-4">教育實境遊戲培訓師</p>
+                    <ul class="text-sm text-nightSoft space-y-2 font-medium">
+                        <li class="flex items-start gap-2"><i data-lucide="medal" class="w-4 h-4 text-sunnyDark flex-shrink-0 mt-0.5"></i>夢N講師</li>
+                        <li class="flex items-start gap-2"><i data-lucide="medal" class="w-4 h-4 text-sunnyDark flex-shrink-0 mt-0.5"></i>親子天下100評審</li>
+                        <li class="flex items-start gap-2"><i data-lucide="medal" class="w-4 h-4 text-sunnyDark flex-shrink-0 mt-0.5"></i>專業活動教學領域講師</li>
                     </ul>
                 </div>
-
-                <!-- Team 2 — 奶粉 男 -->
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-24 h-24 mx-auto rounded-full mb-6 overflow-hidden border-4 border-blue-100">
+                <!-- 張奶粉 -->
+                <div class="bg-white border-[3px] border-night rounded-3xl p-6 shadow-pop hover:shadow-popHover hover:-translate-y-1.5 transition-all">
+                    <div class="w-24 h-24 mx-auto rounded-full mb-5 overflow-hidden border-[3px] border-night bg-sky">
                         <img src="張奶粉.jfif" alt="張奶粉" class="w-full h-full object-cover object-top">
                     </div>
-                    <h3 class="text-xl font-bold text-center text-primaryDark mb-1">張奶粉</h3>
-                    <p class="text-center text-accent font-medium text-sm mb-4">密室專業設計師</p>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li class="flex items-start gap-2"><i data-lucide="award" class="w-4 h-4 text-primary/60 flex-shrink-0 mt-0.5"></i> 資歷10年密室設計師</li>
-                        <li class="flex items-start gap-2"><i data-lucide="award" class="w-4 h-4 text-primary/60 flex-shrink-0 mt-0.5"></i> 中部密室逃脫LOOP設計師</li>
+                    <h3 class="text-xl font-black text-center mb-1">張奶粉</h3>
+                    <p class="text-center text-coral font-bold text-sm mb-4">密室專業設計師</p>
+                    <ul class="text-sm text-nightSoft space-y-2 font-medium">
+                        <li class="flex items-start gap-2"><i data-lucide="medal" class="w-4 h-4 text-sunnyDark flex-shrink-0 mt-0.5"></i>資歷十年密室設計師</li>
+                        <li class="flex items-start gap-2"><i data-lucide="medal" class="w-4 h-4 text-sunnyDark flex-shrink-0 mt-0.5"></i>中部密室逃脫LOOP設計師</li>
                     </ul>
                 </div>
-
-                <!-- Team 3 — Yoyo 女 -->
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-24 h-24 mx-auto rounded-full mb-6 overflow-hidden border-4 border-pink-100">
+                <!-- 尤尤 -->
+                <div class="bg-white border-[3px] border-night rounded-3xl p-6 shadow-pop hover:shadow-popHover hover:-translate-y-1.5 transition-all">
+                    <div class="w-24 h-24 mx-auto rounded-full mb-5 overflow-hidden border-[3px] border-night bg-coral">
                         <img src="尤尤.jfif" alt="尤尤" class="w-full h-full object-cover object-top">
                     </div>
-                    <h3 class="text-xl font-bold text-center text-primaryDark mb-1">尤尤</h3>
-                    <p class="text-center text-accent font-medium text-sm mb-4">密室專業設計師</p>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li class="flex items-start gap-2"><i data-lucide="award" class="w-4 h-4 text-primary/60 flex-shrink-0 mt-0.5"></i> 設計多款政府觀光景點戶外遊戲</li>
-                        <li class="flex items-start gap-2"><i data-lucide="award" class="w-4 h-4 text-primary/60 flex-shrink-0 mt-0.5"></i> 資歷十年密室設計師</li>
-                        <li class="flex items-start gap-2"><i data-lucide="award" class="w-4 h-4 text-primary/60 flex-shrink-0 mt-0.5"></i> BGLARP劇本殺創辦人</li>
-                        <li class="flex items-start gap-2"><i data-lucide="award" class="w-4 h-4 text-primary/60 flex-shrink-0 mt-0.5"></i> 資深密室玩家社群創辦人</li>
+                    <h3 class="text-xl font-black text-center mb-1">尤尤</h3>
+                    <p class="text-center text-coral font-bold text-sm mb-4">密室專業設計師</p>
+                    <ul class="text-sm text-nightSoft space-y-2 font-medium">
+                        <li class="flex items-start gap-2"><i data-lucide="medal" class="w-4 h-4 text-sunnyDark flex-shrink-0 mt-0.5"></i>設計多款政府觀光景點戶外遊戲</li>
+                        <li class="flex items-start gap-2"><i data-lucide="medal" class="w-4 h-4 text-sunnyDark flex-shrink-0 mt-0.5"></i>資歷十年密室設計師</li>
+                        <li class="flex items-start gap-2"><i data-lucide="medal" class="w-4 h-4 text-sunnyDark flex-shrink-0 mt-0.5"></i>BGLARP劇本殺創辦人</li>
+                        <li class="flex items-start gap-2"><i data-lucide="medal" class="w-4 h-4 text-sunnyDark flex-shrink-0 mt-0.5"></i>資深密室玩家社群創辦人</li>
                     </ul>
                 </div>
-
-                <!-- Team 4 — 小逸 男 -->
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-24 h-24 mx-auto rounded-full mb-6 overflow-hidden border-4 border-orange-100">
+                <!-- 小逸老師 -->
+                <div class="bg-white border-[3px] border-night rounded-3xl p-6 shadow-pop hover:shadow-popHover hover:-translate-y-1.5 transition-all">
+                    <div class="w-24 h-24 mx-auto rounded-full mb-5 overflow-hidden border-[3px] border-night bg-mint">
                         <img src="小逸老師.jfif" alt="小逸老師" class="w-full h-full object-cover object-top">
                     </div>
-                    <h3 class="text-xl font-bold text-center text-primaryDark mb-1">小逸老師</h3>
-                    <p class="text-center text-accent font-medium text-sm mb-4">密室專業設計師</p>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li class="flex items-start gap-2"><i data-lucide="award" class="w-4 h-4 text-primary/60 flex-shrink-0 mt-0.5"></i> 實境遊戲協會理事</li>
-                        <li class="flex items-start gap-2"><i data-lucide="award" class="w-4 h-4 text-primary/60 flex-shrink-0 mt-0.5"></i> 高雄楊桃蜜室設計師</li>
-                        <li class="flex items-start gap-2"><i data-lucide="award" class="w-4 h-4 text-primary/60 flex-shrink-0 mt-0.5"></i> 擁有十年以上密室設計經驗</li>
+                    <h3 class="text-xl font-black text-center mb-1">小逸老師</h3>
+                    <p class="text-center text-coral font-bold text-sm mb-4">密室專業設計師</p>
+                    <ul class="text-sm text-nightSoft space-y-2 font-medium">
+                        <li class="flex items-start gap-2"><i data-lucide="medal" class="w-4 h-4 text-sunnyDark flex-shrink-0 mt-0.5"></i>實境遊戲協會理事</li>
+                        <li class="flex items-start gap-2"><i data-lucide="medal" class="w-4 h-4 text-sunnyDark flex-shrink-0 mt-0.5"></i>高雄羊逃密室逃脫設計師</li>
+                        <li class="flex items-start gap-2"><i data-lucide="medal" class="w-4 h-4 text-sunnyDark flex-shrink-0 mt-0.5"></i>擁有十年以上密室設計經驗</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Annual Conference Section -->
-    <section id="annual" class="py-24 bg-primaryDark relative overflow-hidden border-t border-green-800/30">
-        <!-- 裝飾背景 -->
-        <div class="absolute top-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-        <div class="absolute bottom-0 right-0 w-96 h-96 bg-primary/30 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
+    <!-- 課程冒險地圖（工作坊四彈 LV1-LV4） -->
+    <section id="map" class="py-24 bg-white border-t-[3px] border-night relative overflow-hidden">
+        <div class="absolute top-16 left-8 text-sky/30 text-6xl select-none hidden lg:block">✦</div>
+        <div class="absolute bottom-24 right-10 text-sunny/50 text-5xl select-none hidden lg:block floaty">★</div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-
-            <!-- 標題 -->
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16">
-                <div class="inline-block px-5 py-2 rounded-full bg-accent/20 text-accent font-bold text-sm mb-4 border border-accent/30">
-                    🏆 年度盛會
-                </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">實境教育年會</h2>
-                <div class="w-20 h-1 bg-accent mx-auto rounded-full"></div>
+                <div class="inline-block px-4 py-1.5 bg-sunny/30 border-2 border-night rounded-full font-black text-sm mb-4">🗺️ 課程冒險地圖</div>
+                <h2 class="text-3xl md:text-4xl font-black mb-5">實境遊戲設計工作坊<br class="md:hidden"><span class="marker">四大關卡</span></h2>
+                <p class="text-nightSoft max-w-3xl mx-auto text-lg font-medium">
+                    從新手村到戶外實戰！我們把實境解謎設計拆成四關，每一關都有經典教案體驗與實作，一關一關解鎖遊戲化教學的魔法。
+                </p>
             </div>
 
-            <!-- 左文右影 -->
-            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            <!-- 關卡路線 -->
+            <div class="relative space-y-10 md:space-y-14 md:pl-10">
+                <div class="hidden md:block absolute left-[19px] top-8 bottom-8 path-line"></div>
 
+                <!-- LV1 -->
+                <div class="relative">
+                    <div class="hidden md:flex absolute -left-10 top-8 w-[42px] h-[42px] bg-sunny border-[3px] border-night rounded-full items-center justify-center font-black text-sm z-10">1</div>
+                    <div class="bg-cream border-[3px] border-night rounded-3xl shadow-pop hover:shadow-popHover transition-all overflow-hidden flex flex-col md:flex-row md:items-stretch">
+                        <div class="w-full md:hidden">
+                            <!-- Codex 封面：images/lv1-cover.png -->
+                            <img src="第一彈.jpg" alt="LV1 初階工作坊" class="w-full h-48 object-cover object-center border-b-[3px] border-night">
+                        </div>
+                        <div class="flex-1 p-6 md:p-7 flex flex-col justify-center gap-3">
+                            <div class="flex items-center gap-3">
+                                <span class="bg-sunny border-2 border-night text-night text-xs font-black px-3 py-1 rounded-full tracking-widest">LV.1 新手村</span>
+                                <span class="text-xs font-bold text-nightSoft">第一彈</span>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-black mb-1">初階工作坊</h4>
+                                <p class="text-sm text-nightSoft font-medium">解謎教學設計 ✕ 我的教室是密室</p>
+                            </div>
+                            <ul class="space-y-1.5 text-sm text-nightSoft font-medium">
+                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>體驗大量課堂解謎題型</li>
+                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>學科知識轉化為謎題設計</li>
+                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>LINE@ 自動回復教學應用</li>
+                                <li class="flex items-start gap-2"><i data-lucide="gift" class="w-4 h-4 text-mint shrink-0 mt-0.5"></i>通關獎勵：一份完整可執行教案</li>
+                            </ul>
+                        </div>
+                        <div class="hidden md:flex w-2/5 shrink-0 border-l-[3px] border-night bg-white items-center">
+                            <img src="第一彈.jpg" alt="LV1 初階工作坊" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LV2 -->
+                <div class="relative">
+                    <div class="hidden md:flex absolute -left-10 top-8 w-[42px] h-[42px] bg-coral text-white border-[3px] border-night rounded-full items-center justify-center font-black text-sm z-10">2</div>
+                    <div class="bg-cream border-[3px] border-night rounded-3xl shadow-pop hover:shadow-popHover transition-all overflow-hidden flex flex-col md:flex-row md:items-stretch">
+                        <div class="w-full md:hidden">
+                            <!-- Codex 封面：images/lv2-cover.png -->
+                            <img src="第二彈.png" alt="LV2 進階工作坊" class="w-full h-48 object-cover object-center border-b-[3px] border-night">
+                        </div>
+                        <div class="flex-1 p-6 md:p-7 flex flex-col justify-center gap-3">
+                            <div class="flex items-center gap-3">
+                                <span class="bg-coral border-2 border-night text-white text-xs font-black px-3 py-1 rounded-full tracking-widest">LV.2 進階區</span>
+                                <span class="text-xs font-bold text-nightSoft">第二彈</span>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-black mb-1">進階工作坊</h4>
+                                <p class="text-sm text-nightSoft font-medium">議題與機制 ✕ 議起玩實境</p>
+                            </div>
+                            <ul class="space-y-1.5 text-sm text-nightSoft font-medium">
+                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>親身體驗大型議題機制遊戲</li>
+                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>拆解遊戲獲勝條件與張力設計</li>
+                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>融入社會議題的遊戲化方法</li>
+                                <li class="flex items-start gap-2"><i data-lucide="gift" class="w-4 h-4 text-mint shrink-0 mt-0.5"></i>通關獎勵：完整議題機制教案</li>
+                            </ul>
+                        </div>
+                        <div class="hidden md:flex w-2/5 shrink-0 border-l-[3px] border-night bg-white items-center">
+                            <img src="第二彈.png" alt="LV2 進階工作坊" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LV3 -->
+                <div class="relative">
+                    <div class="hidden md:flex absolute -left-10 top-8 w-[42px] h-[42px] bg-sky text-white border-[3px] border-night rounded-full items-center justify-center font-black text-sm z-10">3</div>
+                    <div class="bg-cream border-[3px] border-night rounded-3xl shadow-pop hover:shadow-popHover transition-all overflow-hidden flex flex-col md:flex-row md:items-stretch">
+                        <div class="w-full md:hidden">
+                            <!-- Codex 封面：images/lv3-cover.png -->
+                            <img src="第三彈.jpg" alt="LV3 故事夢工場" class="w-full h-48 object-cover object-center border-b-[3px] border-night">
+                        </div>
+                        <div class="flex-1 p-6 md:p-7 flex flex-col justify-center gap-3">
+                            <div class="flex items-center gap-3">
+                                <span class="bg-sky border-2 border-night text-white text-xs font-black px-3 py-1 rounded-full tracking-widest">LV.3 劇情關</span>
+                                <span class="text-xs font-bold text-nightSoft">第三彈</span>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-black mb-1">故事夢工場</h4>
+                                <p class="text-sm text-nightSoft font-medium">發散設計與敘事結構</p>
+                            </div>
+                            <ul class="space-y-1.5 text-sm text-nightSoft font-medium">
+                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>1-4-1 敘事結構完整拆解</li>
+                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>打造沉浸式故事情境與角色</li>
+                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>玩家心流體驗設計技巧</li>
+                                <li class="flex items-start gap-2"><i data-lucide="gift" class="w-4 h-4 text-mint shrink-0 mt-0.5"></i>通關獎勵：發散思維創意教案</li>
+                            </ul>
+                        </div>
+                        <div class="hidden md:flex w-2/5 shrink-0 border-l-[3px] border-night bg-white items-center">
+                            <img src="第三彈.jpg" alt="LV3 故事夢工場" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LV4 -->
+                <div class="relative">
+                    <div class="hidden md:flex absolute -left-10 top-8 w-[42px] h-[42px] bg-mint border-[3px] border-night rounded-full items-center justify-center font-black text-sm z-10">4</div>
+                    <div class="bg-cream border-[3px] border-night rounded-3xl shadow-pop hover:shadow-popHover transition-all overflow-hidden flex flex-col md:flex-row md:items-stretch">
+                        <div class="w-full md:hidden">
+                            <!-- Codex 封面：images/lv4-cover.png -->
+                            <img src="第四彈.jpg" alt="LV4 戶外實境" class="w-full h-48 object-cover object-center border-b-[3px] border-night">
+                        </div>
+                        <div class="flex-1 p-6 md:p-7 flex flex-col justify-center gap-3">
+                            <div class="flex items-center gap-3">
+                                <span class="bg-mint border-2 border-night text-night text-xs font-black px-3 py-1 rounded-full tracking-widest">LV.4 最終章</span>
+                                <span class="text-xs font-bold text-nightSoft">第四彈</span>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-black mb-1">戶外實境</h4>
+                                <p class="text-sm text-nightSoft font-medium">戶外導覽與道具應用實務</p>
+                            </div>
+                            <ul class="space-y-1.5 text-sm text-nightSoft font-medium">
+                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>實際走訪校園景物設計謎題</li>
+                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>兩款校園實境遊戲全拆解</li>
+                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>手作解謎道具設計與製作</li>
+                                <li class="flex items-start gap-2"><i data-lucide="gift" class="w-4 h-4 text-mint shrink-0 mt-0.5"></i>通關獎勵：帶隊跑關實務教案</li>
+                            </ul>
+                        </div>
+                        <div class="hidden md:flex w-2/5 shrink-0 border-l-[3px] border-night bg-white items-center">
+                            <img src="第四彈.jpg" alt="LV4 戶外實境" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 教師研習邀約方案 -->
+    <section id="booking" class="py-24 dot-bg dot-bg-soft border-t-[3px] border-night">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <div class="inline-block px-4 py-1.5 bg-mint/25 border-2 border-night rounded-full font-black text-sm mb-4">📋 給承辦人的清楚規格</div>
+                <h2 class="text-3xl md:text-4xl font-black mb-5">教師研習<span class="marker">邀約方案</span></h2>
+                <p class="text-nightSoft max-w-2xl mx-auto text-lg font-medium">
+                    實體、線上兩種模式任選，課程內容可依校內需求調整。詳細內容歡迎私訊 FB 粉專洽詢。
+                </p>
+            </div>
+
+            <!-- 實體工作坊 -->
+            <div class="bg-white border-[3px] border-night rounded-3xl shadow-pop overflow-hidden mb-12">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-3 bg-sunny border-b-[3px] border-night px-6 py-4">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="school" class="w-6 h-6 shrink-0"></i>
+                        <span class="font-black text-lg">實體工作坊</span>
+                    </div>
+                    <!-- 邀約規格 chips -->
+                    <div class="flex flex-wrap gap-2 sm:ml-auto">
+                        <span class="px-3 py-1 bg-white border-2 border-night rounded-full text-xs font-black flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5"></i>6 小時整天研習</span>
+                        <span class="px-3 py-1 bg-white border-2 border-night rounded-full text-xs font-black flex items-center gap-1"><i data-lucide="users" class="w-3.5 h-3.5"></i>講師＋助教全程</span>
+                        <span class="px-3 py-1 bg-white border-2 border-night rounded-full text-xs font-black flex items-center gap-1"><i data-lucide="hand" class="w-3.5 h-3.5"></i>全程實作體驗</span>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- D1 -->
+                        <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm hover:shadow-pop hover:-translate-y-1 transition-all">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <span class="inline-block text-xs font-black px-2.5 py-1 rounded-full bg-sunny border-2 border-night mb-2">初階</span>
+                                    <h5 class="text-lg font-black">初階研習課程 D1</h5>
+                                </div>
+                                <span class="text-3xl font-black text-sunny select-none leading-none">D1</span>
+                            </div>
+                            <ul class="space-y-2 text-sm text-nightSoft font-medium">
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>大量題海題目體驗</li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>題目類型拆解說明</li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>LINE@ 自動回復設計教學</li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>實作設計教案產出</li>
+                            </ul>
+                        </div>
+                        <!-- D2 -->
+                        <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm hover:shadow-pop hover:-translate-y-1 transition-all">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <span class="inline-block text-xs font-black px-2.5 py-1 rounded-full bg-sunny border-2 border-night mb-2">初階</span>
+                                    <h5 class="text-lg font-black">初階研習課程 D2</h5>
+                                </div>
+                                <span class="text-3xl font-black text-sunny select-none leading-none">D2</span>
+                            </div>
+                            <ul class="space-y-2 text-sm text-nightSoft font-medium">
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>非電子戶外實境解謎體驗</li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>解謎設計流程拆解</li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>實境遊戲教案模板教學</li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>融入知識點題目設計</li>
+                            </ul>
+                        </div>
+                        <!-- 戶外實境與解謎道具 -->
+                        <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm hover:shadow-pop hover:-translate-y-1 transition-all">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <span class="inline-block text-xs font-black px-2.5 py-1 rounded-full bg-coral text-white border-2 border-night mb-2">進階</span>
+                                    <h5 class="text-lg font-black">戶外實境與解謎道具設計</h5>
+                                </div>
+                                <i data-lucide="map-pin" class="w-8 h-8 text-coral/50 shrink-0"></i>
+                            </div>
+                            <ul class="space-y-2 text-sm text-nightSoft font-medium">
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>兩款校園實境遊戲拆解</li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>運用現場建物設計謎題方法</li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>實際融入校園景物產出教案</li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>兩款解謎手做道具設計與運用</li>
+                            </ul>
+                        </div>
+                        <!-- 議題機制設計 -->
+                        <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm hover:shadow-pop hover:-translate-y-1 transition-all">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <span class="inline-block text-xs font-black px-2.5 py-1 rounded-full bg-coral text-white border-2 border-night mb-2">進階</span>
+                                    <h5 class="text-lg font-black">議題機制設計課程</h5>
+                                </div>
+                                <i data-lucide="puzzle" class="w-8 h-8 text-coral/50 shrink-0"></i>
+                            </div>
+                            <ul class="space-y-2 text-sm text-nightSoft font-medium">
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>兩款不同大型機制遊戲體驗</li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>拆解不同機制類型設計</li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>融入各種議題的設計方法</li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>實際產出與運用</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 線上工作坊 -->
+            <div class="bg-white border-[3px] border-night rounded-3xl shadow-pop overflow-hidden">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-3 bg-sky border-b-[3px] border-night px-6 py-4">
+                    <div class="flex items-center gap-3 text-white">
+                        <i data-lucide="laptop" class="w-6 h-6 shrink-0"></i>
+                        <span class="font-black text-lg">線上工作坊</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2 sm:ml-auto">
+                        <span class="px-3 py-1 bg-white border-2 border-night rounded-full text-xs font-black flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5"></i>每堂 3 小時</span>
+                        <span class="px-3 py-1 bg-white border-2 border-night rounded-full text-xs font-black flex items-center gap-1"><i data-lucide="video" class="w-3.5 h-3.5"></i>直播教學</span>
+                        <span class="px-3 py-1 bg-white border-2 border-night rounded-full text-xs font-black flex items-center gap-1"><i data-lucide="sparkles" class="w-3.5 h-3.5"></i>AI 實作同步產出</span>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- GEM -->
+                        <div class="bg-cream border-[3px] border-night rounded-2xl shadow-popSm hover:shadow-pop hover:-translate-y-1 transition-all overflow-hidden flex flex-col">
+                            <div class="p-5">
+                                <h5 class="text-lg font-black mb-1">GEM 角色設計工作坊</h5>
+                                <p class="text-sm font-bold text-nightSoft mb-3">打造具備吸引力的遊戲角色</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="text-xs font-bold px-2.5 py-1 bg-white border-2 border-night rounded-full">角色設計</span>
+                                    <span class="text-xs font-bold px-2.5 py-1 bg-white border-2 border-night rounded-full">故事融入</span>
+                                </div>
+                            </div>
+                            <div class="border-t-2 border-night/10 px-5 py-3 flex items-center gap-2">
+                                <i data-lucide="monitor" class="w-4 h-4 text-sky shrink-0"></i>
+                                <span class="text-xs font-black text-skyDark tracking-wide">學員作品示範網站 — GEM 展覽館</span>
+                            </div>
+                            <a href="https://yoyo700702ai.github.io/gem-gallery" target="_blank" rel="noopener"
+                               class="block mx-5 mb-5 rounded-xl overflow-hidden border-[3px] border-night shadow-popSm hover:shadow-pop transition-all relative group/img">
+                                <img src="GEM展覽館圖片.jpg" alt="GEM 展覽館學員作品示範網站"
+                                     class="w-full aspect-video object-cover object-top group-hover/img:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-night/0 group-hover/img:bg-night/30 transition-colors duration-300 flex items-center justify-center">
+                                    <span class="opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-sky text-white border-2 border-night text-xs font-black px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                                        <i data-lucide="external-link" class="w-3 h-3"></i> 前往網站
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- VIBE CODING -->
+                        <div class="bg-cream border-[3px] border-night rounded-2xl shadow-popSm hover:shadow-pop hover:-translate-y-1 transition-all overflow-hidden flex flex-col">
+                            <div class="p-5">
+                                <h5 class="text-lg font-black mb-1">VIBE CODING 搭配動態題庫</h5>
+                                <p class="text-sm font-bold text-nightSoft mb-3">打造孩子欲罷不能的答題遊戲</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="text-xs font-bold px-2.5 py-1 bg-white border-2 border-night rounded-full">數位互動</span>
+                                    <span class="text-xs font-bold px-2.5 py-1 bg-white border-2 border-night rounded-full">動態題庫</span>
+                                </div>
+                            </div>
+                            <div class="border-t-2 border-night/10 px-5 py-3 flex items-center gap-2">
+                                <i data-lucide="monitor" class="w-4 h-4 text-sky shrink-0"></i>
+                                <span class="text-xs font-black text-skyDark tracking-wide">示範網站 — 亞德雷大陸答題 RPG</span>
+                            </div>
+                            <a href="https://yoyo700702ai.github.io/100pointgames/" target="_blank" rel="noopener"
+                               class="block mx-5 mb-5 rounded-xl overflow-hidden border-[3px] border-night shadow-popSm hover:shadow-pop transition-all relative group/img">
+                                <img src="亞德雷大陸圖片.jpg" alt="亞德雷大陸答題 RPG 示範網站"
+                                     class="w-full aspect-video object-cover object-top group-hover/img:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-night/0 group-hover/img:bg-night/30 transition-colors duration-300 flex items-center justify-center">
+                                    <span class="opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-sky text-white border-2 border-night text-xs font-black px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                                        <i data-lucide="external-link" class="w-3 h-3"></i> 前往網站
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 洽詢 CTA -->
+                    <div class="mt-8 text-center">
+                        <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener"
+                           class="inline-flex items-center gap-2 bg-coral text-white border-[3px] border-night font-black px-7 py-3.5 rounded-2xl hover:bg-coralDark transition-colors shadow-pop hover:shadow-popHover text-base">
+                            <i data-lucide="message-square" class="w-5 h-5"></i>
+                            私訊 FB 洽詢課程細節
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 研習實況見證 -->
+    <section id="gallery" class="py-24 bg-white border-t-[3px] border-night">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-block px-4 py-1.5 bg-sunny/30 border-2 border-night rounded-full font-black text-sm mb-4">📸 現場直擊</div>
+                <h2 class="text-3xl md:text-4xl font-black mb-5">研習實況與<span class="marker">學員花絮</span></h2>
+                <p class="text-nightSoft max-w-2xl mx-auto text-lg font-medium">
+                    每一場工作坊都是充滿笑聲與腦力激盪的冒險。老師們熱烈討論、親手做道具的樣子，就是最好的見證！
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-9">
+                <div class="polaroid rotate-[-1.5deg]">
+                    <div class="w-full aspect-video rounded-lg overflow-hidden border-2 border-night/10">
+                        <img src="小組腦力激盪.jpg" alt="小組腦力激盪" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center font-black mt-3 text-sm">✏️ 小組腦力激盪</p>
+                </div>
+                <div class="polaroid rotate-[1.5deg]">
+                    <div class="w-full aspect-video rounded-lg overflow-hidden border-2 border-night/10">
+                        <img src="實體道具手作體驗.jpg" alt="實體道具手作體驗" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center font-black mt-3 text-sm">✂️ 實體道具手作體驗</p>
+                </div>
+                <div class="polaroid rotate-[-1deg]">
+                    <div class="w-full aspect-video rounded-lg overflow-hidden border-2 border-night/10">
+                        <img src="議題融入講解.jpg" alt="議題融入設計" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center font-black mt-3 text-sm">💬 議題融入設計</p>
+                </div>
+                <div class="polaroid rotate-[1deg]">
+                    <div class="w-full aspect-video rounded-lg overflow-hidden border-2 border-night/10">
+                        <img src="走出戶外.jpg" alt="走出戶外實境跑關" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center font-black mt-3 text-sm">🏃 走出戶外！實境跑關</p>
+                </div>
+                <div class="polaroid rotate-[-1.5deg]">
+                    <div class="w-full aspect-video rounded-lg overflow-hidden border-2 border-night/10">
+                        <img src="數位工具.jpg" alt="數位工具結合運用" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center font-black mt-3 text-sm">📱 數位工具結合運用</p>
+                </div>
+                <div class="polaroid rotate-[1.5deg]">
+                    <div class="w-full aspect-video rounded-lg overflow-hidden border-2 border-night/10">
+                        <img src="好玩的教育活動設計.jpg" alt="好玩的教育遊戲設計" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center font-black mt-3 text-sm">🎯 好玩的教育遊戲設計</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 年會 + 最終 CTA -->
+    <section id="annual" class="py-24 star-bg relative overflow-hidden border-t-[3px] border-night">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-14">
+                <div class="inline-block px-5 py-2 rounded-full bg-sunny border-[3px] border-night font-black text-sm mb-4 shadow-popSm">
+                    🏆 年度盛會
+                </div>
+                <h2 class="text-3xl md:text-4xl font-black text-white">實境教育年會</h2>
+            </div>
+
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
                 <!-- 左：說明文字 -->
-                <div class="lg:w-1/2 space-y-6 text-green-100/80 leading-relaxed text-lg">
-                    <p class="text-2xl font-bold text-white leading-snug">
+                <div class="lg:w-1/2 space-y-6 text-white/85 leading-relaxed text-lg font-medium">
+                    <p class="text-2xl font-black text-sunny leading-snug">
                         「讓教室變密室，把學習變冒險！」
                     </p>
                     <p>
                         備課卡關了嗎？學生總是興致缺缺？交給我們！這不僅是一場研習，更是一場顛覆傳統的教育體驗。
                     </p>
                     <p>
-                        我們集結了專業密室設計師與第一線教育工作者，帶你親身感受<span class="text-accent font-bold">「有笑、有意思、有效又有意義」</span>的沉浸式教學。
+                        我們集結了專業密室設計師與第一線教育工作者，帶你親身感受<span class="text-sunny font-black">「有笑、有意思、有效又有意義」</span>的沉浸式教學。
                     </p>
-                    <p class="text-white font-medium">
+                    <p class="text-white font-bold">
                         準備好解鎖你的教學超能力了嗎？今年，我們一起玩翻教育！
                     </p>
-                    <div class="pt-2">
-                        <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center gap-3 px-7 py-3.5 bg-accent text-white rounded-full font-bold hover:bg-accentHover transition-all shadow-lg shadow-accent/30 group">
-                            <i data-lucide="facebook" class="w-5 h-5"></i>
-                            前往 Facebook 了解更多
-                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                        </a>
-                    </div>
                 </div>
 
                 <!-- 右：影片 -->
                 <div class="lg:w-1/2 w-full">
-                    <p class="text-accent font-bold text-sm mb-3 flex items-center gap-2">
+                    <p class="text-sunny font-black text-sm mb-3 flex items-center gap-2">
                         <i data-lucide="video" class="w-4 h-4"></i> 2022 第二屆實境遊戲教育年會
                     </p>
-                    <div class="rounded-2xl overflow-hidden bg-black/40 border border-white/10 shadow-2xl">
+                    <div class="rounded-2xl overflow-hidden border-[3px] border-sunny/60 shadow-2xl bg-black/40">
                         <video controls class="w-full aspect-video" preload="metadata">
                             <source src="2022年會.mp4" type="video/mp4">
                         </video>
                     </div>
                 </div>
+            </div>
 
+            <!-- 最終 CTA -->
+            <div class="mt-20 text-center bg-white/5 border-[3px] border-sunny/40 rounded-3xl px-6 py-12 backdrop-blur-sm">
+                <h3 class="text-2xl md:text-3xl font-black text-white mb-4">下一場研習，讓老師們捨不得滑手機</h3>
+                <p class="text-white/75 font-medium mb-8 max-w-xl mx-auto">
+                    校內研習、教師社群、公開課邀約皆可洽詢，課程內容可依需求客製。
+                </p>
+                <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center gap-3 px-9 py-4 bg-coral text-white border-[3px] border-night rounded-2xl font-black text-lg hover:bg-coralDark transition-all shadow-pop hover:shadow-popHover group">
+                    <i data-lucide="facebook" class="w-5 h-5"></i>
+                    立即私訊邀約
+                    <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-primaryDark pt-12 pb-6">
+    <footer class="bg-night pt-12 pb-6 border-t border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="flex items-center justify-center gap-2 mb-6 text-white">
-                <div class="w-10 h-10 bg-accent rounded flex items-center justify-center font-bold shadow-sm">100</div>
-                <span class="font-bold text-xl tracking-wider">一百分遊戲教育</span>
+                <div class="w-10 h-10 bg-sunny border-[3px] border-night rounded-xl flex items-center justify-center font-black text-night shadow-popSm">100</div>
+                <span class="font-black text-xl tracking-wider">一百分遊戲教育</span>
             </div>
-            <p class="text-green-100/70 text-sm mb-8 max-w-md mx-auto">
+            <p class="text-white/60 text-sm mb-8 max-w-md mx-auto font-medium">
                 結合教育與遊戲設計的完美魔法，在歡笑聲中，為學習帶來無限可能。
             </p>
-            <div class="border-t border-green-800/50 pt-6">
-                <p class="text-green-200/50 text-sm">
-                    &copy; 2025 一百分遊戲教育. All rights reserved.
+            <div class="border-t border-white/10 pt-6">
+                <p class="text-white/40 text-sm">
+                    &copy; 2026 一百分遊戲教育. All rights reserved.
                 </p>
             </div>
         </div>
@@ -870,17 +756,10 @@
         // Initialize Lucide Icons
         lucide.createIcons();
 
-        // Navbar scroll effect
+        // Navbar scroll shadow
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 40) {
-                navbar.classList.remove('bg-transparent');
-                navbar.classList.add('bg-primaryDark/95', 'backdrop-blur-sm', 'shadow-lg');
-                navbar.querySelectorAll('.nav-link').forEach(l => l.classList.add('text-white'));
-            } else {
-                navbar.classList.add('bg-transparent');
-                navbar.classList.remove('bg-primaryDark/95', 'backdrop-blur-sm', 'shadow-lg');
-            }
+            navbar.classList.toggle('shadow-md', window.scrollY > 40);
         });
 
         // Mobile menu toggle
@@ -890,47 +769,6 @@
         function closeMobileMenu() {
             document.getElementById('mobile-menu').classList.add('hidden');
         }
-
-        // Tabs Logic
-        function openTab(tabId) {
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => {
-                content.classList.add('hidden');
-                content.classList.remove('block');
-            });
-
-            const btns = document.querySelectorAll('.tab-btn');
-            btns.forEach(btn => {
-                btn.className = 'tab-btn inactive-tab px-6 py-3 rounded-t-lg font-bold text-base md:text-lg transition-all flex items-center gap-2 bg-transparent text-gray-400 hover:bg-gray-50 hover:text-gray-600 border-b-2 border-transparent';
-            });
-
-            document.getElementById(tabId).classList.remove('hidden');
-            document.getElementById(tabId).classList.add('block');
-
-            const tabName = tabId.replace('tab-', '');
-            const selectedBtn = document.getElementById('btn-' + tabName);
-
-            if (tabId === 'tab-physical') {
-                selectedBtn.className = 'tab-btn px-6 py-3 rounded-t-lg font-bold text-base md:text-lg transition-all flex items-center gap-2 bg-milky text-courseEarth border-t-4 border-l border-r border-gray-100 border-t-courseEarth relative z-10 shadow-sm';
-            } else if (tabId === 'tab-training') {
-                selectedBtn.className = 'tab-btn px-6 py-3 rounded-t-lg font-bold text-base md:text-lg transition-all flex items-center gap-2 bg-milky text-primary border-t-4 border-l border-r border-gray-100 border-t-primary relative z-10 shadow-sm';
-            }
-        }
-
-        // Form submit handler
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            alert('感謝您的邀約！此為展示用網站，表單尚未連接後端，請稍後再試。');
-        }
-
-        // Initialize first tab styles on load
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.tab-btn.inactive-tab').forEach(btn => {
-                btn.className = 'tab-btn inactive-tab px-6 py-3 rounded-t-lg font-bold text-base md:text-lg transition-all flex items-center gap-2 bg-transparent text-gray-400 hover:bg-gray-50 hover:text-gray-600 border-b-2 border-transparent';
-            });
-            const firstBtn = document.getElementById('btn-physical');
-            firstBtn.className = 'tab-btn px-6 py-3 rounded-t-lg font-bold text-base md:text-lg transition-all flex items-center gap-2 bg-milky text-courseEarth border-t-4 border-l border-r border-gray-100 border-t-courseEarth relative z-10 shadow-sm';
-        });
     </script>
 </body>
 </html>
