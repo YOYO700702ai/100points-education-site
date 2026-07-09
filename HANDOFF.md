@@ -49,3 +49,17 @@ LV1→LV4 四張是同一個系列（網頁上垂直排成一條冒險路線）�
 ## 注意事項
 - 圖片放 `images/` 子資料夾，不要散在根目錄（根目錄已經很亂）
 - 完成後請在本檔案底部加「## 成果」區塊：列出生成的檔案與有無改動 HTML，方便交接回來驗收
+## 成果
+- 已建立 `images/` 資料夾並放入 5 張 PNG 插圖：
+  - `images/hero-main.png`
+  - `images/lv1-cover.png`
+  - `images/lv2-cover.png`
+  - `images/lv3-cover.png`
+  - `images/lv4-cover.png`
+- 已修改 `index.html` 圖片引用：
+  - Hero 主視覺改為 `images/hero-main.png`
+  - LV1 兩處改為 `images/lv1-cover.png`
+  - LV2 兩處改為 `images/lv2-cover.png`
+  - LV3 兩處改為 `images/lv3-cover.png`
+  - LV4 兩處改為 `images/lv4-cover.png`
+- 保留講師頭像、實況照片、GEM/亞德雷示範網站截圖等其他圖片引用不變。
