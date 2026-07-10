@@ -57,3 +57,17 @@
 - Summary: 第三輪：以報名頁插圖（images/_style-ref-1/2.png）為風格錨點，畫 4 張溫暖水彩繪本風插圖，中文標題入圖（戶外實境工作坊 hero、三格痛點漫畫、一日課程旅程尋寶地圖、解謎道具動手做）。
 - Verification: Claude 驗收——4 張風格與參考圖一致、圖內中文標題全部正確無錯字。
 - Notes: 風格參考檔 images/_style-ref-*.png 保留在專案，之後補圖可繼續當錨點。
+
+### 2026-07-10 10:40 - Claude Opus 4.7
+- Agent: Claude Opus 4.7
+- Changed: `course-lv1.html`（新增）、`index.html`、`HANDOFF.md`、`PROGRESS.md`
+- Summary: 從初階兩日班課綱 PDF（222 頁，頁面轉圖判讀）新建第一彈介紹頁：痛點三幕／「你的教室就是最好的密室」／兩日旅程（D1 題海體驗→三步驟出題→故事包裝→LINE@ 自動關主；D2 戶外解謎→支狀圖拆解→教案共備→互玩回饋）／帶走清單／適合誰。首頁 LV1 卡與研習區 D1、D2 卡接連結（#d1/#d2 錨點）。
+- Verification: headless Edge 全頁截圖渲染正常。
+- Notes: 課綱來源「實境遊戲工作坊初階(2022 最新版).pdf」（專案根目錄）。
+
+### 2026-07-10 10:40 - Codex (GPT-5.5, 由 Claude 以 CLI 代發)
+- Agent: Codex gpt-5.5
+- Changed: `images/lv1-hero.png`、`images/lv1-pain.png`、`images/lv1-flow.png`、`images/lv1-line.png`、`images/_style-contact-sheet.png`（其自建的風格對照表）
+- Summary: 第四輪：延續 lv4 系列水彩繪本風畫 4 張初階插圖，中文標題入圖（我的教室是密室 hero、三格痛點漫畫、兩日課程旅程地圖、LINE@ 自動關主）。
+- Verification: Claude 驗收——4 張與 lv4 系列同風格，圖內標題「我的教室是密室／一聽考試就哀嚎／想玩解謎沒頭緒／怕活動沒人買單／兩日課程旅程／LINE@ 自動關主」等全部正確。
+- Notes: -
