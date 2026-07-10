@@ -43,3 +43,17 @@
 - Summary: 新增兩個線上課介紹頁。VIBE CODING 頁內容取自「AI 程式 × Codex 實戰」報名頁（學員與課程管理/課程教材/教師課程_Codex版/報名頁），含痛點/翻轉/六大收穫/試玩/配套/適合誰/課程資訊，CTA 連到 netlify 報名頁；GEM 頁顯示「本堂課目前不開放邀約」。首頁兩張線上課卡片標題區改為可點擊連入介紹頁，加「開放報名中／暫不開放」狀態章與「課程介紹 →」。
 - Verification: headless Edge 截圖兩頁渲染正常（1440px）；index 卡片 Edit 成功。
 - Notes: 報名頁若改期（目前 2026/8/9），course-vibecoding.html 的日期與費用要同步更新。
+
+### 2026-07-10 09:55 - Claude Opus 4.7
+- Agent: Claude Opus 4.7
+- Changed: `course-vibecoding.html`、`course-lv4.html`（新增）、`index.html`、`images/vc-*.png`（4 張，複製自報名頁 assets）、`HANDOFF.md`、`PROGRESS.md`
+- Summary: 依使用者回饋修 VIBE CODING 頁——移除「四個配套」「課程資訊」（教師研習導向不需要公開課報名資訊）、hero 拿掉日期、CTA 改私訊 FB、放入報名頁原本 4 張水彩插圖；首頁 VC 卡移除「開放報名中」章。另從第四彈課綱 PDF（160 頁，文字亂碼改用頁面轉圖判讀）整理出課程內容，新建 course-lv4.html（痛點三幕／導覽用玩的／一日旅程四站／手作三道具／帶走清單／適合誰），首頁 LV4 卡接上連結。
+- Verification: headless Edge 截圖兩頁全區渲染正常。
+- Notes: course-vibecoding.html 的注意事項同上（改期要同步）。
+
+### 2026-07-10 09:55 - Codex (GPT-5.5, 由 Claude 以 CLI 代發)
+- Agent: Codex gpt-5.5
+- Changed: `images/lv4-hero.png`、`images/lv4-pain.png`、`images/lv4-flow.png`、`images/lv4-props.png`
+- Summary: 第三輪：以報名頁插圖（images/_style-ref-1/2.png）為風格錨點，畫 4 張溫暖水彩繪本風插圖，中文標題入圖（戶外實境工作坊 hero、三格痛點漫畫、一日課程旅程尋寶地圖、解謎道具動手做）。
+- Verification: Claude 驗收——4 張風格與參考圖一致、圖內中文標題全部正確無錯字。
+- Notes: 風格參考檔 images/_style-ref-*.png 保留在專案，之後補圖可繼續當錨點。

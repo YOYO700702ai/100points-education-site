@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第四彈：戶外實境工作坊｜戶外導覽遊戲設計技巧 — 一百分遊戲教育</title>
+    <meta name="description" content="一日實體工作坊：上午親身玩一場戶外實境遊戲，拆解現地出題法；下午手作三樣解謎道具，帶走能直接執行的導覽遊戲教案。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Noto Sans TC"', 'sans-serif'] },
+                    colors: {
+                        cream: '#FFF8E7', sunny: '#FFD66B', sunnyDark: '#E8B93E',
+                        coral: '#FF8A5C', coralDark: '#F26B3A',
+                        sky: '#5FCFE8', skyDark: '#33A9C6',
+                        night: '#2B2B46', nightSoft: '#3D3D5C', mint: '#7FE3B8',
+                    },
+                    boxShadow: {
+                        pop: '4px 4px 0 0 #2B2B46',
+                        popSm: '2px 2px 0 0 #2B2B46',
+                        popHover: '6px 6px 0 0 #2B2B46',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .dot-bg { background-color: #FFF8E7; background-image: radial-gradient(rgba(43,43,70,.12) 1px, transparent 1.5px); background-size: 28px 28px; }
+        .marker { background: linear-gradient(transparent 58%, #FFE18F 58%, #FFE18F 92%, transparent 92%); padding: 0 .1em; }
+        .marker-sky { background: linear-gradient(transparent 58%, #C9EEF9 58%, #C9EEF9 92%, transparent 92%); padding: 0 .1em; }
+    </style>
+</head>
+<body class="font-sans text-night bg-cream antialiased">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-sm border-b-[3px] border-night">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="w-9 h-9 bg-sunny border-[3px] border-night rounded-xl flex items-center justify-center font-black text-sm shadow-popSm">100</div>
+                <span class="font-black text-base tracking-wider hidden sm:block">一百分遊戲教育</span>
+            </a>
+            <a href="index.html#map" class="px-4 py-2 rounded-full text-sm font-bold hover:bg-sunny/40 transition-colors">← 回官網</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="dot-bg pt-28 pb-16 text-center px-4">
+        <div class="max-w-3xl mx-auto space-y-6">
+            <img src="images/lv4-hero.png" alt="戶外實境工作坊 — 戶外導覽遊戲設計技巧"
+                 class="w-full rounded-3xl border-[3px] border-night shadow-pop">
+            <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border-[3px] border-night font-black text-sm shadow-popSm">
+                🏫 實體工作坊 ｜ 一日班 ｜ LV.4 最終章
+            </div>
+            <h1 class="text-3xl md:text-5xl font-black leading-tight">
+                第四彈：<span class="marker">戶外實境</span>工作坊
+            </h1>
+            <p class="text-lg md:text-xl font-bold text-nightSoft">戶外導覽遊戲設計技巧</p>
+            <p class="text-lg md:text-2xl font-black">整個校園和街區，都是你的<span class="marker-sky">解謎關卡</span></p>
+            <p class="text-nightSoft font-medium max-w-xl mx-auto">
+                上午親身玩一場戶外實境遊戲、拆解「現地出題」的方法；<br>
+                下午親手做三樣解謎道具，帶走一份能直接執行的導覽遊戲教案。
+            </p>
+            <div class="pt-2">
+                <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener"
+                   class="inline-flex items-center gap-2 px-8 py-4 bg-coral text-night border-[3px] border-night rounded-2xl font-black text-lg hover:bg-coralDark transition-all shadow-pop hover:shadow-popHover">
+                    💬 私訊 FB 洽詢邀約
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 痛點 -->
+    <section class="py-16 bg-white border-t-[3px] border-night px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-black text-center mb-10">帶隊出門，這三幕是不是<span class="marker">很眼熟</span>？</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm">
+                    <h3 class="font-black text-lg mb-2">🚶 導覽變成走馬看花</h3>
+                    <p class="text-sm text-nightSoft font-medium">精心安排的校外教學，學生排著隊拍完照就滑手機。走過了，什麼都沒留下。</p>
+                </div>
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm">
+                    <h3 class="font-black text-lg mb-2">📢 講得認真沒人聽</h3>
+                    <p class="text-sm text-nightSoft font-medium">你查了一堆典故賣力解說，抬頭一看——眼神渙散。知識用「講」的，進不了他們的腦袋。</p>
+                </div>
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm">
+                    <h3 class="font-black text-lg mb-2">📝 想設計不知從何下手</h3>
+                    <p class="text-sm text-nightSoft font-medium">聽說實境解謎很紅，也想幫學生辦一場。但謎題怎麼出？路線怎麼排？道具去哪生？完全沒頭緒。</p>
+                </div>
+            </div>
+            <img src="images/lv4-pain.png" alt="三大痛點：導覽變成走馬看花、講得認真沒人聽、想設計不知從何下手"
+                 class="w-full rounded-3xl border-[3px] border-night shadow-pop mt-8">
+        </div>
+    </section>
+
+    <!-- 翻轉 -->
+    <section class="py-16 dot-bg border-t-[3px] border-night px-4">
+        <div class="max-w-3xl mx-auto text-center space-y-6">
+            <h2 class="text-2xl md:text-3xl font-black leading-snug">導覽不是用聽的，<br>是用<span class="marker-sky">玩</span>的</h2>
+            <p class="text-nightSoft font-medium">
+                招牌上的顏色、廟埕的柱子數量、告示牌上的字——<br class="hidden md:block">
+                現場的每一樣東西，都能變成謎題的線索。
+            </p>
+            <div class="bg-sunny border-[3px] border-night rounded-2xl px-6 py-6 font-black text-base md:text-lg shadow-pop">
+                當答案藏在場域裡，學生就會自己衝去找——<br>
+                你不用再喊「大家看這邊」，他們比你還認真 ✨
+            </div>
+        </div>
+    </section>
+
+    <!-- 一日課程旅程 -->
+    <section class="py-16 bg-white border-t-[3px] border-night px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-black text-center mb-4">一日課程<span class="marker">旅程</span></h2>
+            <p class="text-center text-nightSoft font-medium mb-10">從玩家 → 設計師 → 帶隊者，一天走完三種角色。</p>
+            <img src="images/lv4-flow.png" alt="一日課程旅程：玩一場遊戲 → 拆解出題法 → 手作三道具 → 帶走教案"
+                 class="w-full rounded-3xl border-[3px] border-night shadow-pop mb-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm flex gap-4">
+                    <div class="w-9 h-9 shrink-0 bg-sunny border-2 border-night rounded-full flex items-center justify-center font-black">1</div>
+                    <div>
+                        <h3 class="font-black mb-1">上午｜先當玩家：玩一場真的</h3>
+                        <p class="text-sm text-nightSoft font-medium">分組出發，實際跑一場戶外實境遊戲「謎熊康普利」——看影片抓線索、LINE 闖關、在小鎮地圖上追出黑衣人的真面目。你會先體驗到「學生為什麼會瘋掉」。</p>
+                    </div>
+                </div>
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm flex gap-4">
+                    <div class="w-9 h-9 shrink-0 bg-coral border-2 border-night rounded-full flex items-center justify-center font-black">2</div>
+                    <div>
+                        <h3 class="font-black mb-1">拆解｜現地出題法</h3>
+                        <p class="text-sm text-nightSoft font-medium">把剛剛玩過的每一關攤開來看：顏色、數量、文字轉換⋯⋯招牌、地磚、告示牌都能出題。學會這套方法，任何場地你都能就地取材。</p>
+                    </div>
+                </div>
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm flex gap-4">
+                    <div class="w-9 h-9 shrink-0 bg-sky border-2 border-night rounded-full flex items-center justify-center font-black">3</div>
+                    <div>
+                        <h3 class="font-black mb-1">下午｜手作三樣解謎道具</h3>
+                        <p class="text-sm text-nightSoft font-medium">紙骰、轉盤、遮色眼鏡——三樣經典解謎道具親手做一輪，並練習把道具「合理地放進故事情境」，讓玩家拿到道具的瞬間又驚又喜。</p>
+                    </div>
+                </div>
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm flex gap-4">
+                    <div class="w-9 h-9 shrink-0 bg-mint border-2 border-night rounded-full flex items-center justify-center font-black">4</div>
+                    <div>
+                        <h3 class="font-black mb-1">實作｜帶走你的教案</h3>
+                        <p class="text-sm text-nightSoft font-medium">用你自己場域的照片實際出題，現場互玩互評。離開教室時，手上就有一份能直接帶學生跑的導覽遊戲教案。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 手作道具 -->
+    <section class="py-16 dot-bg border-t-[3px] border-night px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-black text-center mb-4">解謎道具<span class="marker-sky">動手做</span></h2>
+            <p class="text-center text-nightSoft font-medium mb-10">道具不用貴，會用才是魔法。三樣都是低成本、高驚喜的經典款。</p>
+            <img src="images/lv4-props.png" alt="解謎道具動手做：紙骰、轉盤、遮色眼鏡"
+                 class="w-full rounded-3xl border-[3px] border-night shadow-pop mb-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white border-[3px] border-night rounded-2xl p-6 shadow-popSm text-center">
+                    <div class="text-4xl mb-3">🎲</div>
+                    <h3 class="font-black text-lg mb-2">紙骰</h3>
+                    <p class="text-sm text-nightSoft font-medium">立方體謎題盒，六個面都能藏線索，翻轉對位就是一道謎。</p>
+                </div>
+                <div class="bg-white border-[3px] border-night rounded-2xl p-6 shadow-popSm text-center">
+                    <div class="text-4xl mb-3">🎡</div>
+                    <h3 class="font-black text-lg mb-2">轉盤</h3>
+                    <p class="text-sm text-nightSoft font-medium">大中小三層圓盤，轉到正確角度線索才會對齊——經典的密碼盤玩法。</p>
+                </div>
+                <div class="bg-white border-[3px] border-night rounded-2xl p-6 shadow-popSm text-center">
+                    <div class="text-4xl mb-3">🕶️</div>
+                    <h3 class="font-black text-lg mb-2">遮色眼鏡</h3>
+                    <p class="text-sm text-nightSoft font-medium">戴上紅色濾片，藏在圖片裡的答案才會浮現——全場尖叫指數最高。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 你會帶走 -->
+    <section class="py-16 bg-white border-t-[3px] border-night px-4">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-black text-center mb-10">下課時，你手上會有<span class="marker">這些</span></h2>
+            <ul class="space-y-3.5">
+                <li class="bg-cream border-[3px] border-night rounded-2xl p-5 shadow-popSm flex items-start gap-3">
+                    <span class="text-xl">🧭</span>
+                    <span><strong class="font-black">一套現地出題方法</strong><span class="text-nightSoft font-medium"> — 顏色、數量、文字轉換⋯任何場地都能就地取材變謎題</span></span>
+                </li>
+                <li class="bg-cream border-[3px] border-night rounded-2xl p-5 shadow-popSm flex items-start gap-3">
+                    <span class="text-xl">🛠️</span>
+                    <span><strong class="font-black">三樣手作道具原型</strong><span class="text-nightSoft font-medium"> — 紙骰、轉盤、遮色眼鏡，回去照著做就能量產</span></span>
+                </li>
+                <li class="bg-cream border-[3px] border-night rounded-2xl p-5 shadow-popSm flex items-start gap-3">
+                    <span class="text-xl">📋</span>
+                    <span><strong class="font-black">一份可執行教案</strong><span class="text-nightSoft font-medium"> — 用你自己場域出的題，回校微調就能帶學生跑</span></span>
+                </li>
+                <li class="bg-cream border-[3px] border-night rounded-2xl p-5 shadow-popSm flex items-start gap-3">
+                    <span class="text-xl">🚩</span>
+                    <span><strong class="font-black">帶隊跑關實務</strong><span class="text-nightSoft font-medium"> — 分組、計時、防呆、風險控管，第一次帶就上手</span></span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 適合誰 -->
+    <section class="py-16 dot-bg border-t-[3px] border-night px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-black text-center mb-10">這堂課<span class="marker-sky">適合你嗎</span>？</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white border-[3px] border-night rounded-2xl p-6 shadow-popSm">
+                    <h3 class="font-black text-lg mb-3">適合</h3>
+                    <ul class="space-y-2 text-sm text-nightSoft font-medium">
+                        <li>✅ 常帶校外教學、戶外課的老師</li>
+                        <li>✅ 想在校園辦實境解謎活動的老師與行政</li>
+                        <li>✅ 導覽員、社區營造與地方創生工作者</li>
+                        <li>✅ 上過前三彈、想走出教室實戰的夥伴</li>
+                    </ul>
+                </div>
+                <div class="bg-white border-[3px] border-night rounded-2xl p-6 shadow-popSm">
+                    <h3 class="font-black text-lg mb-3">先知道</h3>
+                    <ul class="space-y-2 text-sm text-nightSoft font-medium">
+                        <li>💡 一日班課程，需安排 6 小時整天研習</li>
+                        <li>💡 有戶外跑關段落，請穿好走的鞋</li>
+                        <li>💡 沒上過前三彈也能參加，課程獨立成班</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最終 CTA -->
+    <section class="py-16 bg-white border-t-[3px] border-night px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-2xl md:text-3xl font-black mb-4">想把這場冒險帶進<span class="marker">你的場域</span>嗎？</h2>
+            <p class="text-nightSoft font-medium mb-8">校內研習、教師社群、機關團體邀約皆可洽詢，課程可依場域特性客製調整。</p>
+            <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 px-9 py-4 bg-coral text-night border-[3px] border-night rounded-2xl font-black text-lg hover:bg-coralDark transition-all shadow-pop hover:shadow-popHover">
+                💬 私訊 FB 洽詢邀約
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-night py-10 text-center border-t-[3px] border-night">
+        <p class="text-white/70 text-sm font-medium">一百分遊戲教育 ｜ <a href="index.html" class="underline hover:text-sunny">回官網</a> ｜ <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener" class="underline hover:text-sunny">FB 粉專</a></p>
+    </footer>
+</body>
+</html>
