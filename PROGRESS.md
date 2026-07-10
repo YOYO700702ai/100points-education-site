@@ -36,3 +36,10 @@
 - Summary: 第二輪依 HANDOFF.md 改畫低飽和粉彩扁平風，每張 3~5 元素、大量留白、無文字；9 張同一套插畫語言。
 - Verification: Claude 驗收 9 張風格一致、符合粉彩規範、皆無文字。
 - Notes: 這輪 Codex 未動 index.html（HTML 由 Claude 處理）。
+
+### 2026-07-10 09:05 - Claude Opus 4.7
+- Agent: Claude Opus 4.7
+- Changed: `course-vibecoding.html`（新增）、`course-gem.html`（新增）、`index.html`、`PROGRESS.md`
+- Summary: 新增兩個線上課介紹頁。VIBE CODING 頁內容取自「AI 程式 × Codex 實戰」報名頁（學員與課程管理/課程教材/教師課程_Codex版/報名頁），含痛點/翻轉/六大收穫/試玩/配套/適合誰/課程資訊，CTA 連到 netlify 報名頁；GEM 頁顯示「本堂課目前不開放邀約」。首頁兩張線上課卡片標題區改為可點擊連入介紹頁，加「開放報名中／暫不開放」狀態章與「課程介紹 →」。
+- Verification: headless Edge 截圖兩頁渲染正常（1440px）；index 卡片 Edit 成功。
+- Notes: 報名頁若改期（目前 2026/8/9），course-vibecoding.html 的日期與費用要同步更新。

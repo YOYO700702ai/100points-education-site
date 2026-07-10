@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIBE CODING 搭配動態題庫｜AI 程式 × Codex 實戰 — 一百分遊戲教育</title>
+    <meta name="description" content="給老師的 3 小時線上實戰課：一句話讓 Codex 幫你做出班級專屬答題遊戲、自動排程整理成績、AI 畫教材插圖。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Noto Sans TC"', 'sans-serif'] },
+                    colors: {
+                        cream: '#FFF8E7', sunny: '#FFD66B', sunnyDark: '#E8B93E',
+                        coral: '#FF8A5C', coralDark: '#F26B3A',
+                        sky: '#5FCFE8', skyDark: '#33A9C6',
+                        night: '#2B2B46', nightSoft: '#3D3D5C', mint: '#7FE3B8',
+                    },
+                    boxShadow: {
+                        pop: '4px 4px 0 0 #2B2B46',
+                        popSm: '2px 2px 0 0 #2B2B46',
+                        popHover: '6px 6px 0 0 #2B2B46',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .dot-bg { background-color: #FFF8E7; background-image: radial-gradient(rgba(43,43,70,.12) 1px, transparent 1.5px); background-size: 28px 28px; }
+        .marker { background: linear-gradient(transparent 58%, #FFE18F 58%, #FFE18F 92%, transparent 92%); padding: 0 .1em; }
+        .marker-sky { background: linear-gradient(transparent 58%, #C9EEF9 58%, #C9EEF9 92%, transparent 92%); padding: 0 .1em; }
+    </style>
+</head>
+<body class="font-sans text-night bg-cream antialiased">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-sm border-b-[3px] border-night">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="w-9 h-9 bg-sunny border-[3px] border-night rounded-xl flex items-center justify-center font-black text-sm shadow-popSm">100</div>
+                <span class="font-black text-base tracking-wider hidden sm:block">一百分遊戲教育</span>
+            </a>
+            <a href="index.html#booking" class="px-4 py-2 rounded-full text-sm font-bold hover:bg-sunny/40 transition-colors flex items-center gap-1">← 回官網</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="dot-bg pt-28 pb-16 text-center px-4">
+        <div class="max-w-3xl mx-auto space-y-6">
+            <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border-[3px] border-night font-black text-sm shadow-popSm">
+                💻 線上公開課 ｜ 🗓 2026/8/9（日）19:00–22:00
+            </div>
+            <h1 class="text-3xl md:text-5xl font-black leading-tight">
+                VIBE CODING 搭配<span class="marker">動態題庫</span>
+            </h1>
+            <p class="text-lg md:text-xl font-bold text-nightSoft">AI 程式 × Codex 實戰｜老師的 AI 自動化工作術</p>
+            <p class="text-lg md:text-2xl font-black">你講一句話，AI 把事情<span class="marker-sky">做完</span>給你看</p>
+            <p class="text-nightSoft font-medium max-w-xl mx-auto">
+                3 小時做出班級專屬答題遊戲、AI 自動畫教材插圖、成績週報自動產出。<br>
+                不用會程式——你會講話，就會指揮 AI。
+            </p>
+            <div class="pt-2">
+                <a href="https://codex-course-signup-yoyo.netlify.app/" target="_blank" rel="noopener"
+                   class="inline-flex items-center gap-2 px-8 py-4 bg-coral text-night border-[3px] border-night rounded-2xl font-black text-lg hover:bg-coralDark transition-all shadow-pop hover:shadow-popHover">
+                    ✍️ 前往報名頁
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 痛點 -->
+    <section class="py-16 bg-white border-t-[3px] border-night px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-black text-center mb-10">這三件事，是不是<span class="marker">每週都在重演</span>？</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm">
+                    <h3 class="font-black text-lg mb-2">🌙 出題出到半夜</h3>
+                    <p class="text-sm text-nightSoft font-medium">花兩小時出一份複習卷，排版、對答案、印刷版⋯⋯全部自己來。AI 明明很聰明，最後動手的還是你。</p>
+                </div>
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm">
+                    <h3 class="font-black text-lg mb-2">🗑 學生考完就忘</h3>
+                    <p class="text-sm text-nightSoft font-medium">你熬夜出的考卷，學生寫完 10 分鐘就進了回收桶。紙本考卷無趣、不能重玩，錯的題目下次照樣錯。</p>
+                </div>
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm">
+                    <h3 class="font-black text-lg mb-2">📚 行政做不完</h3>
+                    <p class="text-sm text-nightSoft font-medium">成績登記、週報、家長溝通簡報、班級公告⋯⋯同樣的表格每週重做一次，吃掉你備課和休息的時間。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 翻轉 -->
+    <section class="py-16 dot-bg border-t-[3px] border-night px-4">
+        <div class="max-w-3xl mx-auto text-center space-y-6">
+            <h2 class="text-2xl md:text-3xl font-black leading-snug">問題不在 AI 不夠聰明，<br>在它<span class="marker-sky">「沒辦法替你做完」</span></h2>
+            <p class="text-nightSoft font-medium">
+                ChatGPT 網頁版像一位沒有手的顧問：會想、會講、會寫，但不會開檔、不會存檔、不會執行。<br>
+                這堂課教你用 <strong class="font-black text-night">Codex</strong>——OpenAI 的 AI 代理人，它直接在你的電腦上動手：
+            </p>
+            <div class="bg-sunny border-[3px] border-night rounded-2xl px-6 py-6 font-black text-base md:text-lg shadow-pop">
+                你說「幫我把題庫變成打怪遊戲」→<br>
+                它自己讀你的題庫檔、寫好遊戲、畫好美術、打開瀏覽器給你驗收 ✨
+            </div>
+        </div>
+    </section>
+
+    <!-- 你會學到 -->
+    <section class="py-16 bg-white border-t-[3px] border-night px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-black text-center mb-10">3 小時，你會<span class="marker">帶走這些</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-5 shadow-popSm flex gap-4">
+                    <div class="w-9 h-9 shrink-0 bg-mint border-2 border-night rounded-full flex items-center justify-center font-black">1</div>
+                    <div><h3 class="font-black mb-1">指揮 AI 的方法</h3><p class="text-sm text-nightSoft font-medium">Prompt 的固定結構與「給脈絡」的溝通邏輯——之後做任何東西都能套用。</p></div>
+                </div>
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-5 shadow-popSm flex gap-4">
+                    <div class="w-9 h-9 shrink-0 bg-mint border-2 border-night rounded-full flex items-center justify-center font-black">2</div>
+                    <div><h3 class="font-black mb-1">你自己科目的答題遊戲</h3><p class="text-sm text-nightSoft font-medium">把你帶來的題庫（Word / PDF / 手寫拍照都行）直接變成有金幣、有 BOSS 的闖關遊戲。</p></div>
+                </div>
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-5 shadow-popSm flex gap-4">
+                    <div class="w-9 h-9 shrink-0 bg-mint border-2 border-night rounded-full flex items-center justify-center font-black">3</div>
+                    <div><h3 class="font-black mb-1">AI 畫圖直接進教材</h3><p class="text-sm text-nightSoft font-medium">Codex 內建繪圖模型，插圖、封面、圖表一句話畫好自動存檔——連繁體中文都寫得漂漂亮亮。</p></div>
+                </div>
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-5 shadow-popSm flex gap-4">
+                    <div class="w-9 h-9 shrink-0 bg-mint border-2 border-night rounded-full flex items-center justify-center font-black">4</div>
+                    <div><h3 class="font-black mb-1">自動排程 Automations</h3><p class="text-sm text-nightSoft font-medium">每週五自動整理成績產週報、每天自動列缺交名單——設定一次，AI 準時上班。</p></div>
+                </div>
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-5 shadow-popSm flex gap-4">
+                    <div class="w-9 h-9 shrink-0 bg-mint border-2 border-night rounded-full flex items-center justify-center font-black">5</div>
+                    <div><h3 class="font-black mb-1">文書三件套＋手機遠端</h3><p class="text-sm text-nightSoft font-medium">試算表、簡報、PDF 它都會做；出門在外用手機遙控家裡電腦的 AI 繼續幹活。</p></div>
+                </div>
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-5 shadow-popSm flex gap-4">
+                    <div class="w-9 h-9 shrink-0 bg-mint border-2 border-night rounded-full flex items-center justify-center font-black">6</div>
+                    <div><h3 class="font-black mb-1">作品上線分享</h3><p class="text-sm text-nightSoft font-medium">遊戲推上網路拿到專屬網址，一條連結發到班群，學生手機點開就能玩。</p></div>
+                </div>
+            </div>
+            <p class="text-center mt-10 text-nightSoft font-medium max-w-2xl mx-auto">
+                上完課的那個週一：你把連結丟進班群，學生午休搶著玩你做的遊戲，錯的題目反而記得最牢；<br class="hidden md:block">
+                而你上週要熬夜做的成績週報——AI 在週五下午就自動寄給你了。
+            </p>
+        </div>
+    </section>
+
+    <!-- 試玩 -->
+    <section class="py-16 dot-bg border-t-[3px] border-night px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-black text-center mb-4">先玩玩看：<span class="marker-sky">同一套方法</span>做出來的遊戲</h2>
+            <p class="text-center text-nightSoft font-medium mb-10">這兩個作品就是用課堂上教的方法做的——把課文變成實境解謎。<br class="hidden md:block">手機、電腦都能直接玩，玩過你就知道學生為什麼會搶著寫題目。</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <a href="https://yoyo700702ai.github.io/taohuayuan-ji/" target="_blank" rel="noopener"
+                   class="block bg-white border-[3px] border-night rounded-2xl shadow-pop hover:shadow-popHover hover:-translate-y-1 transition-all overflow-hidden">
+                    <img src="https://yoyo700702ai.github.io/taohuayuan-ji/assets/cover.png" alt="桃花源記實境解謎" class="w-full aspect-video object-cover border-b-[3px] border-night">
+                    <div class="p-5">
+                        <h3 class="font-black text-lg">🌸 桃花源記 · 實境解謎</h3>
+                        <p class="text-sm text-nightSoft font-medium mt-1">跟著武陵漁人解開課文謎題 → 點擊試玩</p>
+                    </div>
+                </a>
+                <a href="https://yoyo700702ai.github.io/hongmen-banquet/" target="_blank" rel="noopener"
+                   class="block bg-white border-[3px] border-night rounded-2xl shadow-pop hover:shadow-popHover hover:-translate-y-1 transition-all overflow-hidden">
+                    <img src="https://yoyo700702ai.github.io/hongmen-banquet/assets/cover.png" alt="鴻門宴實境解謎" class="w-full aspect-video object-cover border-b-[3px] border-night">
+                    <div class="p-5">
+                        <h3 class="font-black text-lg">⚔️ 鴻門宴 · 實境解謎</h3>
+                        <p class="text-sm text-nightSoft font-medium mt-1">在殺機四伏的宴席做出抉擇 → 點擊試玩</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 配套 -->
+    <section class="py-16 bg-white border-t-[3px] border-night px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-black text-center mb-4">報名就有的<span class="marker">四個配套</span></h2>
+            <p class="text-center text-nightSoft font-medium mb-10">這堂課<strong class="font-black text-night">沒有錄影回放</strong>——因為我們準備了更有用的四件事，陪你把學到的真正用起來。</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm">
+                    <h3 class="font-black text-lg mb-2">🤝 群組陪跑</h3>
+                    <p class="text-sm text-nightSoft font-medium">課後不解散。專屬群組裡卡關就問、作品互相觀摩，老師和夥伴一起陪你把工具用進日常。</p>
+                </div>
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm">
+                    <h3 class="font-black text-lg mb-2">🔁 複訓只要 200 元</h3>
+                    <p class="text-sm text-nightSoft font-medium">之後同課程的場次，舊生只要 200 元就能回來重複聽——聽第二次的收穫常常比第一次還多。</p>
+                </div>
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm">
+                    <h3 class="font-black text-lg mb-2">📖 文字講義整理</h3>
+                    <p class="text-sm text-nightSoft font-medium">課程重點整理成文字講義，所有 prompt 一鍵複製。上課專心跟做，回家照講義複習。</p>
+                </div>
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm">
+                    <h3 class="font-black text-lg mb-2">🎁 會長大的 AI 小禮包</h3>
+                    <p class="text-sm text-nightSoft font-medium">課後寫心得，送你「補充小禮包網站」——內容不定時更新，拿到一次，等於拿到一份<strong class="font-black text-night">會持續長大</strong>的 AI 資源庫。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 適合誰 -->
+    <section class="py-16 dot-bg border-t-[3px] border-night px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-black text-center mb-10">這堂課<span class="marker-sky">適合你嗎</span>？</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white border-[3px] border-night rounded-2xl p-6 shadow-popSm">
+                    <h3 class="font-black text-lg mb-3">適合</h3>
+                    <ul class="space-y-2 text-sm text-nightSoft font-medium">
+                        <li>✅ 完全沒寫過程式的中小學教師</li>
+                        <li>✅ 想把考卷、講義「遊戲化」的老師</li>
+                        <li>✅ 想用 AI 減少行政重複工作的老師</li>
+                        <li>✅ 用過 ChatGPT，但覺得「還是好麻煩」的人</li>
+                    </ul>
+                </div>
+                <div class="bg-white border-[3px] border-night rounded-2xl p-6 shadow-popSm">
+                    <h3 class="font-black text-lg mb-3">不適合</h3>
+                    <ul class="space-y-2 text-sm text-nightSoft font-medium">
+                        <li>❌ 想深入學程式語言本身的人（我們教「指揮」，不教語法）</li>
+                        <li>❌ 不打算訂閱 ChatGPT 付費方案的人（Codex 需要 Plus 以上）</li>
+                        <li>❌ 期待「全自動不用動腦」的人——你還是課堂的主人</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 課程資訊 -->
+    <section class="py-16 bg-white border-t-[3px] border-night px-4">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-black text-center mb-10">課程<span class="marker">資訊</span></h2>
+            <div class="bg-cream border-[3px] border-night rounded-2xl shadow-pop overflow-hidden">
+                <table class="w-full text-sm md:text-base">
+                    <tbody class="divide-y-2 divide-night/10">
+                        <tr><td class="px-5 py-3.5 font-black whitespace-nowrap w-28">課程名稱</td><td class="px-5 py-3.5 font-medium text-nightSoft">AI 程式 × Codex 實戰｜老師的 AI 自動化工作術</td></tr>
+                        <tr><td class="px-5 py-3.5 font-black whitespace-nowrap">日期時間</td><td class="px-5 py-3.5 font-medium text-nightSoft"><strong class="font-black text-night">2026/8/9（日）19:00–22:00</strong>（3 小時，線上直播實作）</td></tr>
+                        <tr><td class="px-5 py-3.5 font-black whitespace-nowrap">上課方式</td><td class="px-5 py-3.5 font-medium text-nightSoft">線上（報名後於 LINE 群公布會議連結）；全程跟著老師動手做</td></tr>
+                        <tr><td class="px-5 py-3.5 font-black whitespace-nowrap">費用</td><td class="px-5 py-3.5 font-medium text-nightSoft"><strong class="font-black text-coralDark">第一次參加 NT$1,500</strong>｜曾上過 AI 程式課程的舊夥伴 <strong class="font-black text-coralDark">NT$300</strong></td></tr>
+                        <tr><td class="px-5 py-3.5 font-black whitespace-nowrap">名額</td><td class="px-5 py-3.5 font-medium text-nightSoft">25 位（不含舊生夥伴；滿額關閉報名）</td></tr>
+                        <tr><td class="px-5 py-3.5 font-black whitespace-nowrap">課前準備</td><td class="px-5 py-3.5 font-medium text-nightSoft">① ChatGPT 付費帳號（Plus 以上）② 安裝 Codex 桌面 App ③ GitHub 帳號 ④ 自備一份題庫（至少 20 題，格式不拘）——報名後會收到手把手課前指南</td></tr>
+                        <tr><td class="px-5 py-3.5 font-black whitespace-nowrap">主辦</td><td class="px-5 py-3.5 font-medium text-nightSoft">一百分遊戲教育</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center mt-10">
+                <a href="https://codex-course-signup-yoyo.netlify.app/" target="_blank" rel="noopener"
+                   class="inline-flex items-center gap-2 px-9 py-4 bg-coral text-night border-[3px] border-night rounded-2xl font-black text-lg hover:bg-coralDark transition-all shadow-pop hover:shadow-popHover">
+                    ✍️ 我要報名
+                </a>
+                <p class="text-sm text-nightSoft font-medium mt-4">課程細節、優惠資格與常見問題，報名頁上都有完整說明。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-night py-10 text-center border-t-[3px] border-night">
+        <p class="text-white/70 text-sm font-medium">一百分遊戲教育 ｜ <a href="index.html" class="underline hover:text-sunny">回官網</a> ｜ <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener" class="underline hover:text-sunny">FB 粉專</a></p>
+    </footer>
+</body>
+</html>
