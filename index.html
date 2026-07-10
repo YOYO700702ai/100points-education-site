@@ -19,15 +19,15 @@
                     },
                     colors: {
                         cream: '#FFF8E7',      /* 奶油底色 */
-                        sunny: '#FFC93C',      /* 亮黃 */
-                        sunnyDark: '#F5B301',
-                        coral: '#FF6B35',      /* 珊瑚橘（主 CTA） */
-                        coralDark: '#E8531F',
-                        sky: '#2EC4E6',        /* 天藍 */
-                        skyDark: '#189FBF',
+                        sunny: '#FFD66B',      /* 柔黃 */
+                        sunnyDark: '#E8B93E',
+                        coral: '#FF8A5C',      /* 柔珊瑚（主 CTA） */
+                        coralDark: '#F26B3A',
+                        sky: '#5FCFE8',        /* 粉藍 */
+                        skyDark: '#33A9C6',
                         night: '#2B2B46',      /* 遊戲夜空藍（深色區塊/文字） */
                         nightSoft: '#3D3D5C',
-                        mint: '#3DDC97',       /* 點綴綠 */
+                        mint: '#7FE3B8',       /* 點綴綠 */
                     },
                     boxShadow: {
                         pop: '4px 4px 0 0 #2B2B46',          /* 貼紙式硬陰影 */
@@ -56,20 +56,20 @@
         .star-bg {
             background-color: #2B2B46;
             background-image:
-                radial-gradient(circle at 15% 25%, rgba(255, 201, 60, 0.9) 1px, transparent 2px),
+                radial-gradient(circle at 15% 25%, rgba(255, 214, 107, 0.9) 1px, transparent 2px),
                 radial-gradient(circle at 45% 70%, rgba(255, 255, 255, 0.5) 1px, transparent 2px),
-                radial-gradient(circle at 75% 20%, rgba(46, 196, 230, 0.8) 1px, transparent 2px),
-                radial-gradient(circle at 90% 60%, rgba(255, 201, 60, 0.6) 1px, transparent 2px),
+                radial-gradient(circle at 75% 20%, rgba(95, 207, 232, 0.8) 1px, transparent 2px),
+                radial-gradient(circle at 90% 60%, rgba(255, 214, 107, 0.6) 1px, transparent 2px),
                 radial-gradient(circle at 30% 90%, rgba(255, 255, 255, 0.4) 1px, transparent 2px);
             background-size: 260px 260px;
         }
         /* 標題底下的手繪感螢光筆 */
         .marker {
-            background: linear-gradient(transparent 58%, #FFC93C 58%, #FFC93C 92%, transparent 92%);
+            background: linear-gradient(transparent 58%, #FFE18F 58%, #FFE18F 92%, transparent 92%);
             padding: 0 0.1em;
         }
         .marker-sky {
-            background: linear-gradient(transparent 58%, #A9E7F5 58%, #A9E7F5 92%, transparent 92%);
+            background: linear-gradient(transparent 58%, #C9EEF9 58%, #C9EEF9 92%, transparent 92%);
             padding: 0 0.1em;
         }
         /* 冒險地圖虛線路徑 */
@@ -121,7 +121,7 @@
                     <a href="#map" class="px-4 py-2 rounded-full text-sm font-bold hover:bg-sunny/40 transition-colors">課程地圖</a>
                     <a href="#booking" class="px-4 py-2 rounded-full text-sm font-bold hover:bg-sunny/40 transition-colors">邀約方案</a>
                     <a href="#gallery" class="px-4 py-2 rounded-full text-sm font-bold hover:bg-sunny/40 transition-colors">研習實況</a>
-                    <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer" class="ml-3 px-5 py-2 bg-coral text-white border-[3px] border-night rounded-full text-sm font-black hover:bg-coralDark transition-colors shadow-popSm">立即邀約</a>
+                    <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer" class="ml-3 px-5 py-2 bg-coral text-night border-[3px] border-night rounded-full text-sm font-black hover:bg-coralDark transition-colors shadow-popSm">立即邀約</a>
                 </div>
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-sunny/40 transition-colors" aria-label="開啟選單">
@@ -137,7 +137,7 @@
                 <a href="#map" class="block px-4 py-3 rounded-xl font-bold text-sm hover:bg-sunny/40 transition-colors" onclick="closeMobileMenu()">課程地圖</a>
                 <a href="#booking" class="block px-4 py-3 rounded-xl font-bold text-sm hover:bg-sunny/40 transition-colors" onclick="closeMobileMenu()">邀約方案</a>
                 <a href="#gallery" class="block px-4 py-3 rounded-xl font-bold text-sm hover:bg-sunny/40 transition-colors" onclick="closeMobileMenu()">研習實況</a>
-                <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer" class="block mt-2 px-4 py-3 bg-coral text-white border-[3px] border-night rounded-xl font-black text-sm text-center shadow-popSm" onclick="closeMobileMenu()">立即邀約</a>
+                <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer" class="block mt-2 px-4 py-3 bg-coral text-night border-[3px] border-night rounded-xl font-black text-sm text-center shadow-popSm" onclick="closeMobileMenu()">立即邀約</a>
             </div>
         </div>
     </nav>
@@ -163,7 +163,7 @@
                     我們把學科知識變成實境解謎遊戲，讓老師搶著學、學生搶著玩——教育活動也能輕鬆做！
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-2">
-                    <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-coral text-white border-[3px] border-night rounded-2xl font-black text-lg hover:bg-coralDark hover:shadow-popHover transition-all shadow-pop flex items-center justify-center gap-2">
+                    <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-coral text-night border-[3px] border-night rounded-2xl font-black text-lg hover:bg-coralDark hover:shadow-popHover transition-all shadow-pop flex items-center justify-center gap-2">
                         <i data-lucide="facebook" class="w-5 h-5"></i>
                         立即邀約研習
                     </a>
@@ -218,14 +218,14 @@
                 </div>
                 <!-- Step 2 體驗 -->
                 <div class="bg-cream border-[3px] border-night rounded-3xl p-6 shadow-pop hover:shadow-popHover hover:-translate-y-1.5 transition-all text-center relative">
-                    <span class="absolute -top-3.5 left-5 bg-coral text-white border-2 border-night rounded-full px-3 py-0.5 text-xs font-black">STEP 2</span>
+                    <span class="absolute -top-3.5 left-5 bg-coral text-night border-2 border-night rounded-full px-3 py-0.5 text-xs font-black">STEP 2</span>
                     <div class="w-16 h-16 mx-auto bg-white border-[3px] border-night rounded-2xl flex items-center justify-center mb-4 text-3xl">🏃</div>
                     <h3 class="font-black text-xl mb-2">體驗</h3>
                     <p class="text-sm text-nightSoft font-medium">先當玩家親自跑關，再學設計</p>
                 </div>
                 <!-- Step 3 實作分析 -->
                 <div class="bg-cream border-[3px] border-night rounded-3xl p-6 shadow-pop hover:shadow-popHover hover:-translate-y-1.5 transition-all text-center relative">
-                    <span class="absolute -top-3.5 left-5 bg-sky text-white border-2 border-night rounded-full px-3 py-0.5 text-xs font-black">STEP 3</span>
+                    <span class="absolute -top-3.5 left-5 bg-sky text-night border-2 border-night rounded-full px-3 py-0.5 text-xs font-black">STEP 3</span>
                     <div class="w-16 h-16 mx-auto bg-white border-[3px] border-night rounded-2xl flex items-center justify-center mb-4 text-3xl">🛠️</div>
                     <h3 class="font-black text-xl mb-2">實作分析</h3>
                     <p class="text-sm text-nightSoft font-medium">小組動手設計，現場回饋即時修正</p>
@@ -252,7 +252,7 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 items-start">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
                 <!-- 王漢克 -->
                 <div class="bg-white border-[3px] border-night rounded-3xl p-6 shadow-pop hover:shadow-popHover hover:-translate-y-1.5 transition-all">
                     <div class="w-24 h-24 mx-auto rounded-full mb-5 overflow-hidden border-[3px] border-night bg-sunny">
@@ -344,11 +344,11 @@
                                 <h4 class="text-xl font-black mb-1">初階工作坊</h4>
                                 <p class="text-sm text-nightSoft font-medium">解謎教學設計 ✕ 我的教室是密室</p>
                             </div>
-                            <ul class="space-y-1.5 text-sm text-nightSoft font-medium">
-                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>體驗大量課堂解謎題型</li>
-                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>學科知識轉化為謎題設計</li>
-                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>LINE@ 自動回復教學應用</li>
-                                <li class="flex items-start gap-2"><i data-lucide="gift" class="w-4 h-4 text-mint shrink-0 mt-0.5"></i>通關獎勵：一份完整可執行教案</li>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">題型體驗</strong><span class="text-nightSoft font-medium"> — 大量課堂解謎題型</span></span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">知識轉謎</strong><span class="text-nightSoft font-medium"> — 學科知識化為謎題設計</span></span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">LINE@ 應用</strong><span class="text-nightSoft font-medium"> — 自動回復教學</span></span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="gift" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i><span><strong class="font-black">通關獎勵</strong><span class="text-nightSoft font-medium"> — 一份完整可執行教案</span></span></li>
                             </ul>
                         </div>
                         <div class="hidden md:flex w-2/5 shrink-0 border-l-[3px] border-night bg-white items-center">
@@ -359,7 +359,7 @@
 
                 <!-- LV2 -->
                 <div class="relative">
-                    <div class="hidden md:flex absolute -left-10 top-8 w-[42px] h-[42px] bg-coral text-white border-[3px] border-night rounded-full items-center justify-center font-black text-sm z-10">2</div>
+                    <div class="hidden md:flex absolute -left-10 top-8 w-[42px] h-[42px] bg-coral text-night border-[3px] border-night rounded-full items-center justify-center font-black text-sm z-10">2</div>
                     <div class="bg-cream border-[3px] border-night rounded-3xl shadow-pop hover:shadow-popHover transition-all overflow-hidden flex flex-col md:flex-row md:items-stretch">
                         <div class="w-full md:hidden">
                             <!-- Codex 封面：images/lv2-cover.png -->
@@ -374,11 +374,11 @@
                                 <h4 class="text-xl font-black mb-1">進階工作坊</h4>
                                 <p class="text-sm text-nightSoft font-medium">議題與機制 ✕ 議起玩實境</p>
                             </div>
-                            <ul class="space-y-1.5 text-sm text-nightSoft font-medium">
-                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>親身體驗大型議題機制遊戲</li>
-                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>拆解遊戲獲勝條件與張力設計</li>
-                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>融入社會議題的遊戲化方法</li>
-                                <li class="flex items-start gap-2"><i data-lucide="gift" class="w-4 h-4 text-mint shrink-0 mt-0.5"></i>通關獎勵：完整議題機制教案</li>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">議題體驗</strong><span class="text-nightSoft font-medium"> — 親玩大型議題機制遊戲</span></span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">張力設計</strong><span class="text-nightSoft font-medium"> — 拆解獲勝條件與節奏</span></span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">議題融入</strong><span class="text-nightSoft font-medium"> — 社會議題的遊戲化方法</span></span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="gift" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i><span><strong class="font-black">通關獎勵</strong><span class="text-nightSoft font-medium"> — 完整議題機制教案</span></span></li>
                             </ul>
                         </div>
                         <div class="hidden md:flex w-2/5 shrink-0 border-l-[3px] border-night bg-white items-center">
@@ -389,7 +389,7 @@
 
                 <!-- LV3 -->
                 <div class="relative">
-                    <div class="hidden md:flex absolute -left-10 top-8 w-[42px] h-[42px] bg-sky text-white border-[3px] border-night rounded-full items-center justify-center font-black text-sm z-10">3</div>
+                    <div class="hidden md:flex absolute -left-10 top-8 w-[42px] h-[42px] bg-sky text-night border-[3px] border-night rounded-full items-center justify-center font-black text-sm z-10">3</div>
                     <div class="bg-cream border-[3px] border-night rounded-3xl shadow-pop hover:shadow-popHover transition-all overflow-hidden flex flex-col md:flex-row md:items-stretch">
                         <div class="w-full md:hidden">
                             <!-- Codex 封面：images/lv3-cover.png -->
@@ -404,11 +404,11 @@
                                 <h4 class="text-xl font-black mb-1">故事夢工場</h4>
                                 <p class="text-sm text-nightSoft font-medium">發散設計與敘事結構</p>
                             </div>
-                            <ul class="space-y-1.5 text-sm text-nightSoft font-medium">
-                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>1-4-1 敘事結構完整拆解</li>
-                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>打造沉浸式故事情境與角色</li>
-                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>玩家心流體驗設計技巧</li>
-                                <li class="flex items-start gap-2"><i data-lucide="gift" class="w-4 h-4 text-mint shrink-0 mt-0.5"></i>通關獎勵：發散思維創意教案</li>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">敘事結構</strong><span class="text-nightSoft font-medium"> — 1-4-1 結構完整拆解</span></span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">沉浸情境</strong><span class="text-nightSoft font-medium"> — 打造故事場景與角色</span></span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">心流設計</strong><span class="text-nightSoft font-medium"> — 玩家體驗設計技巧</span></span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="gift" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i><span><strong class="font-black">通關獎勵</strong><span class="text-nightSoft font-medium"> — 發散思維創意教案</span></span></li>
                             </ul>
                         </div>
                         <div class="hidden md:flex w-2/5 shrink-0 border-l-[3px] border-night bg-white items-center">
@@ -434,11 +434,11 @@
                                 <h4 class="text-xl font-black mb-1">戶外實境</h4>
                                 <p class="text-sm text-nightSoft font-medium">戶外導覽與道具應用實務</p>
                             </div>
-                            <ul class="space-y-1.5 text-sm text-nightSoft font-medium">
-                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>實際走訪校園景物設計謎題</li>
-                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>兩款校園實境遊戲全拆解</li>
-                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>手作解謎道具設計與製作</li>
-                                <li class="flex items-start gap-2"><i data-lucide="gift" class="w-4 h-4 text-mint shrink-0 mt-0.5"></i>通關獎勵：帶隊跑關實務教案</li>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">實地踏查</strong><span class="text-nightSoft font-medium"> — 走訪校園景物設計謎題</span></span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">遊戲拆解</strong><span class="text-nightSoft font-medium"> — 兩款校園實境遊戲</span></span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="sword" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">手作道具</strong><span class="text-nightSoft font-medium"> — 解謎道具設計與製作</span></span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="gift" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i><span><strong class="font-black">通關獎勵</strong><span class="text-nightSoft font-medium"> — 帶隊跑關實務教案</span></span></li>
                             </ul>
                         </div>
                         <div class="hidden md:flex w-2/5 shrink-0 border-l-[3px] border-night bg-white items-center">
@@ -478,68 +478,68 @@
                 <div class="p-6 md:p-8">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- D1 -->
-                        <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm hover:shadow-pop hover:-translate-y-1 transition-all">
-                            <div class="flex items-start justify-between mb-4">
-                                <div>
-                                    <span class="inline-block text-xs font-black px-2.5 py-1 rounded-full bg-sunny border-2 border-night mb-2">初階</span>
+                        <div class="bg-cream border-[3px] border-night rounded-2xl shadow-popSm hover:shadow-pop hover:-translate-y-1 transition-all overflow-hidden">
+                            <img src="images/card-d1.png" alt="初階研習課程 D1" class="w-full aspect-video object-cover border-b-[3px] border-night">
+                            <div class="p-6">
+                                <div class="flex items-center gap-2.5 mb-4">
+                                    <span class="inline-block text-xs font-black px-2.5 py-1 rounded-full bg-sunny border-2 border-night">初階</span>
                                     <h5 class="text-lg font-black">初階研習課程 D1</h5>
                                 </div>
-                                <span class="text-3xl font-black text-sunny select-none leading-none">D1</span>
+                                <ul class="space-y-2.5 text-sm">
+                                    <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">題海體驗</strong><span class="text-nightSoft font-medium"> — 大量課堂解謎題型玩一輪</span></span></li>
+                                    <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">題型拆解</strong><span class="text-nightSoft font-medium"> — 看懂每類謎題的設計邏輯</span></span></li>
+                                    <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">LINE@ 應用</strong><span class="text-nightSoft font-medium"> — 自動回復做出解謎關卡</span></span></li>
+                                    <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">教案產出</strong><span class="text-nightSoft font-medium"> — 帶走可直接執行的設計</span></span></li>
+                                </ul>
                             </div>
-                            <ul class="space-y-2 text-sm text-nightSoft font-medium">
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>大量題海題目體驗</li>
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>題目類型拆解說明</li>
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>LINE@ 自動回復設計教學</li>
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>實作設計教案產出</li>
-                            </ul>
                         </div>
                         <!-- D2 -->
-                        <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm hover:shadow-pop hover:-translate-y-1 transition-all">
-                            <div class="flex items-start justify-between mb-4">
-                                <div>
-                                    <span class="inline-block text-xs font-black px-2.5 py-1 rounded-full bg-sunny border-2 border-night mb-2">初階</span>
+                        <div class="bg-cream border-[3px] border-night rounded-2xl shadow-popSm hover:shadow-pop hover:-translate-y-1 transition-all overflow-hidden">
+                            <img src="images/card-d2.png" alt="初階研習課程 D2" class="w-full aspect-video object-cover border-b-[3px] border-night">
+                            <div class="p-6">
+                                <div class="flex items-center gap-2.5 mb-4">
+                                    <span class="inline-block text-xs font-black px-2.5 py-1 rounded-full bg-sunny border-2 border-night">初階</span>
                                     <h5 class="text-lg font-black">初階研習課程 D2</h5>
                                 </div>
-                                <span class="text-3xl font-black text-sunny select-none leading-none">D2</span>
+                                <ul class="space-y-2.5 text-sm">
+                                    <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">戶外解謎</strong><span class="text-nightSoft font-medium"> — 非電子實境遊戲親身體驗</span></span></li>
+                                    <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">流程拆解</strong><span class="text-nightSoft font-medium"> — 解謎設計步驟一次看懂</span></span></li>
+                                    <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">教案模板</strong><span class="text-nightSoft font-medium"> — 直接套用的實境遊戲模板</span></span></li>
+                                    <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">題目設計</strong><span class="text-nightSoft font-medium"> — 把知識點融入謎題</span></span></li>
+                                </ul>
                             </div>
-                            <ul class="space-y-2 text-sm text-nightSoft font-medium">
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>非電子戶外實境解謎體驗</li>
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>解謎設計流程拆解</li>
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>實境遊戲教案模板教學</li>
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>融入知識點題目設計</li>
-                            </ul>
                         </div>
                         <!-- 戶外實境與解謎道具 -->
-                        <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm hover:shadow-pop hover:-translate-y-1 transition-all">
-                            <div class="flex items-start justify-between mb-4">
-                                <div>
-                                    <span class="inline-block text-xs font-black px-2.5 py-1 rounded-full bg-coral text-white border-2 border-night mb-2">進階</span>
+                        <div class="bg-cream border-[3px] border-night rounded-2xl shadow-popSm hover:shadow-pop hover:-translate-y-1 transition-all overflow-hidden">
+                            <img src="images/card-outdoor.png" alt="戶外實境與解謎道具設計" class="w-full aspect-video object-cover border-b-[3px] border-night">
+                            <div class="p-6">
+                                <div class="flex items-center gap-2.5 mb-4">
+                                    <span class="inline-block text-xs font-black px-2.5 py-1 rounded-full bg-coral text-night border-2 border-night">進階</span>
                                     <h5 class="text-lg font-black">戶外實境與解謎道具設計</h5>
                                 </div>
-                                <i data-lucide="map-pin" class="w-8 h-8 text-coral/50 shrink-0"></i>
+                                <ul class="space-y-2.5 text-sm">
+                                    <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">遊戲拆解</strong><span class="text-nightSoft font-medium"> — 兩款校園實境遊戲全解析</span></span></li>
+                                    <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">場地出題</strong><span class="text-nightSoft font-medium"> — 運用現場建物設計謎題</span></span></li>
+                                    <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">教案產出</strong><span class="text-nightSoft font-medium"> — 實際融入校園景物</span></span></li>
+                                    <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">手作道具</strong><span class="text-nightSoft font-medium"> — 兩款解謎道具設計與運用</span></span></li>
+                                </ul>
                             </div>
-                            <ul class="space-y-2 text-sm text-nightSoft font-medium">
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>兩款校園實境遊戲拆解</li>
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>運用現場建物設計謎題方法</li>
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>實際融入校園景物產出教案</li>
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>兩款解謎手做道具設計與運用</li>
-                            </ul>
                         </div>
                         <!-- 議題機制設計 -->
-                        <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm hover:shadow-pop hover:-translate-y-1 transition-all">
-                            <div class="flex items-start justify-between mb-4">
-                                <div>
-                                    <span class="inline-block text-xs font-black px-2.5 py-1 rounded-full bg-coral text-white border-2 border-night mb-2">進階</span>
+                        <div class="bg-cream border-[3px] border-night rounded-2xl shadow-popSm hover:shadow-pop hover:-translate-y-1 transition-all overflow-hidden">
+                            <img src="images/card-issue.png" alt="議題機制設計課程" class="w-full aspect-video object-cover border-b-[3px] border-night">
+                            <div class="p-6">
+                                <div class="flex items-center gap-2.5 mb-4">
+                                    <span class="inline-block text-xs font-black px-2.5 py-1 rounded-full bg-coral text-night border-2 border-night">進階</span>
                                     <h5 class="text-lg font-black">議題機制設計課程</h5>
                                 </div>
-                                <i data-lucide="puzzle" class="w-8 h-8 text-coral/50 shrink-0"></i>
+                                <ul class="space-y-2.5 text-sm">
+                                    <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">機制體驗</strong><span class="text-nightSoft font-medium"> — 兩款大型機制遊戲</span></span></li>
+                                    <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">機制拆解</strong><span class="text-nightSoft font-medium"> — 看懂不同機制類型設計</span></span></li>
+                                    <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">議題融入</strong><span class="text-nightSoft font-medium"> — 各種議題的遊戲化方法</span></span></li>
+                                    <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coralDark shrink-0 mt-0.5"></i><span><strong class="font-black">實作產出</strong><span class="text-nightSoft font-medium"> — 現場做出能用的機制</span></span></li>
+                                </ul>
                             </div>
-                            <ul class="space-y-2 text-sm text-nightSoft font-medium">
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>兩款不同大型機制遊戲體驗</li>
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>拆解不同機制類型設計</li>
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>融入各種議題的設計方法</li>
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coral shrink-0 mt-0.5"></i>實際產出與運用</li>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -548,7 +548,7 @@
             <!-- 線上工作坊 -->
             <div class="bg-white border-[3px] border-night rounded-3xl shadow-pop overflow-hidden">
                 <div class="flex flex-col sm:flex-row sm:items-center gap-3 bg-sky border-b-[3px] border-night px-6 py-4">
-                    <div class="flex items-center gap-3 text-white">
+                    <div class="flex items-center gap-3 text-night">
                         <i data-lucide="laptop" class="w-6 h-6 shrink-0"></i>
                         <span class="font-black text-lg">線上工作坊</span>
                     </div>
@@ -579,7 +579,7 @@
                                 <img src="GEM展覽館圖片.jpg" alt="GEM 展覽館學員作品示範網站"
                                      class="w-full aspect-video object-cover object-top group-hover/img:scale-105 transition-transform duration-500">
                                 <div class="absolute inset-0 bg-night/0 group-hover/img:bg-night/30 transition-colors duration-300 flex items-center justify-center">
-                                    <span class="opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-sky text-white border-2 border-night text-xs font-black px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                                    <span class="opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-sky text-night border-2 border-night text-xs font-black px-3 py-1.5 rounded-full flex items-center gap-1.5">
                                         <i data-lucide="external-link" class="w-3 h-3"></i> 前往網站
                                     </span>
                                 </div>
@@ -604,7 +604,7 @@
                                 <img src="亞德雷大陸圖片.jpg" alt="亞德雷大陸答題 RPG 示範網站"
                                      class="w-full aspect-video object-cover object-top group-hover/img:scale-105 transition-transform duration-500">
                                 <div class="absolute inset-0 bg-night/0 group-hover/img:bg-night/30 transition-colors duration-300 flex items-center justify-center">
-                                    <span class="opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-sky text-white border-2 border-night text-xs font-black px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                                    <span class="opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-sky text-night border-2 border-night text-xs font-black px-3 py-1.5 rounded-full flex items-center gap-1.5">
                                         <i data-lucide="external-link" class="w-3 h-3"></i> 前往網站
                                     </span>
                                 </div>
@@ -615,7 +615,7 @@
                     <!-- 洽詢 CTA -->
                     <div class="mt-8 text-center">
                         <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener"
-                           class="inline-flex items-center gap-2 bg-coral text-white border-[3px] border-night font-black px-7 py-3.5 rounded-2xl hover:bg-coralDark transition-colors shadow-pop hover:shadow-popHover text-base">
+                           class="inline-flex items-center gap-2 bg-coral text-night border-[3px] border-night font-black px-7 py-3.5 rounded-2xl hover:bg-coralDark transition-colors shadow-pop hover:shadow-popHover text-base">
                             <i data-lucide="message-square" class="w-5 h-5"></i>
                             私訊 FB 洽詢課程細節
                         </a>
@@ -724,7 +724,7 @@
                     校內研習、教師社群、公開課邀約皆可洽詢，課程內容可依需求客製。
                 </p>
                 <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer"
-                   class="inline-flex items-center gap-3 px-9 py-4 bg-coral text-white border-[3px] border-night rounded-2xl font-black text-lg hover:bg-coralDark transition-all shadow-pop hover:shadow-popHover group">
+                   class="inline-flex items-center gap-3 px-9 py-4 bg-coral text-night border-[3px] border-night rounded-2xl font-black text-lg hover:bg-coralDark transition-all shadow-pop hover:shadow-popHover group">
                     <i data-lucide="facebook" class="w-5 h-5"></i>
                     立即私訊邀約
                     <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
