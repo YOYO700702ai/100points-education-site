@@ -71,3 +71,17 @@
 - Summary: 第四輪：延續 lv4 系列水彩繪本風畫 4 張初階插圖，中文標題入圖（我的教室是密室 hero、三格痛點漫畫、兩日課程旅程地圖、LINE@ 自動關主）。
 - Verification: Claude 驗收——4 張與 lv4 系列同風格，圖內標題「我的教室是密室／一聽考試就哀嚎／想玩解謎沒頭緒／怕活動沒人買單／兩日課程旅程／LINE@ 自動關主」等全部正確。
 - Notes: -
+
+### 2026-07-11 16:00 - Claude Opus 4.7
+- Agent: Claude Opus 4.7
+- Changed: `course-lv2.html`（新增）、`index.html`、`HANDOFF.md`、`PROGRESS.md`
+- Summary: 從進階班課綱 PPT（下載/2025.01 進階課程 花蓮版.pptx，PowerPoint COM 轉 PDF 176 頁後轉圖判讀）新建第二彈介紹頁：痛點三卡（說教/只剩好玩/機制沒花樣）／「讓學生當做決定的人」／一日旅程（玩兩場機制遊戲：街貓 TNR「喵生甚麼事」＋真品贗品鑑定→機制三層結構→議題融入三步驟→設定議題實作）／議題藏進遊戲特色區／帶走清單。首頁 LV2 卡與「議題機制設計課程」研習卡接連結，並補上「戶外實境與解謎道具設計」卡→course-lv4 的連結。
+- Verification: headless Edge 全頁截圖渲染正常；已 push 上線。
+- Notes: 四彈介紹頁只剩第三彈（故事夢工場）還沒做。
+
+### 2026-07-11 16:00 - Codex (GPT-5.5, 由 Claude 以官方 CLI 代發)
+- Agent: Codex gpt-5.5
+- Changed: `images/lv2-hero.png`、`images/lv2-pain.png`、`images/lv2-flow.png`、`images/lv2-issue.png`
+- Summary: 第五輪（改用官方 CLI + CODEX_HOME=.codex-cli，舊 sandbox-bin 已無繪圖能力）：延續系列水彩繪本風畫 4 張進階班插圖，中文標題入圖（議起玩實境 hero、三格痛點漫畫、一日課程旅程地圖、議題藏進遊戲裡天平圖）。
+- Verification: Claude 驗收——4 張同風格，標題字全部正確；lv2-flow 它自己裁掉左緣瑕疵後交付。
+- Notes: -

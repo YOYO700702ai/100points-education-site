@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第二彈：進階工作坊｜議題遊戲 × 機制變化 — 一百分遊戲教育</title>
+    <meta name="description" content="一日進階工作坊：親玩兩場大型機制遊戲（街貓 TNR 議題遊戲＋真品贗品鑑定），拆解機制三層結構，學會把社會議題藏進遊戲，實作產出議題機制教案。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Noto Sans TC"', 'sans-serif'] },
+                    colors: {
+                        cream: '#FFF8E7', sunny: '#FFD66B', sunnyDark: '#E8B93E',
+                        coral: '#FF8A5C', coralDark: '#F26B3A',
+                        sky: '#5FCFE8', skyDark: '#33A9C6',
+                        night: '#2B2B46', nightSoft: '#3D3D5C', mint: '#7FE3B8',
+                    },
+                    boxShadow: {
+                        pop: '4px 4px 0 0 #2B2B46',
+                        popSm: '2px 2px 0 0 #2B2B46',
+                        popHover: '6px 6px 0 0 #2B2B46',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .dot-bg { background-color: #FFF8E7; background-image: radial-gradient(rgba(43,43,70,.12) 1px, transparent 1.5px); background-size: 28px 28px; }
+        .marker { background: linear-gradient(transparent 58%, #FFE18F 58%, #FFE18F 92%, transparent 92%); padding: 0 .1em; }
+        .marker-sky { background: linear-gradient(transparent 58%, #C9EEF9 58%, #C9EEF9 92%, transparent 92%); padding: 0 .1em; }
+    </style>
+</head>
+<body class="font-sans text-night bg-cream antialiased">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-sm border-b-[3px] border-night">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="w-9 h-9 bg-sunny border-[3px] border-night rounded-xl flex items-center justify-center font-black text-sm shadow-popSm">100</div>
+                <span class="font-black text-base tracking-wider hidden sm:block">一百分遊戲教育</span>
+            </a>
+            <a href="index.html#map" class="px-4 py-2 rounded-full text-sm font-bold hover:bg-sunny/40 transition-colors">← 回官網</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="dot-bg pt-28 pb-16 text-center px-4">
+        <div class="max-w-3xl mx-auto space-y-6">
+            <img src="images/lv2-hero.png" alt="議起玩實境 — 進階工作坊：議題遊戲與機制設計"
+                 class="w-full rounded-3xl border-[3px] border-night shadow-pop">
+            <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border-[3px] border-night font-black text-sm shadow-popSm">
+                🏫 實體工作坊 ｜ 一日班 ｜ LV.2 進階區
+            </div>
+            <h1 class="text-3xl md:text-5xl font-black leading-tight">
+                第二彈：<span class="marker">進階</span>工作坊
+            </h1>
+            <p class="text-lg md:text-xl font-bold text-nightSoft">議題遊戲 × 機制變化 × 實作練習</p>
+            <p class="text-lg md:text-2xl font-black">議題不是用講的，是讓學生<span class="marker-sky">活進去</span></p>
+            <p class="text-nightSoft font-medium max-w-xl mx-auto">
+                親玩兩場大型機制遊戲、拆解機制的三層結構，<br>
+                學會把社會議題藏進遊戲——讓「做選擇」本身變成學習。
+            </p>
+            <div class="pt-2">
+                <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener"
+                   class="inline-flex items-center gap-2 px-8 py-4 bg-coral text-night border-[3px] border-night rounded-2xl font-black text-lg hover:bg-coralDark transition-all shadow-pop hover:shadow-popHover">
+                    💬 私訊 FB 洽詢邀約
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 痛點 -->
+    <section class="py-16 bg-white border-t-[3px] border-night px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-black text-center mb-10">教議題的老師，都懂這三種<span class="marker">卡關</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm">
+                    <h3 class="font-black text-lg mb-2">📢 議題課變成說教</h3>
+                    <p class="text-sm text-nightSoft font-medium">環保、動保、媒體識讀⋯⋯你講得語重心長，學生點頭如搗蒜——下課鐘一響，全部歸零。</p>
+                </div>
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm">
+                    <h3 class="font-black text-lg mb-2">🎈 玩完只剩「好玩」</h3>
+                    <p class="text-sm text-nightSoft font-medium">活動熱熱鬧鬧收場，問學生「你學到什麼？」——一片沉默。遊戲和學習中間，好像斷了一條線。</p>
+                </div>
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm">
+                    <h3 class="font-black text-lg mb-2">🔄 機制想不出花樣</h3>
+                    <p class="text-sm text-nightSoft font-medium">跑關、答題、比快搶分都用到膩了。想設計讓人「陷入兩難」的玩法，卻不知道從哪裡變出來。</p>
+                </div>
+            </div>
+            <img src="images/lv2-pain.png" alt="三大卡關：議題課變成說教、玩完只剩好玩、機制想不出花樣"
+                 class="w-full rounded-3xl border-[3px] border-night shadow-pop mt-8">
+        </div>
+    </section>
+
+    <!-- 翻轉 -->
+    <section class="py-16 dot-bg border-t-[3px] border-night px-4">
+        <div class="max-w-3xl mx-auto text-center space-y-6">
+            <h2 class="text-2xl md:text-3xl font-black leading-snug">讓學生當那個<br><span class="marker-sky">做決定的人</span></h2>
+            <p class="text-nightSoft font-medium">
+                資源有限、立場衝突、每個選擇都有代價——<br class="hidden md:block">
+                當學生在遊戲裡親手權衡過，議題就不再是課本上的一段話。
+            </p>
+            <div class="bg-sunny border-[3px] border-night rounded-2xl px-6 py-6 font-black text-base md:text-lg shadow-pop">
+                設定情境，創造經驗 → 情境互動，促進理解 → 在情境中，解決問題<br>
+                這就是議題遊戲化的三步魔法 ✨
+            </div>
+        </div>
+    </section>
+
+    <!-- 一日課程旅程 -->
+    <section class="py-16 bg-white border-t-[3px] border-night px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-black text-center mb-4">一日課程<span class="marker">旅程</span></h2>
+            <p class="text-center text-nightSoft font-medium mb-10">上午被機制推著走，下午換你設計機制推別人。</p>
+            <img src="images/lv2-flow.png" alt="一日課程旅程：玩兩場遊戲 → 拆解機制 → 融入議題 → 產出教案"
+                 class="w-full rounded-3xl border-[3px] border-night shadow-pop mb-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm flex gap-4">
+                    <div class="w-9 h-9 shrink-0 bg-sunny border-2 border-night rounded-full flex items-center justify-center font-black">1</div>
+                    <div>
+                        <h3 class="font-black mb-1">親玩兩場大型機制遊戲</h3>
+                        <p class="text-sm text-nightSoft font-medium">街貓 TNR 議題遊戲「喵生甚麼事」——在資源有限、居民抗議中照顧街貓；再加一場名畫真品贗品鑑定宴會。先感受機制張力，才知道好玩從哪來。</p>
+                    </div>
+                </div>
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm flex gap-4">
+                    <div class="w-9 h-9 shrink-0 bg-coral border-2 border-night rounded-full flex items-center justify-center font-black">2</div>
+                    <div>
+                        <h3 class="font-black mb-1">拆解機制三層結構</h3>
+                        <p class="text-sm text-nightSoft font-medium">議題活動 → 故事事件 → 玩法挑戰。把剛剛玩過的遊戲一層層攤開：獲勝條件怎麼訂、資源怎麼管、張力怎麼堆——機制不是靈感，是結構。</p>
+                    </div>
+                </div>
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm flex gap-4">
+                    <div class="w-9 h-9 shrink-0 bg-sky border-2 border-night rounded-full flex items-center justify-center font-black">3</div>
+                    <div>
+                        <h3 class="font-black mb-1">把議題藏進遊戲</h3>
+                        <p class="text-sm text-nightSoft font-medium">角色扮演、趣味任務、前導影片——學會用情境三步驟包裝任何議題，環境、動保、霸凌預防、媒體識讀都能套，還送一包好用的數位小工具。</p>
+                    </div>
+                </div>
+                <div class="bg-cream border-[3px] border-night rounded-2xl p-6 shadow-popSm flex gap-4">
+                    <div class="w-9 h-9 shrink-0 bg-mint border-2 border-night rounded-full flex items-center justify-center font-black">4</div>
+                    <div>
+                        <h3 class="font-black mb-1">實作：設定你的議題</h3>
+                        <p class="text-sm text-nightSoft font-medium">選定主題、收集資料、設定學習目標，套上模板把機制組進你的議題——帶著一份議題機制教案雛形離開教室。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 議題融入特色 -->
+    <section class="py-16 dot-bg border-t-[3px] border-night px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-black text-center mb-4">議題<span class="marker-sky">藏進遊戲裡</span></h2>
+            <p class="text-center text-nightSoft font-medium mb-10">以街貓 TNR 遊戲為例——玩家玩完自然就懂：什麼是 TNR、街貓造成什麼問題、我們能幫什麼忙。</p>
+            <img src="images/lv2-issue.png" alt="議題藏進遊戲裡：讓選擇成為學習"
+                 class="w-full rounded-3xl border-[3px] border-night shadow-pop mb-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white border-[3px] border-night rounded-2xl p-6 shadow-popSm text-center">
+                    <div class="text-4xl mb-3">🎭</div>
+                    <h3 class="font-black text-lg mb-2">設定情境</h3>
+                    <p class="text-sm text-nightSoft font-medium">角色扮演、前導影片，讓玩家「成為」議題裡的當事人，創造第一手經驗。</p>
+                </div>
+                <div class="bg-white border-[3px] border-night rounded-2xl p-6 shadow-popSm text-center">
+                    <div class="text-4xl mb-3">⚖️</div>
+                    <h3 class="font-black text-lg mb-2">互動兩難</h3>
+                    <p class="text-sm text-nightSoft font-medium">資源管理、立場衝突的機制設計，讓每個選擇都有代價——理解在權衡中發生。</p>
+                </div>
+                <div class="bg-white border-[3px] border-night rounded-2xl p-6 shadow-popSm text-center">
+                    <div class="text-4xl mb-3">🎯</div>
+                    <h3 class="font-black text-lg mb-2">任務促行動</h3>
+                    <p class="text-sm text-nightSoft font-medium">用任務把玩家推向真實行動——募資、查證、實地探訪，遊戲結束學習才開始。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 你會帶走 -->
+    <section class="py-16 bg-white border-t-[3px] border-night px-4">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-black text-center mb-10">下課時，你手上會有<span class="marker">這些</span></h2>
+            <ul class="space-y-3.5">
+                <li class="bg-cream border-[3px] border-night rounded-2xl p-5 shadow-popSm flex items-start gap-3">
+                    <span class="text-xl">🎲</span>
+                    <span><strong class="font-black">兩場遊戲的完整拆解</strong><span class="text-nightSoft font-medium"> — 議題卡牌＋鑑定機制，玩過也看懂骨架</span></span>
+                </li>
+                <li class="bg-cream border-[3px] border-night rounded-2xl p-5 shadow-popSm flex items-start gap-3">
+                    <span class="text-xl">🏗️</span>
+                    <span><strong class="font-black">機制三層結構</strong><span class="text-nightSoft font-medium"> — 議題活動→故事事件→玩法挑戰，設計不再靠靈感</span></span>
+                </li>
+                <li class="bg-cream border-[3px] border-night rounded-2xl p-5 shadow-popSm flex items-start gap-3">
+                    <span class="text-xl">⚖️</span>
+                    <span><strong class="font-black">議題融入三步驟</strong><span class="text-nightSoft font-medium"> — 任何議題都能包成讓人兩難的遊戲</span></span>
+                </li>
+                <li class="bg-cream border-[3px] border-night rounded-2xl p-5 shadow-popSm flex items-start gap-3">
+                    <span class="text-xl">📋</span>
+                    <span><strong class="font-black">議題機制教案雛形</strong><span class="text-nightSoft font-medium"> — 你自己的議題、你自己的機制，回校就能發展成完整活動</span></span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 適合誰 -->
+    <section class="py-16 dot-bg border-t-[3px] border-night px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-black text-center mb-10">這堂課<span class="marker-sky">適合你嗎</span>？</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white border-[3px] border-night rounded-2xl p-6 shadow-popSm">
+                    <h3 class="font-black text-lg mb-3">適合</h3>
+                    <ul class="space-y-2 text-sm text-nightSoft font-medium">
+                        <li>✅ 要教議題課的老師——環境、動保、霸凌預防、媒體識讀都適用</li>
+                        <li>✅ 辦過簡單解謎活動、想升級遊戲深度的老師</li>
+                        <li>✅ 想讓班會、綜合課「玩出意義」的導師</li>
+                        <li>✅ 設計營隊與大型活動的教育工作者</li>
+                    </ul>
+                </div>
+                <div class="bg-white border-[3px] border-night rounded-2xl p-6 shadow-popSm">
+                    <h3 class="font-black text-lg mb-3">先知道</h3>
+                    <ul class="space-y-2 text-sm text-nightSoft font-medium">
+                        <li>💡 一日課程，需安排 6 小時整天研習</li>
+                        <li>💡 大量小組討論與遊戲體驗，過程很動態</li>
+                        <li>💡 沒上過初階也能參加，課程獨立成班</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最終 CTA -->
+    <section class="py-16 bg-white border-t-[3px] border-night px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-2xl md:text-3xl font-black mb-4">想讓你的議題課被學生<span class="marker">搶著上</span>嗎？</h2>
+            <p class="text-nightSoft font-medium mb-8">校內研習、教師社群、機關團體邀約皆可洽詢，議題主題可依需求客製調整。</p>
+            <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 px-9 py-4 bg-coral text-night border-[3px] border-night rounded-2xl font-black text-lg hover:bg-coralDark transition-all shadow-pop hover:shadow-popHover">
+                💬 私訊 FB 洽詢邀約
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-night py-10 text-center border-t-[3px] border-night">
+        <p class="text-white/70 text-sm font-medium">一百分遊戲教育 ｜ <a href="index.html" class="underline hover:text-sunny">回官網</a> ｜ <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener" class="underline hover:text-sunny">FB 粉專</a></p>
+    </footer>
+</body>
+</html>
