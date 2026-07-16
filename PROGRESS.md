@@ -85,3 +85,10 @@
 - Summary: 第五輪（改用官方 CLI + CODEX_HOME=.codex-cli，舊 sandbox-bin 已無繪圖能力）：延續系列水彩繪本風畫 4 張進階班插圖，中文標題入圖（議起玩實境 hero、三格痛點漫畫、一日課程旅程地圖、議題藏進遊戲裡天平圖）。
 - Verification: Claude 驗收——4 張同風格，標題字全部正確；lv2-flow 它自己裁掉左緣瑕疵後交付。
 - Notes: -
+
+### 2026-07-11 16:20 - Claude Opus 4.7
+- Agent: Claude Opus 4.7
+- Changed: `course-vibecoding.html`、`index.html`、`PROGRESS.md`
+- Summary: 程式課（VIBE CODING）時數 3 小時→4 小時（hero 章、引言、收穫標題、meta）；適合誰區下新增「⚠️ 注意事項」黃卡：必須訂閱 GPT PLUS、有課前程式安裝作業需要事前執行。首頁線上工作坊規格章改「每堂 3～4 小時」。
+- Verification: grep 確認頁內無「3 小時」殘留；headless Edge 截圖注意事項卡渲染正常；已 push。
+- Notes: -
