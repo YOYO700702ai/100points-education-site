@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="一百分遊戲教育的免費 AI 教學文章：Codex 動態寵物、NotebookLM 知識整理與更多老師真正用得上的 AI 實戰攻略。">
+    <title>AI 教學文章｜一百分遊戲教育</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Noto Sans TC"', 'sans-serif'] },
+                    colors: {
+                        cream: '#FFF8E7', sunny: '#FFD66B', sunnyDark: '#E8B93E',
+                        coral: '#FF8A5C', coralDark: '#F26B3A', sky: '#5FCFE8',
+                        skyDark: '#33A9C6', night: '#2B2B46', nightSoft: '#3D3D5C', mint: '#7FE3B8'
+                    },
+                    boxShadow: {
+                        pop: '4px 4px 0 0 #2B2B46', popSm: '2px 2px 0 0 #2B2B46',
+                        popHover: '7px 7px 0 0 #2B2B46'
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .dot-bg {
+            background-color: #FFF8E7;
+            background-image: radial-gradient(rgba(43,43,70,.14) 1px, transparent 1.5px);
+            background-size: 28px 28px;
+        }
+        .star-bg {
+            background-color: #2B2B46;
+            background-image:
+                radial-gradient(circle at 12% 28%, rgba(255,214,107,.85) 1px, transparent 2px),
+                radial-gradient(circle at 42% 75%, rgba(255,255,255,.42) 1px, transparent 2px),
+                radial-gradient(circle at 76% 18%, rgba(95,207,232,.82) 1px, transparent 2px),
+                radial-gradient(circle at 92% 66%, rgba(255,214,107,.65) 1px, transparent 2px);
+            background-size: 250px 250px;
+        }
+        .marker {
+            background: linear-gradient(transparent 58%, #FFE18F 58%, #FFE18F 92%, transparent 92%);
+            padding: 0 .08em;
+        }
+        .article-card {
+            transition: transform .28s ease, box-shadow .28s ease;
+        }
+        .article-card:hover { transform: translateY(-7px) rotate(-.2deg); }
+        .article-card.sunny-shadow { box-shadow: 7px 7px 0 #FFD66B; }
+        .article-card.sky-shadow { box-shadow: 7px 7px 0 #5FCFE8; }
+        .article-card.sunny-shadow:hover { box-shadow: 10px 10px 0 #FFD66B; }
+        .article-card.sky-shadow:hover { box-shadow: 10px 10px 0 #5FCFE8; }
+        .article-cover { transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+        .article-card:hover .article-cover { transform: scale(1.035); }
+        .doodle-line {
+            position: absolute;
+            width: 170px;
+            height: 80px;
+            border: 3px solid rgba(255,214,107,.55);
+            border-radius: 50%;
+            transform: rotate(-10deg);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .article-card, .article-cover { transition: none; }
+            .article-card:hover, .article-card:hover .article-cover { transform: none; }
+        }
+    </style>
+</head>
+<body class="font-sans text-night bg-cream antialiased">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-cream/95 backdrop-blur-sm border-b-[3px] border-night">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html#hero" class="flex items-center gap-2">
+                    <div class="w-9 h-9 bg-sunny border-[3px] border-night rounded-xl flex items-center justify-center font-black text-sm shadow-popSm">100</div>
+                    <span class="font-black text-base tracking-wider hidden sm:block">一百分遊戲教育</span>
+                </a>
+                <div class="hidden md:flex items-center gap-1">
+                    <a href="index.html#method" class="px-4 py-2 rounded-full text-sm font-bold hover:bg-sunny/40 transition-colors">教學心法</a>
+                    <a href="index.html#map" class="px-4 py-2 rounded-full text-sm font-bold hover:bg-sunny/40 transition-colors">課程地圖</a>
+                    <a href="index.html#booking" class="px-4 py-2 rounded-full text-sm font-bold hover:bg-sunny/40 transition-colors">邀約方案</a>
+                    <span class="px-4 py-2 bg-sunny border-2 border-night rounded-full text-sm font-black shadow-popSm">AI 教學文章</span>
+                    <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer" class="ml-3 px-5 py-2 bg-coral border-[3px] border-night rounded-full text-sm font-black hover:bg-coralDark transition-colors shadow-popSm">立即邀約</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-sunny/40 transition-colors" aria-label="開啟選單" aria-expanded="false">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-cream border-t-[3px] border-night">
+            <div class="px-4 py-4 space-y-1">
+                <a href="index.html" class="block px-4 py-3 rounded-xl font-bold text-sm hover:bg-sunny/40">回到官網首頁</a>
+                <a href="#articles" class="block px-4 py-3 bg-sunny/50 rounded-xl font-black text-sm" onclick="closeMobileMenu()">AI 教學文章</a>
+                <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer" class="block mt-2 px-4 py-3 bg-coral border-[3px] border-night rounded-xl font-black text-sm text-center shadow-popSm">立即邀約</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="star-bg pt-32 pb-24 md:pt-40 md:pb-28 relative overflow-hidden border-b-[3px] border-night">
+        <div class="doodle-line -top-4 left-[8%] hidden md:block" aria-hidden="true"></div>
+        <div class="absolute top-24 right-[8%] text-sunny text-5xl rotate-12" aria-hidden="true">✦</div>
+        <div class="absolute bottom-10 left-[4%] text-sky text-4xl -rotate-12" aria-hidden="true">✎</div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-[1.02fr_.98fr] items-center gap-12">
+                <div class="text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-sunny text-night border-2 border-night rounded-full font-black text-sm mb-6 shadow-popSm">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i> 免費攻略・持續更新
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-black text-white leading-[1.15] mb-6">老師的 AI<br><span class="text-sunny">教學補給站</span></h1>
+                    <p class="text-white/76 text-lg md:text-xl font-medium leading-relaxed max-w-2xl mx-auto lg:mx-0 mb-8">
+                        不講空泛趨勢，只整理能立刻動手做的步驟。從備課、知識管理到有趣的桌面工具，把 AI 真的帶進工作與教學現場。
+                    </p>
+                    <a href="#articles" class="inline-flex items-center gap-2 bg-coral text-night border-[3px] border-night font-black px-7 py-3.5 rounded-2xl shadow-pop hover:bg-coralDark hover:shadow-popHover transition-all">
+                        開始挖寶 <i data-lucide="arrow-down" class="w-5 h-5"></i>
+                    </a>
+                </div>
+                <div class="relative max-w-2xl mx-auto lg:max-w-none w-full" aria-label="AI 教學文章手繪封面預覽">
+                    <div class="w-[82%] ml-auto bg-white border-[3px] border-night rounded-3xl overflow-hidden shadow-[8px_8px_0_#5FCFE8] rotate-[2deg]">
+                        <img src="images/article-notebooklm.png" alt="餵飽你的 NotebookLM 手繪封面" class="w-full aspect-[16/9] object-cover">
+                    </div>
+                    <div class="w-[62%] -mt-[11%] bg-white border-[3px] border-night rounded-2xl overflow-hidden shadow-[7px_7px_0_#FFD66B] -rotate-[4deg]">
+                        <img src="images/article-codex-pet.jpg" alt="Codex 動態寵物手繪封面" class="w-full aspect-[16/9] object-cover">
+                    </div>
+                    <div class="absolute -bottom-4 right-4 bg-cream text-night border-[3px] border-night rounded-full px-4 py-2 font-black shadow-popSm rotate-3">AI × 教學 × 好玩</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="articles" class="dot-bg py-24 border-b-[3px] border-night">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+                <div>
+                    <div class="inline-block px-4 py-1.5 bg-mint/30 border-2 border-night rounded-full font-black text-sm mb-4">🧰 最新補給</div>
+                    <h2 class="text-3xl md:text-5xl font-black mb-4">挑一篇，<span class="marker">今天就開始用</span></h2>
+                    <p class="text-nightSoft text-lg font-medium">每篇都有清楚步驟、實際提醒與可以直接帶走的做法。</p>
+                </div>
+                <div class="flex flex-wrap gap-2" aria-label="文章分類">
+                    <span class="px-4 py-2 bg-night text-white border-2 border-night rounded-full text-sm font-black">全部文章</span>
+                    <span class="px-4 py-2 bg-white border-2 border-night rounded-full text-sm font-bold">Codex</span>
+                    <span class="px-4 py-2 bg-white border-2 border-night rounded-full text-sm font-bold">NotebookLM</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <article class="article-card sunny-shadow bg-white border-[3px] border-night rounded-3xl overflow-hidden flex flex-col">
+                    <a href="https://codex-pet-hatch-guide.hankvictor1023.chatgpt.site" target="_blank" rel="noopener noreferrer" class="block overflow-hidden border-b-[3px] border-night">
+                        <img src="images/article-codex-pet.jpg" alt="把角色孵成 Codex 動態寵物教學封面" class="article-cover w-full aspect-[16/9] object-cover">
+                    </a>
+                    <div class="p-6 md:p-8 flex flex-col flex-1">
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="px-3 py-1 bg-coral border-2 border-night rounded-full text-xs font-black">CODEX</span>
+                            <span class="px-3 py-1 bg-cream border-2 border-night rounded-full text-xs font-black">圖解教學</span>
+                            <span class="ml-auto text-xs font-black text-nightSoft flex items-center gap-1"><i data-lucide="clock-3" class="w-3.5 h-3.5"></i> 約 8 分鐘</span>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-black leading-tight mb-4">把你的角色圖，孵成會動的 Codex 桌面夥伴</h3>
+                        <p class="text-nightSoft font-medium leading-relaxed mb-7">準備一張角色圖，讓 Codex 自動完成九種動畫、規格驗證與安裝。文章附上一段可以直接複製使用的完整指令。</p>
+                        <div class="mt-auto pt-5 border-t-2 border-dashed border-night/20 flex items-center justify-between gap-4">
+                            <span class="text-sm font-bold text-nightSoft">一張角色圖 × 九種動畫</span>
+                            <a href="https://codex-pet-hatch-guide.hankvictor1023.chatgpt.site" target="_blank" rel="noopener noreferrer" class="group shrink-0 inline-flex items-center gap-2 font-black text-skyDark hover:text-coralDark">閱讀文章 <i data-lucide="external-link" class="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="article-card sky-shadow bg-white border-[3px] border-night rounded-3xl overflow-hidden flex flex-col">
+                    <a href="https://notebooklm-superpower-guide.hankvictor1023.chatgpt.site" target="_blank" rel="noopener noreferrer" class="block overflow-hidden border-b-[3px] border-night">
+                        <img src="images/article-notebooklm.png" alt="餵飽你的 NotebookLM 教學封面" class="article-cover w-full aspect-[16/9] object-cover">
+                    </a>
+                    <div class="p-6 md:p-8 flex flex-col flex-1">
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="px-3 py-1 bg-sky border-2 border-night rounded-full text-xs font-black">NOTEBOOKLM</span>
+                            <span class="px-3 py-1 bg-cream border-2 border-night rounded-full text-xs font-black">知識整理</span>
+                            <span class="ml-auto text-xs font-black text-nightSoft flex items-center gap-1"><i data-lucide="clock-3" class="w-3.5 h-3.5"></i> 約 10 分鐘</span>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-black leading-tight mb-4">餵飽你的 NotebookLM！從一鍵收影片到拿走完整產出</h3>
+                        <p class="text-nightSoft font-medium leading-relaxed mb-7">先用 Chrome 外掛把影片快速收進筆記本，再讓桌面 AI 接管批次匯入、摘要、心智圖、Podcast 與下載。</p>
+                        <div class="mt-auto pt-5 border-t-2 border-dashed border-night/20 flex items-center justify-between gap-4">
+                            <span class="text-sm font-bold text-nightSoft">收集 × 加工 × 收割</span>
+                            <a href="https://notebooklm-superpower-guide.hankvictor1023.chatgpt.site" target="_blank" rel="noopener noreferrer" class="group shrink-0 inline-flex items-center gap-2 font-black text-skyDark hover:text-coralDark">閱讀文章 <i data-lucide="external-link" class="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="bg-white py-20 border-b-[3px] border-night">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-sunny/25 border-[3px] border-night rounded-3xl shadow-pop p-7 md:p-10 flex flex-col md:flex-row items-center gap-8">
+                <div class="w-20 h-20 shrink-0 bg-sunny border-[3px] border-night rounded-2xl shadow-popSm flex items-center justify-center rotate-[-4deg]">
+                    <i data-lucide="lightbulb" class="w-10 h-10"></i>
+                </div>
+                <div class="text-center md:text-left flex-1">
+                    <p class="text-sm font-black text-coralDark tracking-wider mb-2">下一批文章正在製作</p>
+                    <h2 class="text-2xl md:text-3xl font-black mb-3">想收到新工具與新玩法？</h2>
+                    <p class="text-nightSoft font-medium leading-relaxed">Codex、NotebookLM、Vibe Coding，以及老師真正能帶回課堂使用的 AI 實戰，都會陸續整理在這裡。</p>
+                </div>
+                <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer" class="shrink-0 inline-flex items-center gap-2 bg-coral border-[3px] border-night rounded-2xl px-6 py-3.5 font-black shadow-popSm hover:bg-coralDark hover:shadow-pop transition-all">
+                    追蹤一百分 <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-night pt-12 pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex items-center justify-center gap-2 mb-6 text-white">
+                <div class="w-10 h-10 bg-sunny border-[3px] border-night rounded-xl flex items-center justify-center font-black text-night shadow-popSm">100</div>
+                <span class="font-black text-xl tracking-wider">一百分遊戲教育</span>
+            </div>
+            <p class="text-white/60 text-sm mb-8 max-w-md mx-auto font-medium">把遊戲與科技放進教學現場，讓老師更好教，學生更想學。</p>
+            <div class="flex justify-center gap-5 mb-8 text-sm font-bold">
+                <a href="index.html" class="text-white/70 hover:text-sunny">回官網首頁</a>
+                <a href="index.html#booking" class="text-white/70 hover:text-sunny">查看課程</a>
+                <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-sunny">Facebook</a>
+            </div>
+            <div class="border-t border-white/10 pt-6"><p class="text-white/40 text-sm">&copy; 2026 一百分遊戲教育. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const menuButton = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuButton.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            menuButton.setAttribute('aria-expanded', String(!isHidden));
+        });
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+            menuButton.setAttribute('aria-expanded', 'false');
+        }
+    </script>
+</body>
+</html>

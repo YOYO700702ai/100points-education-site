@@ -2,6 +2,13 @@
 
 ## 修改日誌
 
+### 2026-08-05 - Codex
+- Agent: Codex
+- Changed: `index.html`、新增 `ai-articles.html`、`images/article-codex-pet.jpg`、`images/article-notebooklm.png`
+- Summary: 官網新增「AI 教學補給站」導覽入口與首頁專區，以深藍星空底、米白粗框卡片、黃／藍硬陰影延續原本遊戲教育美術風格；加入 Codex 動態寵物與 NotebookLM 兩篇文章卡片，並建立獨立文章索引頁供後續擴充分類。封面沿用兩篇文章既有手繪主視覺，避免另製風格不一致的素材。
+- Verification: 本機網站回應 200；Codex 內建瀏覽器實測桌機 1440×1000 與手機 390×844，首頁文章區與索引頁皆無水平溢位、圖片完整載入、無瀏覽器錯誤；所有文章連結與首頁／課程導覽皆可使用。
+- Notes: 文章內容維持原站獨立發布，官網以卡片入口導流，避免 iframe 造成載入與行動版問題。
+
 ### 2026-07-10 00:47 - Claude Opus 4.7
 - Agent: Claude Opus 4.7
 - Changed: `index.html`, `HANDOFF.md`, `docs/superpowers/specs/2026-07-10-website-redesign-design.md`

@@ -101,6 +101,45 @@
         @media (prefers-reduced-motion: reduce) {
             .floaty { animation: none; }
         }
+        /* AI 教學文章卡片：延續貼紙、手繪與硬陰影語言 */
+        .article-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform .28s ease, box-shadow .28s ease;
+        }
+        .article-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            border-radius: inherit;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,.35);
+        }
+        .article-card:hover {
+            transform: translateY(-7px) rotate(-.25deg);
+        }
+        .article-card.article-card-sunny { box-shadow: 7px 7px 0 #FFD66B; }
+        .article-card.article-card-sky { box-shadow: 7px 7px 0 #5FCFE8; }
+        .article-card.article-card-sunny:hover { box-shadow: 10px 10px 0 #FFD66B; }
+        .article-card.article-card-sky:hover { box-shadow: 10px 10px 0 #5FCFE8; }
+        .article-cover {
+            transition: transform .5s cubic-bezier(.2,.8,.2,1);
+        }
+        .article-card:hover .article-cover { transform: scale(1.035); }
+        .scribble-ring {
+            position: absolute;
+            width: 150px;
+            height: 72px;
+            border: 3px solid rgba(255,214,107,.55);
+            border-radius: 50%;
+            transform: rotate(-10deg);
+            pointer-events: none;
+        }
+        @media (max-width: 767px) {
+            .article-card.article-card-sunny,
+            .article-card.article-card-sky { box-shadow: 5px 5px 0 #FFD66B; }
+            .article-card.article-card-sky { box-shadow-color: #5FCFE8; }
+        }
     </style>
 </head>
 <body class="font-sans text-night bg-cream antialiased">
@@ -120,6 +159,7 @@
                     <a href="#team" class="px-4 py-2 rounded-full text-sm font-bold hover:bg-sunny/40 transition-colors">師資</a>
                     <a href="#map" class="px-4 py-2 rounded-full text-sm font-bold hover:bg-sunny/40 transition-colors">課程地圖</a>
                     <a href="#booking" class="px-4 py-2 rounded-full text-sm font-bold hover:bg-sunny/40 transition-colors">邀約方案</a>
+                    <a href="#ai-articles" class="px-4 py-2 rounded-full text-sm font-bold hover:bg-sunny/40 transition-colors">AI 教學文章</a>
                     <a href="#gallery" class="px-4 py-2 rounded-full text-sm font-bold hover:bg-sunny/40 transition-colors">研習實況</a>
                     <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer" class="ml-3 px-5 py-2 bg-coral text-night border-[3px] border-night rounded-full text-sm font-black hover:bg-coralDark transition-colors shadow-popSm">立即邀約</a>
                 </div>
@@ -136,6 +176,7 @@
                 <a href="#team" class="block px-4 py-3 rounded-xl font-bold text-sm hover:bg-sunny/40 transition-colors" onclick="closeMobileMenu()">師資</a>
                 <a href="#map" class="block px-4 py-3 rounded-xl font-bold text-sm hover:bg-sunny/40 transition-colors" onclick="closeMobileMenu()">課程地圖</a>
                 <a href="#booking" class="block px-4 py-3 rounded-xl font-bold text-sm hover:bg-sunny/40 transition-colors" onclick="closeMobileMenu()">邀約方案</a>
+                <a href="#ai-articles" class="block px-4 py-3 rounded-xl font-bold text-sm hover:bg-sunny/40 transition-colors" onclick="closeMobileMenu()">AI 教學文章</a>
                 <a href="#gallery" class="block px-4 py-3 rounded-xl font-bold text-sm hover:bg-sunny/40 transition-colors" onclick="closeMobileMenu()">研習實況</a>
                 <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer" class="block mt-2 px-4 py-3 bg-coral text-night border-[3px] border-night rounded-xl font-black text-sm text-center shadow-popSm" onclick="closeMobileMenu()">立即邀約</a>
             </div>
@@ -633,6 +674,91 @@
                         </a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI 教學文章專區 -->
+    <section id="ai-articles" class="py-24 star-bg relative overflow-hidden border-t-[3px] border-night">
+        <div class="scribble-ring -top-5 left-[8%] hidden md:block" aria-hidden="true"></div>
+        <div class="absolute top-14 right-[7%] text-sunny text-4xl rotate-12" aria-hidden="true">✦</div>
+        <div class="absolute bottom-12 left-[4%] text-sky text-3xl -rotate-12" aria-hidden="true">✎</div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-sunny text-night border-2 border-night rounded-full font-black text-sm mb-4 shadow-popSm">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        免費教學文章
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5">
+                        AI 教學<span class="text-sunny">補給站</span>
+                    </h2>
+                    <p class="text-white/75 max-w-2xl text-lg font-medium leading-relaxed">
+                        不用先報名，也能直接帶走的實戰攻略。把 AI 變成備課助手、知識整理員，還能孵出陪你工作的桌面夥伴。
+                    </p>
+                </div>
+                <a href="ai-articles.html" class="group inline-flex self-start lg:self-auto items-center gap-2 px-6 py-3 bg-white text-night border-[3px] border-night rounded-2xl font-black shadow-pop hover:bg-sunny transition-colors">
+                    看全部 AI 教學
+                    <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-9 lg:gap-10">
+                <!-- Codex 動態寵物 -->
+                <article class="article-card article-card-sunny bg-cream border-[3px] border-night rounded-3xl flex flex-col">
+                    <a href="https://codex-pet-hatch-guide.hankvictor1023.chatgpt.site" target="_blank" rel="noopener noreferrer" class="block overflow-hidden border-b-[3px] border-night bg-white">
+                        <img src="images/article-codex-pet.jpg" alt="Codex 動態寵物圖解教學：把角色孵成 Codex 動態寵物" class="article-cover w-full aspect-[16/9] object-cover">
+                    </a>
+                    <div class="p-6 md:p-8 flex flex-col flex-1">
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="px-3 py-1 bg-coral border-2 border-night rounded-full text-xs font-black">CODEX</span>
+                            <span class="px-3 py-1 bg-white border-2 border-night rounded-full text-xs font-black">動態寵物</span>
+                            <span class="px-3 py-1 bg-white border-2 border-night rounded-full text-xs font-black">圖解教學</span>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-black leading-tight mb-4">把你的角色圖，孵成會動的 Codex 桌面夥伴</h3>
+                        <p class="text-nightSoft font-medium leading-relaxed mb-6">不用自己切 88 格，也不用背規格。一張角色圖、一段指令，就能完成九種動畫與安裝前 QA。</p>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm font-bold mb-7">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coralDark shrink-0"></i>完整製作流程</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-coralDark shrink-0"></i>可直接複製的指令</li>
+                        </ul>
+                        <a href="https://codex-pet-hatch-guide.hankvictor1023.chatgpt.site" target="_blank" rel="noopener noreferrer" class="group mt-auto inline-flex self-start items-center gap-2 font-black text-skyDark hover:text-coralDark transition-colors">
+                            閱讀完整教學
+                            <i data-lucide="external-link" class="w-4 h-4 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- NotebookLM -->
+                <article class="article-card article-card-sky bg-cream border-[3px] border-night rounded-3xl flex flex-col">
+                    <a href="https://notebooklm-superpower-guide.hankvictor1023.chatgpt.site" target="_blank" rel="noopener noreferrer" class="block overflow-hidden border-b-[3px] border-night bg-white">
+                        <img src="images/article-notebooklm.png" alt="餵飽你的 NotebookLM 教學：筆記本與 AI 機器人手繪插畫" class="article-cover w-full aspect-[16/9] object-cover">
+                    </a>
+                    <div class="p-6 md:p-8 flex flex-col flex-1">
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="px-3 py-1 bg-sky border-2 border-night rounded-full text-xs font-black">NOTEBOOKLM</span>
+                            <span class="px-3 py-1 bg-white border-2 border-night rounded-full text-xs font-black">知識整理</span>
+                            <span class="px-3 py-1 bg-white border-2 border-night rounded-full text-xs font-black">AI 自動化</span>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-black leading-tight mb-4">餵飽你的 NotebookLM！從收影片到拿走完整產出</h3>
+                        <p class="text-nightSoft font-medium leading-relaxed mb-6">一鍵把影片搬進筆記本，再讓桌面 AI 接管摘要、心智圖、Podcast、測驗與批次下載。</p>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm font-bold mb-7">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-skyDark shrink-0"></i>Chrome 外掛入門</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-skyDark shrink-0"></i>桌面 AI 進階玩法</li>
+                        </ul>
+                        <a href="https://notebooklm-superpower-guide.hankvictor1023.chatgpt.site" target="_blank" rel="noopener noreferrer" class="group mt-auto inline-flex self-start items-center gap-2 font-black text-skyDark hover:text-coralDark transition-colors">
+                            閱讀完整教學
+                            <i data-lucide="external-link" class="w-4 h-4 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="mt-12 flex flex-col md:flex-row items-center justify-between gap-5 bg-white/10 border-2 border-dashed border-white/35 rounded-2xl px-6 py-5 text-white">
+                <div class="flex items-center gap-3 text-center md:text-left">
+                    <span class="text-3xl" aria-hidden="true">🧰</span>
+                    <p class="font-bold"><span class="text-sunny font-black">持續更新中：</span>Codex、NotebookLM、Vibe Coding 與老師真正用得上的 AI 工具。</p>
+                </div>
+                <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer" class="shrink-0 text-sm font-black text-sunny hover:text-white transition-colors">追蹤粉專，收到新文章 →</a>
             </div>
         </div>
     </section>
