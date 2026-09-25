@@ -161,7 +161,7 @@
                     <a href="#booking" class="px-4 py-2 rounded-full text-sm font-bold hover:bg-sunny/40 transition-colors">邀約方案</a>
                     <a href="#ai-articles" class="px-4 py-2 rounded-full text-sm font-bold hover:bg-sunny/40 transition-colors">AI 教學文章</a>
                     <a href="#gallery" class="px-4 py-2 rounded-full text-sm font-bold hover:bg-sunny/40 transition-colors">研習實況</a>
-                    <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer" class="ml-3 px-5 py-2 bg-coral text-night border-[3px] border-night rounded-full text-sm font-black hover:bg-coralDark transition-colors shadow-popSm">立即邀約</a>
+                    <a href="#courses" class="ml-3 px-5 py-2 bg-coral text-night border-[3px] border-night rounded-full text-sm font-black hover:bg-coralDark transition-colors shadow-popSm">本期報名</a>
                 </div>
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-sunny/40 transition-colors" aria-label="開啟選單">
@@ -178,7 +178,7 @@
                 <a href="#booking" class="block px-4 py-3 rounded-xl font-bold text-sm hover:bg-sunny/40 transition-colors" onclick="closeMobileMenu()">邀約方案</a>
                 <a href="#ai-articles" class="block px-4 py-3 rounded-xl font-bold text-sm hover:bg-sunny/40 transition-colors" onclick="closeMobileMenu()">AI 教學文章</a>
                 <a href="#gallery" class="block px-4 py-3 rounded-xl font-bold text-sm hover:bg-sunny/40 transition-colors" onclick="closeMobileMenu()">研習實況</a>
-                <a href="https://www.facebook.com/profile.php?id=100057519105001" target="_blank" rel="noopener noreferrer" class="block mt-2 px-4 py-3 bg-coral text-night border-[3px] border-night rounded-xl font-black text-sm text-center shadow-popSm" onclick="closeMobileMenu()">立即邀約</a>
+                <a href="#courses" class="block mt-2 px-4 py-3 bg-coral text-night border-[3px] border-night rounded-xl font-black text-sm text-center shadow-popSm" onclick="closeMobileMenu()">本期報名</a>
             </div>
         </div>
     </nav>
@@ -232,6 +232,34 @@
                     <div class="absolute -bottom-4 -left-4 bg-white border-[3px] border-night rounded-2xl px-4 py-2 font-black text-sm shadow-popSm rotate-[-4deg]">
                         🏆 全台學校邀約中！
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 本期公開課程 -->
+    <section id="courses" class="py-20 bg-white border-t-[3px] border-night scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-9 lg:gap-12 items-center">
+                <a href="course-vibecoding.html" class="block w-full lg:w-1/2 shrink-0 rounded-3xl border-[3px] border-night overflow-hidden shadow-pop bg-cream">
+                    <img src="images/chatgpt-course-1031.png" alt="10/31 ChatGPT 實戰：老師的 AI 自動化工作術" class="w-full h-auto" loading="lazy">
+                </a>
+                <div class="min-w-0 w-full lg:flex-1">
+                    <span class="inline-block px-4 py-1.5 bg-sunny border-2 border-night rounded-full font-black text-sm mb-4">10/31 本期招生中</span>
+                    <h2 class="text-3xl md:text-4xl font-black leading-tight mb-4"><span class="inline-block">AI 程式 × </span><span class="marker inline-block">ChatGPT 實戰</span></h2>
+                    <p class="text-xl font-black mb-4">老師的 AI 自動化工作術</p>
+                    <p class="text-nightSoft font-medium leading-relaxed mb-5">不用先學程式。帶著自己的題庫和教學點子，一起把教材變成答題遊戲，加入 AI 插圖，再練習用 AI 整理資料與日常任務。</p>
+                    <div class="bg-cream border-2 border-night rounded-2xl p-5 space-y-2 font-bold text-sm md:text-base">
+                        <p><time datetime="2026-10-31T19:00:00+08:00">2026/10/31（六）19:00–22:00</time> · 線上實作</p>
+                        <p>首次 NT$1,500 · 舊生／複訓 NT$300</p>
+                        <p>首次 25 位正取，額滿轉候補；舊生／複訓不占首次名額</p>
+                    </div>
+                    <p class="mt-4 text-sm text-nightSoft font-medium leading-relaxed">附文字講義、群組陪跑；沒有錄影回放。<strong class="text-night">課後寫心得就送 AI 小禮包，不用交作業或作品。</strong></p>
+                    <div class="mt-6 flex flex-col sm:flex-row gap-3">
+                        <a href="https://yoyo700702ai.github.io/chatgpt-course-signup-1031/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3.5 bg-coral border-[3px] border-night rounded-2xl font-black shadow-pop hover:bg-coralDark transition-colors">報名 10/31 線上課</a>
+                        <a href="course-vibecoding.html" class="inline-flex items-center justify-center px-6 py-3.5 bg-white border-[3px] border-night rounded-2xl font-black shadow-popSm hover:bg-sunny transition-colors">看完整課程介紹 →</a>
+                    </div>
+                    <p class="mt-4 text-sm font-medium text-nightSoft">課前需完成電腦安裝準備，並備妥 ChatGPT Plus 或以上方案。</p>
                 </div>
             </div>
         </div>
@@ -640,8 +668,8 @@
                         <!-- VIBE CODING -->
                         <div class="bg-cream border-[3px] border-night rounded-2xl shadow-popSm hover:shadow-pop hover:-translate-y-1 transition-all overflow-hidden flex flex-col">
                             <a href="course-vibecoding.html" class="block p-5 hover:bg-white/70 transition-colors">
-                                <h5 class="text-lg font-black mb-1">VIBE CODING 搭配動態題庫</h5>
-                                <p class="text-sm font-bold text-nightSoft mb-3">打造孩子欲罷不能的答題遊戲</p>
+                                <h5 class="text-lg font-black mb-1">AI 程式 × ChatGPT 實戰</h5>
+                                <p class="text-sm font-bold text-nightSoft mb-3">10/31（六）19:00–22:00 · 把題庫變成答題遊戲</p>
                                 <div class="flex flex-wrap gap-2 items-center">
                                     <span class="text-xs font-bold px-2.5 py-1 bg-white border-2 border-night rounded-full">數位互動</span>
                                     <span class="text-xs font-bold px-2.5 py-1 bg-white border-2 border-night rounded-full">動態題庫</span>
