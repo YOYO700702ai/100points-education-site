@@ -99,3 +99,10 @@
 - Summary: 程式課（VIBE CODING）時數 3 小時→4 小時（hero 章、引言、收穫標題、meta）；適合誰區下新增「⚠️ 注意事項」黃卡：必須訂閱 GPT PLUS、有課前程式安裝作業需要事前執行。首頁線上工作坊規格章改「每堂 3～4 小時」。
 - Verification: grep 確認頁內無「3 小時」殘留；headless Edge 截圖注意事項卡渲染正常；已 push。
 - Notes: -
+
+### 2026-09-26 - Codex
+- Changed: `index.html`、`course-vibecoding.html`、`images/yadrei-adventure-cover.webp`、`PROGRESS.md`
+- Summary: 更新首頁原有「亞德雷大陸」示範卡，改連新遊玩平台；將同一遊戲加入 10/31 課程頁試玩區，保留桃花源記、鴻門宴。兩處使用新水彩冒險封面，按鈕常駐顯示，提供 `#yadrei-demo` 直達錨點。
+- Artwork: 原生成 PNG 保留在工作區；官網使用 1672×941 WebP（456,792 bytes），圖片原比例完整顯示、延遲載入並明定尺寸。
+- Verification: 靜態檢查確認 10/31 首頁課程區、課程報名區、頁面 metadata 與既有兩張故事示範卡保持原樣；兩頁各一個新遊戲入口，無舊遊玩網址、無重複 ID，圖檔存在，git diff --check 通過。桌面與手機瀏覽器驗證由主代理接續執行。
+- Release: 本次先準備修改，依使用者要求於 Facebook 貼文與留言完成後再發布官網。
