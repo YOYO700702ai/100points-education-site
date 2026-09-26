@@ -111,3 +111,9 @@
 - Changed: `scripts/demo-anchor.js`、`index.html`、`course-vibecoding.html`、`PROGRESS.md`
 - Summary: 僅在首次網址帶 `#yadrei-demo` 時，等頁面載入、字型與排版完成後重新對準示範卡；若訪客已滑動、按鍵或點選，取消自動定位。其他錨點與一般捲動不受影響。
 - Verification: 共用程式語法檢查、原有靜態檢查、git diff --check 通過。修正針對主代理 390px 實測發現的初始錨點偏移；瀏覽器重測待主代理執行。
+
+### 2026-09-26 - Codex（官網示範發布前 QA）
+- Changed: `index.html`、`PROGRESS.md`
+- Summary: 縮小手機版「直接進入冒險」按鈕字級與水平留白，保持文字單行；桌面版維持原樣。
+- Verification: 主代理以 CUA 確認桌面與手機封面、卡片無溢出；首頁初始示範錨點 390px targetTop 96.2 / scrollWidth 375、320px targetTop 95.8 / scrollWidth 305，定位正確。課程頁 320px / 390px 無橫向溢出、封面完整。最後單行按鈕修正通過靜態檢查，正式站視覺由主代理接續確認。
+- Release: Facebook 貼文與兩則留言已完成，依使用者順序授權發布官網。
