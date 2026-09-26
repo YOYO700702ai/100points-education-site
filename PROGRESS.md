@@ -106,3 +106,8 @@
 - Artwork: 原生成 PNG 保留在工作區；官網使用 1672×941 WebP（456,792 bytes），圖片原比例完整顯示、延遲載入並明定尺寸。
 - Verification: 靜態檢查確認 10/31 首頁課程區、課程報名區、頁面 metadata 與既有兩張故事示範卡保持原樣；兩頁各一個新遊戲入口，無舊遊玩網址、無重複 ID，圖檔存在，git diff --check 通過。桌面與手機瀏覽器驗證由主代理接續執行。
 - Release: 本次先準備修改，依使用者要求於 Facebook 貼文與留言完成後再發布官網。
+
+### 2026-09-26 - Codex（示範錨點定位）
+- Changed: `scripts/demo-anchor.js`、`index.html`、`course-vibecoding.html`、`PROGRESS.md`
+- Summary: 僅在首次網址帶 `#yadrei-demo` 時，等頁面載入、字型與排版完成後重新對準示範卡；若訪客已滑動、按鍵或點選，取消自動定位。其他錨點與一般捲動不受影響。
+- Verification: 共用程式語法檢查、原有靜態檢查、git diff --check 通過。修正針對主代理 390px 實測發現的初始錨點偏移；瀏覽器重測待主代理執行。
